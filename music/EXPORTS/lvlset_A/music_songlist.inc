@@ -1,0 +1,12 @@
+song_watery_graves = 0
+song_graze_the_roof_wip = 1
+song_test_dong_with_hihats_only = 2
+song_grasswalk = 3
+song_moongrains = 4
+song_braniac_maniac = 5
+song_win_music_dot_oh_gee_gee = 6
+song_crazy_dave = 7
+song_rigor_mormist = 8
+song_loonboon = 9
+song_celebrawl = 10
+song_max = 11

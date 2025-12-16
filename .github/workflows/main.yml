@@ -1,0 +1,37 @@
+name: Build ROM
+
+on: [push]
+
+jobs:
+  build_rom:
+    runs-on: ubuntu-latest
+    name: Compile ROM
+
+    strategy:
+      fail-fast: false
+      matrix:
+        target:
+        - { name: da game, target: main }
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Cache cc65
+        uses: ./.github/actions/cache_cc65
+      - name: Cache llvm-mos-sdk
+        uses: ./.github/actions/cache_llvm-mos-sdk
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12.3'
+      - name: Set path
+        run: |
+          echo "${{ github.workspace }}/opt/cc65/bin:${{ github.workspace }}/opt/llvm-mos-sdk/bin" >> $GITHUB_PATH
+      - name: Build the game
+        run: make ${{matrix.target.target}}
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: pvz-deplanted.${{ matrix.target.target }}.nes
+          path: OUT/${{ matrix.target.target }}/pvz-deplanted.nes
+
