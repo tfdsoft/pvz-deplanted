@@ -137,7 +137,7 @@ void state_menu() {
     // load menu stuff
     vram_adr(0x000);
     donut_decompress_vram(chr_menu_global, chr_bank_0);
-    donut_decompress_vram(chr_font, chr_bank_0);
+    donut_decompress_vram(chr_menu_font_pusab, chr_bank_0);
     donut_decompress_vram(chr_menu_famidash, chr_bank_0);
     donut_decompress_vram(chr_menu_buttons, chr_bank_0);
 

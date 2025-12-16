@@ -1,7 +1,7 @@
 __attribute__((retain)) unsigned char vram_load_in_progress;
 
 __attribute__((noinline)) void donut_decompress_vram(const uint8_t * data, uint8_t bank){
-    
+
     push_prg_a000();
     set_prg_a000(bank);
     

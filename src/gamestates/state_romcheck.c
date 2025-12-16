@@ -109,7 +109,7 @@ void state_ramcheck(){
     str_vram_buffer(str_ramcount[ramneeded], 0x2196);
 
     vram_adr(0x0200);
-    donut_decompress_vram(chr_font, chr_bank_0);
+    donut_decompress_vram(chr_menu_font_pusab, chr_bank_0);
 
     ppu_on_all();
     pal_fade_to(0,4);

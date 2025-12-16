@@ -95,6 +95,8 @@ int main(void){
         set_chr_default();
         flush_irq();
         vram_adr(0);
+        famistudio_music_pause(1);
+        music_update();
 
         switch(gamestate){
             // when in doubt, go back to startup
