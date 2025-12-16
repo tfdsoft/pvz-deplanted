@@ -238,9 +238,10 @@ void state_credits() {
     donut_decompress_vram(chr_menu_font_pusab, chr_bank_0);
     donut_decompress_vram(chr_menu_pvzlogo, chr_bank_0);
 
-    //automatic_fs_updates = 1;
+    automatic_fs_updates = 0;
     famistudio_music_pause(0);
     music_play(song_watery_graves);
+    automatic_fs_updates = 1;
 
     vram_adr(0x2000);
     vram_unrle(nt_credits);
@@ -251,7 +252,7 @@ void state_credits() {
     pal_fade_to(0,4);
 
     
-    for(unsigned short stall=240; stall>0; stall--){
+    for(unsigned short stall=960; stall>0; stall--){
         ppu_wait_nmi();
     }
     pal_fade_to(4,0);
