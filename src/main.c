@@ -47,11 +47,11 @@ __attribute__((leaf)) __asm__(
         "sta $4017\n" // disable apu frame counter irq
 
 
-        //"ldx #$00 \n"
-        //"tax \n"
-        //"dex \n"
-        //"ldy #$a0 \n"
-        //"jsr famistudio_sfx_init \n"
+        "ldx #$00 \n"
+        "tax \n"
+        "dex \n"
+        "ldy #$a0 \n"
+        "jsr famistudio_sfx_init \n"
 );
 
 putinbank(fixed_lo)
@@ -95,10 +95,7 @@ int main(void){
         set_chr_default();
         flush_irq();
         vram_adr(0);
-        automatic_fs_updates = 0;
         famistudio_music_pause(1);
-        music_update();
-        automatic_fs_updates = 1;
 
         switch(gamestate){
             // when in doubt, go back to startup

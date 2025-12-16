@@ -22,4 +22,5 @@
 #define sfx_reward01 21
 #define sfx_secretkey 22
 #define sfx_unlockPath 23
-#define sfx_max 24
+#define sfx_pause 24
+#define sfx_max 25
