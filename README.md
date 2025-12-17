@@ -4,7 +4,7 @@ A demake of Plants vs. Zombies for the NES using the MMC3 mapper.
 ## Nightly Builds
 ### WARNING! These are constantly changing and *might* be broken.
 
-The current development build can be found [here](https://nightly.link/tfdsoft/famidash/workflows/main/main/pvz-deplanted.main.nes.zip).
+The current development build can be found [here](https://nightly.link/tfdsoft/pvz-deplanted/workflows/main/main/pvz-deplanted.main.nes.zip).
 
 ## socials
 
