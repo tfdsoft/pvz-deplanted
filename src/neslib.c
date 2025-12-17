@@ -148,9 +148,9 @@ __attribute__((noinline)) void ppu_wait_nmi(){
     // stall until FRAME_CNT is updated by nmi()
     //while (FRAME_CNT == FRAME_COUNT_OLD){}
 
-        VRAM_UPDATE = 1;
-
     __attribute__((leaf)) __asm__ volatile (
+        "lda #1 \n"
+        "sta VRAM_UPDATE \n"
         "lda FRAME_CNT \n"
         "1:"
         "cmp FRAME_CNT \n"

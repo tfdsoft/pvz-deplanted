@@ -239,7 +239,7 @@ void state_credits() {
     
     famistudio_music_pause(0);
     automatic_fs_updates = 0;
-    music_play(song_crazy_dave);
+    music_play(song_win_music_dot_oh_gee_gee);
     automatic_fs_updates = 1;
 
     vram_adr(0x2000);
