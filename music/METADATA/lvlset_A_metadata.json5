@@ -51,6 +51,16 @@
 			lowerText: "WATERY GRAVES",
 			originalArtistText: "LAURA SHIGIHARA",
 		},
+		{
+			fmsSongName: "FINAL FANFARE DOT OH GEE GEE",
+			lowerText: "WATERY GRAVES",
+			originalArtistText: "LAURA SHIGIHARA",
+		},
+		{
+			fmsSongName: "ADVENTURE START",
+			lowerText: "WATERY GRAVES",
+			originalArtistText: "LAURA SHIGIHARA",
+		},
 	],
 	SFX: [
 		{
@@ -124,6 +134,9 @@
 		},
 		{
 			text: "UNLOCKPATH",
+		},
+		{
+			text: "PAUSE",
 		},
 	],
 	PCM: [/*

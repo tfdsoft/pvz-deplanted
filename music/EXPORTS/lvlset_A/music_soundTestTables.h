@@ -17,6 +17,8 @@ putinbank(sound_test_bank.musictext.ptr) const char* const xbgmtextsUpper[] = {
 	NULL,
 	NULL,
 	NULL,
+	NULL,
+	NULL,
 };
 
 
@@ -31,10 +33,14 @@ putinbank(sound_test_bank.musictext.ptr) const char* const xbgmtextsLower[] = {
 	musicSoundTestString00,
 	musicSoundTestString00,
 	musicSoundTestString00,
+	musicSoundTestString00,
+	musicSoundTestString00,
 };
 
 
 putinbank(sound_test_bank.musictext.ptr) const char* const xbgmtextsOriginalArtist[] = {
+	musicSoundTestString01,
+	musicSoundTestString01,
 	musicSoundTestString01,
 	musicSoundTestString01,
 	musicSoundTestString01,
@@ -75,6 +81,8 @@ putinbank(sound_test_bank.musictext.index) const uint8_t xbgmlookuptable[] = {
 	song_loonboon,
 	song_celebrawl,
 	song_win_music_dot_oh_gee_gee,
+	song_final_fanfare_dot_oh_gee_gee,
+	song_adventure_start,
 };
 
 #else

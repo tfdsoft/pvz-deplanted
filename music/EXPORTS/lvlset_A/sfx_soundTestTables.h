@@ -26,6 +26,7 @@ putinbank(sound_test_bank.sfxtext.data.020) const char sfxSoundTestString14[13] 
 putinbank(sound_test_bank.sfxtext.data.021) const char sfxSoundTestString15[ 9] = "REWARD01";
 putinbank(sound_test_bank.sfxtext.data.022) const char sfxSoundTestString16[10] = "SECRETKEY";
 putinbank(sound_test_bank.sfxtext.data.023) const char sfxSoundTestString17[11] = "UNLOCKPATH";
+putinbank(sound_test_bank.sfxtext.data.024) const char sfxSoundTestString18[ 6] = "PAUSE";
 
 
 putinbank(sound_test_bank.sfxtext.ptr)
@@ -54,6 +55,7 @@ const char* const sfxtexts[] = {
 	sfxSoundTestString15,
 	sfxSoundTestString16,
 	sfxSoundTestString17,
+	sfxSoundTestString18,
 };
 
 #else
