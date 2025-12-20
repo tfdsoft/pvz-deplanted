@@ -155,11 +155,14 @@ void state_game() {
 
 
 
-
-
-
         if(player1_pressed & PAD_A){
-            
+            music_play(song_win_music_dot_oh_gee_gee);
+            for(short i=270; i>0; i--){
+                ppu_wait_nmi();
+            }
+            gamestate = 0x10;
+            pal_fade_to(4,8);
+            break;
         }
     }
 }
