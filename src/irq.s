@@ -152,12 +152,11 @@ stall:
     ; ptr+5 = new X scroll value
     irq_set_chr_and_scroll:
 
-    ; inline'd the stall(in) here because it took too long to jsr
+        ; inline'd the stall(in) here because it took too long to jsr
         ldy #3
     1:          ; stall for a bit so that the
         dey     ; register updates are outside
         bne 1b  ; the active display
-
 
         ldy irq_table_offset
 
@@ -253,6 +252,7 @@ stall:
         lda #0
         jsr set_chr_mode_0
 
+        ;; CODE BORROWED FROM THE NESDEV WIKI
         ; The first two PPU writes can come anytime during the scanline:
         ; Nametable number << 2 to $2006.
         lda #2
@@ -294,7 +294,6 @@ stall:
 
         sty $2001
 
-        
         inc PAL_UPDATE
         rts
 
