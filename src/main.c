@@ -76,7 +76,7 @@ int main(void){
         set_chr_default();
         flush_irq();
         vram_adr(0);
-        famistudio_music_pause(1);
+        //famistudio_music_pause(1);
 
         switch(gamestate){
             // when in doubt, go back to startup
@@ -107,15 +107,14 @@ int main(void){
             case 0x14:
                 banked_call(sound_test_bank, state_soundtest);
                 break;
-
+*/
             //
             //  GAME-RELATED STUFF
-            //  (in prg_rom_fixed_lo, do not use banked_call())
             //
             case 0x20:
-                state_game();
+                banked_call(extra_code_bank, state_game);
                 break;
-*/
+
             //
             //  DEBUG STUFF
             //

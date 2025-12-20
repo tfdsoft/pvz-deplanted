@@ -147,6 +147,13 @@ void state_menu() {
         one_vram_buffer(FLAG_ISDEMO, NT_ADR_A(6,3));
     #endif
 
+    add_advanced_interrupt(
+        56,
+        irq_set_chr,
+        args88(3,8)
+    );
+    enable_irq();
+
     ppu_on_all();
     pal_fade_to(1,4);
 
@@ -209,6 +216,7 @@ void state_menu() {
                     for(short i=300; i>0; i--){
                         ppu_wait_nmi();
                     }
+                    gamestate = 0x20;
                     break;
             }
             pal_bright(0);

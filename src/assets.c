@@ -23,3 +23,13 @@ file(chr_menu_tfdlogo, chr_bank_0) = {
 file(chr_menu_pvzlogo, chr_bank_0) = {
     #embed "./chr/dnt/Menu_PVZLogo.bin"
 };
+
+
+
+// game stuff
+file(chr_game_statusbar, chr_bank_1) = {
+    #embed "./chr/dnt/Game_StatusBar.bin"
+};
+file(chr_game_stage_day, chr_bank_1) = {
+    #embed "./chr/dnt/Game_Stage_Day.bin"
+};

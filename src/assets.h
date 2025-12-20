@@ -47,11 +47,8 @@ extern const uint8_t chr_menu_tfdlogo[];
 extern const uint8_t chr_menu_pvzlogo[];
 
 // chr bank 1
-//extern const uint8_t chr_tiles_global[];
-//extern const uint8_t chr_tiles_grid[];
-//extern const uint8_t chr_tiles_cross[];
-//extern const uint8_t chr_tiles_brick[];
-//extern const uint8_t chr_tiles_black[];
+extern const uint8_t chr_game_statusbar[];
+extern const uint8_t chr_game_stage_day[];
 
 // chr bank 2
 //extern const uint8_t chr_background_0[];

@@ -34,7 +34,7 @@ IRQ_ENABLE  = $e001
 
 ;   NOTE: DON'T SET AN IRQ BEFORE SCANLINE 16.
 
-.section .text.irq,"a",@progbits
+.section .prg_rom_fixed_lo.text.irq,"a",@progbits
 .globl irq
     irq:
 
@@ -62,8 +62,6 @@ IRQ_ENABLE  = $e001
         jsr 1f              ; jsr here first since the
                             ; OG 6502 doesn't have an 
                             ; indirect JSR opcode
-    1:
-        jmp (irq_ptr)
 
         ; SETUP NEXT INTERRUPT
         ; code will return here after an rts
@@ -90,7 +88,8 @@ IRQ_ENABLE  = $e001
         pla     ; get A
         
         rti
-        
+    1:
+        jmp (irq_ptr)
     2:
         sta IRQ_LATCH
         sta IRQ_RELOAD
@@ -134,7 +133,7 @@ stall:
     ; ptr+3 = chr bank ID
     ; ptr+4 = chr bank value
     irq_set_chr:
-        ldy #$3
+        ldy #$2
         jsr stall
 
         ldy irq_table_offset
@@ -166,8 +165,7 @@ stall:
 
         lda irq_table+3,y
         pha ; push chr bank for faster access later
-        lda irq_table+4,y
-        tax ; transfer to X so we don't need another load
+        ldx irq_table+4,y
 
         lda irq_table+5,y
         
