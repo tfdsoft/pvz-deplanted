@@ -67,6 +67,7 @@ int main(void){
 
     set_wram_mode(WRAM_ON);
 
+    //gamestate = 0x19;
 
     while(1){
         __asm__("sei");
@@ -99,11 +100,15 @@ int main(void){
             case 0x10:
                 banked_call(extra_code_bank, state_menu);
                 break;
-/*  
-            case 0x11:
-                banked_call(extra_code_bank, state_levelselect);
+  
+            //case 0x11:
+            //    banked_call(extra_code_bank, state_levelselect);
+            //    break;
+            
+            case 0x19:
+                banked_call(extra_code_bank, state_test);
                 break;
-
+/*
             case 0x14:
                 banked_call(sound_test_bank, state_soundtest);
                 break;

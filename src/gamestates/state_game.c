@@ -1,4 +1,12 @@
 putinbank(extra_code_bank.game.pal)
+const unsigned char pal_game_statusbar[] = {
+    0x0f,0x07,0x17,0x37,
+    0x0f,0x07,0x17,0x27,
+    0x0f,0x07,0x17,0x37,
+    0x0f,0x07,0x17,0x27
+};
+
+putinbank(fixed_lo.game.pal)
 const unsigned char pal_game_day[] = {
     0x0f,0x29,0x38,0x30,
     0x0f,0x21,0x26,0x30,
@@ -108,6 +116,7 @@ const unsigned char nt_game_day_conveyer[] = {
 
 putinbank(extra_code_bank.game)
 void state_game() {
+    automatic_fs_updates = 1;
 
     vram_adr(0x000);
     donut_decompress_vram(chr_game_stage_day, chr_bank_1);
@@ -120,33 +129,83 @@ void state_game() {
     vram_unrle(nt_game_day_conveyer);
 
 
-    pal_bg(pal_game_day);
+    pal_bg(pal_game_statusbar);
 
     flush_irq();
     add_advanced_interrupt(
-        0,
+        6,
         irq_set_chr,
         args88(0,8)
     );
     add_advanced_interrupt(
-        45,
-        irq_set_chr,
-        args88(0,0)
-    );
-    add_advanced_interrupt(
-        14,
-        irq_set_chr,
-        args88(0,0)
+        32,
+        irq_copy_bg_palette_and_scroll,
+        (uint16_t)&pal_game_day
     );
     enable_irq();
 
-    
-    
 
     ppu_on_all();
-    pal_fade_to(1,4);
+    pal_fade_to(0,4);
 
     music_play(song_loonboon);
+
+    while(1){
+        ppu_wait_nmi();
+        scroll(0,0);
+        oam_clear();
+
+
+
+        if(player1_pressed & PAD_A){
+            music_play(song_win_music_dot_oh_gee_gee);
+            for(short i=270; i>0; i--){
+                ppu_wait_nmi();
+            }
+            gamestate = 0x10;
+            pal_fade_to(4,8);
+            break;
+        }
+    }
+}
+
+
+
+putinbank(extra_code_bank.game)
+void state_test() {
+    automatic_fs_updates = 1;
+
+    vram_adr(0x000);
+    donut_decompress_vram(chr_game_stage_day, chr_bank_1);
+
+    set_2k_chr_0(8);
+    vram_adr(0x000);
+    donut_decompress_vram(chr_game_statusbar, chr_bank_1);
+
+    vram_adr(0x2000);
+    vram_unrle(nt_game_day_conveyer);
+
+
+    pal_bg(pal_game_statusbar);
+
+    flush_irq();
+    add_advanced_interrupt(
+        6,
+        irq_set_chr,
+        args88(0,8)
+    );
+    add_advanced_interrupt(
+        32,
+        irq_copy_bg_palette_and_scroll,
+        (uint16_t)&pal_game_day
+    );
+    enable_irq();
+
+
+    ppu_on_all();
+    pal_fade_to(0,4);
+
+    music_play(song_rigor_mormist);
 
     while(1){
         ppu_wait_nmi();

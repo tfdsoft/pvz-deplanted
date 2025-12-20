@@ -47,7 +47,7 @@
 //static unsigned char spin;
 __attribute__((retain)) static volatile unsigned char FRAME_CNT;
 __attribute__((retain)) static volatile unsigned char VRAM_UPDATE;
-__attribute__((retain)) static volatile unsigned char PPU_MASK_VAR, PPU_CTRL_VAR;
+__attribute__((retain)) volatile unsigned char PPU_MASK_VAR, PPU_CTRL_VAR;
 __attribute__((retain)) static volatile unsigned char PPU_CTRL_VAR1;
 __attribute__((retain)) static unsigned char SCROLL_X, SCROLL_Y;
 __attribute__((retain)) static unsigned char SCROLL_X1;//, SCROLL_Y1;
@@ -58,11 +58,11 @@ __attribute__((retain))
 //static unsigned char TEMP;
 __attribute__((retain)) static unsigned char SPRID;
 __attribute__((retain)) static unsigned char LEN;
-__attribute__((retain)) static unsigned char PAL_UPDATE;
+__attribute__((retain)) unsigned char PAL_UPDATE;
 __attribute__((retain)) static unsigned char I;
 
-__attribute__((retain)) static uint8_t * __zp PAL_BG_PTR;
-__attribute__((retain)) static uint8_t * __zp PAL_SPR_PTR;
+__attribute__((retain)) uint8_t * __zp PAL_BG_PTR;
+__attribute__((retain)) uint8_t * __zp PAL_SPR_PTR;
 
 __attribute__((section(".zp.name_upd_adr"),retain)) volatile const char *NAME_UPD_ADR;
 __attribute__((section(".zp.name_upd_enable"),retain)) volatile char NAME_UPD_ENABLE;

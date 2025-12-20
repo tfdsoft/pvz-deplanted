@@ -20,6 +20,7 @@ extern void irq_basic();
 extern void irq_set_x_scroll();
 extern void irq_set_chr();
 extern void irq_set_chr_and_scroll();
+extern void irq_copy_bg_palette_and_scroll();
 //extern void irq_enable_sprites();
 
 
