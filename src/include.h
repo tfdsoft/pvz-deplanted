@@ -25,8 +25,8 @@
 
 #include "./gamestates/state_startup.c"
 #include "./gamestates/state_romcheck.c"
-/*
 #include "./gamestates/state_menu.c"
+/*
 #include "./gamestates/state_debugtools.c"
 #include "./gamestates/state_game.c"
 */

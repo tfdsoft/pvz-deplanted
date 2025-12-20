@@ -5,13 +5,7 @@ extern uint8_t famistudio_song_speed;
 
 __attribute__((noinline)) void music_play(uint8_t s){
     
-    __attribute__((leaf)) __asm__ volatile (
-        "lda __prg_a000 \n"
-        "pha"
-        :
-        :
-        :"a","x","y","p"
-    );
+    push_prg_a000();
 
     //uint8_t prev_bank = get_prg_a000();
     current_bank = music_bank_0;

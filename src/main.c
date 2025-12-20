@@ -46,12 +46,13 @@ __attribute__((leaf)) __asm__(
         "lda #$c0\n"
         "sta $4017\n" // disable apu frame counter irq
 
-
+/*
         "ldx #$00 \n"
         "tax \n"
         "dex \n"
         "ldy #$a0 \n"
         "jsr famistudio_sfx_init \n"
+*/
 );
 
 putinbank(fixed_lo)
@@ -61,28 +62,8 @@ int main(void){
     PPU.mask = PPU_MASK_VAR = 0b00000110;
     ppu_off(); // turn off everything
 
-    disable_irq();
-
-    // clear oam buffer
-    //oam_clear();
-
-    // clear palette
-    //memfill((unsigned char*)0x120,0x0f,0x20);
-    //pal_bg((const unsigned char *)0x120);
-    //pal_bright(0);
-    
-    //set_chr_a12_inversion(CHR_A12_INVERT);
-
-    // clear chr
-    //set_chr_default();
-    //vram_adr(0x0000);
-    //vram_fill(0,0x2000);
-
     banked_call(extra_code_bank, state_ramcheck); 
-
     set_vram_buffer();
-
-    //ppu_on_spr();
 
     set_wram_mode(WRAM_ON);
 
@@ -111,13 +92,14 @@ int main(void){
                 banked_call(extra_code_bank, state_credits);
                 //state_menu();
                 break;
-/*                
+              
             //
             //  MENU-RELATED STUFF
             //
             case 0x10:
                 banked_call(extra_code_bank, state_menu);
                 break;
+/*  
             case 0x11:
                 banked_call(extra_code_bank, state_levelselect);
                 break;

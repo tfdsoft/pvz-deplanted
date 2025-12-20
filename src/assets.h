@@ -39,6 +39,7 @@
 // chr bank 0
 #define chr_menu_bank chr_bank_0
 extern const uint8_t chr_menu_font_pvz_filled[];
+extern const uint8_t chr_menu_font_pvz_transparent[];
 extern const uint8_t chr_menu_font_pusab[];
 extern const uint8_t chr_menu_global[];
 extern const uint8_t chr_menu_window[];

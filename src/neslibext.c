@@ -135,7 +135,7 @@ __attribute__((section(".prg_rom_fixed_lo.1"),retain))
         MOUSE_X_MAXIMUM
     };
 
-__attribute__((aligned(64),noinline)) void oam_and_readjoypad(){
+__attribute__((aligned(128),noinline)) void oam_and_readjoypad(){
     __attribute__((leaf)) __asm__ volatile (
         //".section .zp \n"
         //"mouse: .fill 4 \n"
@@ -227,34 +227,6 @@ __attribute__((aligned(64),noinline)) void oam_and_readjoypad(){
 
         // NEXT: 878
     //.endif // CONTROLLER_SIZE = 2
-
-
-
-        /*
-    // now that that's over...
-    // it would probably be best if i just
-    // reset the ppu's registers now, since
-    // i'm not gonna update anything else
-
-
-        //PPU.status; // read ppu status. thanks llvm-mos!
-        "lda $2002 \n"
-        //PPU.scroll = SCROLL_X;
-        "lda SCROLL_X \n"
-        "sta $2005 \n"
-        //PPU.scroll = SCROLL_Y;
-        "lda SCROLL_Y \n"
-        "sta $2005 \n"
-        //PPU.control = PPU_CTRL_VAR;
-        "lda PPU_CTRL_VAR \n"
-        "sta $2000 \n"
-    "jmp 1f \n"
-        */
-
-
-
-
-    
 
     //".scope calculate_extra_fields: \n"
     "1: \n"

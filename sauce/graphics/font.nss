@@ -1,11 +1,11 @@
 NSTssTXT
 
 BtnTiles=1
-BtnChecker=0
+BtnChecker=1
 BtnSelTiles=0
 BtnChrBank1=1
 BtnChrBank2=0
-BtnGridAll=1
+BtnGridAll=0
 BtnGridTile=0
 BtnGridAtr=1
 BtnGridBlock=0
@@ -51,9 +51,9 @@ VarBankActive_msprBuffer=0
 VarPalBank_mapBuffer=0
 VarPalBank_msprBuffer=0
 VarTileViewTagBuf=0
-VarBgPalCur=3
+VarBgPalCur=2
 VarPalActive=0
-VarTileActive=96
+VarTileActive=185
 VarBankActive=0
 VarPPUMask=0
 VarPPUMaskSet0=0
@@ -79,12 +79,12 @@ VarNameSelectionT=-1
 VarNameSelectionB=0
 VarNameCopyW=-1
 VarNameCopyH=-1
-VarCHRSelectionL=0
-VarCHRSelectionR=16
-VarCHRSelectionT=6
-VarCHRSelectionB=8
-VarCHRCopyW=16
-VarCHRCopyH=2
+VarCHRSelectionL=9
+VarCHRSelectionR=10
+VarCHRSelectionT=11
+VarCHRSelectionB=12
+VarCHRCopyW=1
+VarCHRCopyH=1
 VarCHRCopyRect=1
 VarCHRSelectRect=1
 VarCHRBanks=4
@@ -107,7 +107,7 @@ VarMetatileSets_8x8=2
 VarUndo_metatileSets_8x8=2
 VarCheckpoint_metatileSets_8x8=2
 VarUndo_checkpoint_metatileSets_8x8=2
-VarCustomScanlineWarningCyan=2
+VarCustomScanlineWarningCyan=1
 VarBrushPresetIndex=0
 BtnStateMtProps0=0
 BtnStateMtProps1=0
@@ -140,9 +140,9 @@ MetaSpriteBankName=session
 MetaspritePlayBackCursor=0
 
 
-FilterCHR=0
+FilterCHR=1
 FilterName=1
-FileNameCHR=
+FileNameCHR=Z:\home\sniper\Documents\repissitories\pvz-deplanted\src\chr\uncompressed\Menu_Font_PVZ_filled
 FileNameName=
 FileNamePal=
 FileNameMetaSpriteBank=
@@ -158,22 +158,22 @@ RadioAutoexport_UseSubDir_NEXXT=0
 CheckAutoexport_MetatileAsBMP=0
 
 
-VarCHRSelected=00[60]01[20]00[80]
+VarCHRSelected=00[b9]0100[46]
 
 
-Palette=0f0010300f0c21320f0516270f0b1a290f1c21320f1122330f1223340f1324350f1324360f1526370f1627370f1928380f1829380f1b2a390f1b2b3c0f1c2c3b
+Palette=23001037230c213223051627230b1a290f1c21320f1122330f1223340f1324350f1324360f1526370f1627370f1928380f1829380f1b2a390f1b2b3c0f1c2c3b
 
 
-PalUndo=0f0010300f0c21320f0516270f0b1a290f1c21320f1122330f1223340f1324350f1324360f1526370f1627370f1928380f1829380f1b2a390f1b2b3c0f1c2c3b
+PalUndo=23001037230c213223051627230b1a290f1c21320f1122330f1223340f1324350f1324360f1526370f1627370f1928380f1829380f1b2a390f1b2b3c0f1c2c3b
 
 
-CHRMain=00[10]ff[8]00[10]ff[8]00[5e1]383e34362c7c00[3]3c0e7e763e0030[2]763e7e6e7c2070[2]3c7636[2]3e00[2]187c2c24647e00[3]3e7670363c001e0ebefe4ecefe0c[3]7c6cec6c7c00[2]107c623c607e00[3]3e367e303c001c103810[4]003c387c38[4]00[2]be7e4efebe1e38007cec[2]6c7c0c7c70f0fafe[2]eee600e0607c[2]6c[3]0038182018[2]38[2]00[2]381838[2]18[2]00[2]1c24383c1c[2]780018[2]3c18[3]707ef67ceefcfeec04e06eee7c[2]6c6e001c3c[2]38[4]003818[6]00[2]607eef[4]6a00[2]ff7f6b[3]00[2]207e[2]ecc6[2]00[3]fc[2]6e6c[2]00[2]1c3c263c7c[2]00[3]7e[2]66263e00[2]343f77[2]677c6000[2]7e36[3]3e3000027e2e[3]5e0600063e76[3]3e0600[2]3c[2]70607000[3]7c[2]30[3]00[2]347e28584e7e00[2]083c743c2c3c003c383c38[3]0e0018[2]7e18[3]1c000e6e64e4[2]7c7e00[2]ee[2]6e[2]7e00[3]eff62e3c1c3800[2]666e7c3c3800[2]0772de7efe6c6e00[2]c7f7fe7e[2]00[3]37f71c1e267700[2]667e3c[2]7e00[3]45ef3f7c1c38[2]002677763e1c[2]00363e3c083c327e00[2]7e[2]1c183c00[3852]
+CHRMain=00[10]ff[8]00[10]ff[18]00[1c3]1000[7]1000[5]6c24e484ee00[3]6c24e484ee00[3]6622ee88ee00[3]6622ee88ee00[3]6e22e682ee00[3]6e22e682ee00[3]662aea8ee200[3]662aea8ee200[3]6c28ee82ee00[3]6c28ee82ee00[3]6c28ee8aee00[3]6c28ee8aee00[3]6e22e282e200[3]6e22e282e200[3]6e2aee8aee00[3]6e2aee8aee00[3]6e2aee82e600[3]6e2aee82e600[3]6e2aea8eea00[3]6e2aea8eea00[3]6e2aec8aee00[3]6e2aec8aee00[3]6e28e888ee00[3]6e28e888ee00[3]6c2aea8aec00[3]6c2aea8aec00[3]6e28ec88ee00[3]6e28ec88ee00[3]6e28ec88e800[3]6e28ec88e800[3]fe7ceceee6fe7c007cfe6e6c[3]7c0038781810[2]30[2]007838[4]18[2]007c4c5e0c1ce27e00fe[2]0c1c387c[2]00fe6e787e1e[2]78007c1c3c[2]0c[2]fc0e4c[2]dc7fff0e[2]00ee[2]6efe7e0c[2]04fefc7cfe0e1efc007c607c[2]0c[2]7c1c7670e0fc7cecfc007c607c7eee6e7eeefe7c0c1c183070107e0e1c183830[2]00fc6cec7c7eee7e007efe6e7c[2]6c7c3c6cccfe7c3c1e7c00fe6e7e[2]0e0c7c00ee2a6a2eea00[3]ee2a6a2eea00[3]ee2a6c2aee00[3]ee2a6c2aee00[3]ee286828ee00[3]ee286828ee00[3]ec2a6a2aec00[3]ec2a6a2aec00[3]ee286c28ee00[3]ee286c28ee00[3]ee286c28e800[3]ee286c28e800[3]6eaa[2]ea2e00[3]6eaa[2]ea2e00[2]3878[2]3c7e[2]ec[2]003c[2]7c6c[2]7e46847c343e3c3e363e78fe6e6c7c[2]6c7c387c[2]e0[3]ec6c007cfc6c60[2]6c7ce0fc[2]4e[2]cc5c7800fc[2]ec[4]fc007ee8687c70687c00fc747078[2]7078ee7e203c[2]7c20[2]10fc707c[2]70[3]00fe60[2]e0dec6fc007cfce0606c[2]7c697efef6fe[2]ee[2]06e6666e7e[2]66[2]001c[2]3c[3]38[2]0038[2]18[5]7c3c18[4]38f0007c38[5]78ae66ecfc[2]fee4ee40ee6e7c[3]6e6600387830[3]787e00703070[3]343c0076f6eefe[2]defe00ee[2]fe[3]f6d6006676fe76fc5ccc00ee[2]76fe7eee6e00fe7ecc[4]fc007cfc6c[4]7c78fee6fee4fc70[2]007e[2]667e[2]60[2]00fc[2]e4[3]ef7f007e[2]6e[3]7e[2]7c7ee66e7c[2]743e00fe7e767e7c6e66243e36781e[2]7e66187e76383c0e263e1cfe193c[3]3818007f7e18[5]007e[4]fef6fc00e6[4]666e7e00f7762c7674183c0066[2]763c[3]1800fe[2]d47e7c[2]4400d6[2]fefc[2]6c[2]44ee76383c[2]2c6c00e7ee7c38[2]7c6600effe383c1810[2]00ceee7c38[4]007efe1c[2]3860ff00fe7e1c38[2]707e00ce8aec2aee00[3]ce8aec2aee00[3]ce88e828ee00[3]ce88e828ee00[3]cc8aea2aec00[3]cc8aea2aec00[3]ce88ec28ee00[3]ce88ec28ee00[3]ce88ec28e800[3]ce88ec28e800[3]ce8aeaaaee00[3]ce8aeaaaee00[3]383e34362c7c00[3]3c0e7e763e0030[2]763e7e6e7c2070[2]3c7636[2]3e00[2]187c2c24647e00[3]3e7670363c001e0ebefe4ecefe0c[3]7c6cec6c7c00[2]107c623c607e00[3]3e367e303c001c103810[4]003c387c38[4]00[2]be7e4efebe1e38007cec[2]6c7c0c7c70f0fafe[2]eee600e0607c[2]6c[3]0038182018[2]38[2]00[2]381838[2]18[2]00[2]1c24383c1c[2]780018[2]3c18[3]707ef67ceefcfeec04e06eee7c[2]6c6e001c3c[2]38[4]003818[6]00[2]607eef[4]6a00[2]ff7f6b[3]00[2]207e[2]ecc6[2]00[3]fc[2]6e6c[2]00[2]1c3c263c7c[2]00[3]7e[2]66263e00[2]343f77[2]677c6000[2]7e36[3]3e3000027e2e[3]5e0600063e76[3]3e0600[2]3c[2]70607000[3]7c[2]30[3]00[2]347e28584e7e00[2]083c743c2c3c003c383c38[3]0e0018[2]7e18[3]1c000e6e64e4[2]7c7e00[2]ee[2]6e[2]7e00[3]eff62e3c1c3800[2]666e7c3c3800[2]0772de7efe6c6e00[2]c7f7fe7e[2]00[3]37f71c1e267700[2]667e3c[2]7e00[3]45ef3f7c1c38[2]002677763e1c[2]00363e3c083c327e00[2]7e[2]1c183c00[3]ee2a2c2a2e00[3]ee2a2c2a2e00[3]ee28[3]2e00[3]ee28[3]2e00[3]ec2a[3]2c00[3]ec2a[3]2c00[3]ee282c282e00[3]ee282c282e00[3]ee282c28[2]00[3]ee282c28[2]00[205]1000[7]1000[5]6c24e484ee00[3]6c24e484ee00[3]6622ee88ee00[3]6622ee88ee00[3]6e22e682ee00[3]6e22e682ee00[3]662aea8ee200[3]662aea8ee200[3]6c28ee82ee00[3]6c28ee82ee00[3]6c28ee8aee00[3]6c28ee8aee00[3]6e22e282e200[3]6e22e282e200[3]6e2aee8aee00[3]6e2aee8aee00[3]6e2aee82e600[3]6e2aee82e600[3]6e2aea8eea00[3]6e2aea8eea00[3]6e2aec8aee00[3]6e2aec8aee00[3]6e28e888ee00[3]6e28e888ee00[3]6c2aea8aec00[3]6c2aea8aec00[3]6e28ec88ee00[3]6e28ec88ee00[3]6e28ec88e800[3]6e28ec88e800[2]ff[2]7dfdfff7ff[2]007cfe6e6c[3]7cffbfffdfd7[2]f7[2]007838[4]18[2]ff7d4dffefdfe3ff00fe[2]0c1c387c[2]ff[2]effbff[3]7b007c1c3c[2]0c[2]fcff5d[2]dd7fff[3]00ee[2]6efe7e0c[2]ff[8]007c607c[2]0c[2]7cfff7ffe3fd7dfd[2]007c607c7eee6e7eeffffdefffdfff[2]107e0e1c183830[2]fffd6dfdff[4]007efe6e7c[2]6c7cff6dddfffd[2]ff[2]00fe6e7e[2]0e0c7c00ee2a6a2eea00[3]ee2a6a2eea00[3]ee2a6c2aee00[3]ee2a6c2aee00[3]ee286828ee00[3]ee286828ee00[3]ec2a6a2aec00[3]ec2a6a2aec00[3]ee286c28ee00[3]ee286c28ee00[3]ee286c28e800[3]ee286c28e800[3]6eaa[2]ea2e00[3]6eaa[2]ea2e00[2]fffb[2]bfff[2]edfd003c[2]7c6c[2]7e46877db5bf[3]b7bf78fe6e6c7c[2]6c7cff[2]7ff3ff[3]ef007cfc6c60[2]6c7cff[3]5f[2]df5f7b00fc[2]ec[4]fcff7febeffff7efff00fc747078[2]7078ef7fafbf[2]ffaf[2]10fc707c[2]70[3]ff[2]637fffdfd7ff007cfce0606c[2]7cf97ffff7ff[4]06e6666e7e[2]66[2]ffdf[2]ff[5]0038[2]18[5]ffbfdf[4]fff7007c38[5]78bf77fdff[3]f5ff40ee6e7c[3]6e66ffbfffbf[3]fbff00703070[3]343cff77f7efff[2]dfff00ee[2]fe[3]f6d6ff77[2]ff77fd5ddd00ee[2]76fe7eee6eff[2]7fdf[4]ff007cfc6c[4]7cff[2]e7ffe5fdff[2]007e[2]667e[2]60[2]fffd[2]f5[3]efff007e[2]6e[3]7e[2]ff7fe7effdfff5bf00fe7e767e7c6e66e7bf[2]ffdfff[2]e7187e76383c0e263efffe99ff[5]007f7e18[5]ff7f[4]fff7fd00e6[4]666e7eff[3]adf7[2]dbff0066[2]763c[3]18ff[3]d57f[2]ffd700d6[2]fefc[2]6c[2]fffe77bbff[2]affd00e7ee7c38[2]7c66ff[3]bbffdfd7[2]00ceee7c38[4]ff7fff[2]dfffefff00fe7e1c38[2]707e00ce8aec2aee00[3]ce8aec2aee00[3]ce88e828ee00[3]ce88e828ee00[3]cc8aea2aec00[3]cc8aea2aec00[3]ce88ec28ee00[3]ce88ec28ee00[3]ce88ec28e800[3]ce88ec28e800[3]ce8aeaaaee00[3]ce8aeaaaee00[2]ff[3]f5b7adfdff00[2]3c0e7e763e00bf[2]f7bfffeffdff70[2]3c7636[2]3e00ff[2]fdadafedff[2]00[2]3e7670363c00ff[2]dfffafefff[2]06[2]3e3676363e00ff[2]fdebbdefff[2]00[2]3e367e303c00dfd7bbd7[4]ff3c387c38[4]00ffbf7f5fffbfffbb007cec[2]6c7c0c7c7ffffbff[3]f7ffe0607c[2]6c[3]00ffdfe7df[2]ff[3]00381838[2]18[2]00ff[2]e7fbff[4]0018[2]3c18[3]707ff77defff[2]fdffe06eee7c[2]6c6e00dfff[7]3818[6]00ff[2]7eefff[4]00[2]ff7f6b[3]00ff[2]7f[2]fdd7[2]ff00[2]fc[2]6e6c[2]00ff[2]bda7bdfd[2]ff00[2]7e[2]66263e00ff[2]bfff[2]effdef00[2]7e36[3]3e30fbffaf[3]dfff[2]063e76[3]3e0600ff[2]bf[2]ffefff[2]00[2]7c[2]30[3]00fff7ffabdbdfff[2]00083c743c2c3c00ff[2]bdff[3]efff18[2]7e18[3]1c00ff[2]7f75f5[2]fdc300[2]ee[2]6e[2]7e3cff[3]f7afffdfff00[2]666e7c3c3800ff[2]7ade7fffedff00[2]c7f7fe7e[2]00ff[2]bff7df[2]a7ff00[2]667e3c[2]7e00ffddefbffdfffbc7002677763e1c[2]38ffbfbdebfff381ff007e[2]1c183c7e00[2]ee2a2c2a2e00[3]ee2a2c2a2e00[3]ee28[3]2e00[3]ee28[3]2e00[3]ec2a[3]2c00[3]ec2a[3]2c00[3]ee282c282e00[3]ee282c282e00[3]ee282c28[2]00[3]ee282c28[2]00[3002]
 
 
-CHRUndo=00[10]ff[8]00[10]ff[8]00[5e1]383e34362c7c00[3]3c0e7e763e0030[2]763e7e6e7c2070[2]3c7636[2]3e00[2]187c2c24647e00[3]3e7670363c001e0ebefe4ecefe0c[3]7c6cec6c7c00[2]107c623c607e00[3]3e367e303c001c103810[4]003c387c38[4]00[2]be7e4efebe1e38007cec[2]6c7c0c7c70f0fafe[2]eee600e0607c[2]6c[3]0038182018[2]38[2]00[2]381838[2]18[2]00[2]1c24383c1c[2]780018[2]3c18[3]707ef67ceefcfeec04e06eee7c[2]6c6e001c3c[2]38[4]003818[6]00[2]607eef[4]6a00[2]ff7f6b[3]00[2]207e[2]ecc6[2]00[3]fc[2]6e6c[2]00[2]1c3c263c7c[2]00[3]7e[2]66263e00[3901]
+CHRUndo=00[10]ff[8]00[10]ff[18]00[1c3]1000[7]1000[5]6c24e484ee00[3]6c24e484ee00[3]6622ee88ee00[3]6622ee88ee00[3]6e22e682ee00[3]6e22e682ee00[3]662aea8ee200[3]662aea8ee200[3]6c28ee82ee00[3]6c28ee82ee00[3]6c28ee8aee00[3]6c28ee8aee00[3]6e22e282e200[3]6e22e282e200[3]6e2aee8aee00[3]6e2aee8aee00[3]6e2aee82e600[3]6e2aee82e600[3]6e2aea8eea00[3]6e2aea8eea00[3]6e2aec8aee00[3]6e2aec8aee00[3]6e28e888ee00[3]6e28e888ee00[3]6c2aea8aec00[3]6c2aea8aec00[3]6e28ec88ee00[3]6e28ec88ee00[3]6e28ec88e800[3]6e28ec88e800[3]fe7ceceee6fe7c007cfe6e6c[3]7c0038781810[2]30[2]007838[4]18[2]007c4c5e0c1ce27e00fe[2]0c1c387c[2]00fe6e787e1e[2]78007c1c3c[2]0c[2]fc0e4c[2]dc7fff0e[2]00ee[2]6efe7e0c[2]04fefc7cfe0e1efc007c607c[2]0c[2]7c1c7670e0fc7cecfc007c607c7eee6e7eeefe7c0c1c183070107e0e1c183830[2]00fc6cec7c7eee7e007efe6e7c[2]6c7c3c6cccfe7c3c1e7c00fe6e7e[2]0e0c7c00ee2a6a2eea00[3]ee2a6a2eea00[3]ee2a6c2aee00[3]ee2a6c2aee00[3]ee286828ee00[3]ee286828ee00[3]ec2a6a2aec00[3]ec2a6a2aec00[3]ee286c28ee00[3]ee286c28ee00[3]ee286c28e800[3]ee286c28e800[3]6eaa[2]ea2e00[3]6eaa[2]ea2e00[2]3878[2]3c7e[2]ec[2]003c[2]7c6c[2]7e46847c343e3c3e363e78fe6e6c7c[2]6c7c387c[2]e0[3]ec6c007cfc6c60[2]6c7ce0fc[2]4e[2]cc5c7800fc[2]ec[4]fc007ee8687c70687c00fc747078[2]7078ee7e203c[2]7c20[2]10fc707c[2]70[3]00fe60[2]e0dec6fc007cfce0606c[2]7c697efef6fe[2]ee[2]06e6666e7e[2]66[2]001c[2]3c[3]38[2]0038[2]18[5]7c3c18[4]38f0007c38[5]78ae66ecfc[2]fee4ee40ee6e7c[3]6e6600387830[3]787e00703070[3]343c0076f6eefe[2]defe00ee[2]fe[3]f6d6006676fe76fc5ccc00ee[2]76fe7eee6e00fe7ecc[4]fc007cfc6c[4]7c78fee6fee4fc70[2]007e[2]667e[2]60[2]00fc[2]e4[3]ef7f007e[2]6e[3]7e[2]7c7ee66e7c[2]743e00fe7e767e7c6e66243e36781e[2]7e66187e76383c0e263e1cfe193c[3]3818007f7e18[5]007e[4]fef6fc00e6[4]666e7e00f7762c7674183c0066[2]763c[3]1800fe[2]d47e7c[2]4400d6[2]fefc[2]6c[2]44ee76383c[2]2c6c00e7ee7c38[2]7c6600effe383c1810[2]00ceee7c38[4]007efe1c[2]3860ff00fe7e1c38[2]707e00ce8aec2aee00[3]ce8aec2aee00[3]ce88e828ee00[3]ce88e828ee00[3]cc8aea2aec00[3]cc8aea2aec00[3]ce88ec28ee00[3]ce88ec28ee00[3]ce88ec28e800[3]ce88ec28e800[3]ce8aeaaaee00[3]ce8aeaaaee00[3]383e34362c7c00[3]3c0e7e763e0030[2]763e7e6e7c2070[2]3c7636[2]3e00[2]187c2c24647e00[3]3e7670363c001e0ebefe4ecefe0c[3]7c6cec6c7c00[2]107c623c607e00[3]3e367e303c001c103810[4]003c387c38[4]00[2]be7e4efebe1e38007cec[2]6c7c0c7c70f0fafe[2]eee600e0607c[2]6c[3]0038182018[2]38[2]00[2]381838[2]18[2]00[2]1c24383c1c[2]780018[2]3c18[3]707ef67ceefcfeec04e06eee7c[2]6c6e001c3c[2]38[4]003818[6]00[2]607eef[4]6a00[2]ff7f6b[3]00[2]207e[2]ecc6[2]00[3]fc[2]6e6c[2]00[2]1c3c263c7c[2]00[3]7e[2]66263e00[2]343f77[2]677c6000[2]7e36[3]3e3000027e2e[3]5e0600063e76[3]3e0600[2]3c[2]70607000[3]7c[2]30[3]00[2]347e28584e7e00[2]083c743c2c3c003c383c38[3]0e0018[2]7e18[3]1c000e6e64e4[2]7c7e00[2]ee[2]6e[2]7e00[3]eff62e3c1c3800[2]666e7c3c3800[2]0772de7efe6c6e00[2]c7f7fe7e[2]00[3]37f71c1e267700[2]667e3c[2]7e00[3]45ef3f7c1c38[2]002677763e1c[2]00363e3c083c327e00[2]7e[2]1c183c00[3]ee2a2c2a2e00[3]ee2a2c2a2e00[3]ee28[3]2e00[3]ee28[3]2e00[3]ec2a[3]2c00[3]ec2a[3]2c00[3]ee282c282e00[3]ee282c282e00[3]ee282c28[2]00[3]ee282c28[2]00[205]1000[7]1000[5]6c24e484ee00[3]6c24e484ee00[3]6622ee88ee00[3]6622ee88ee00[3]6e22e682ee00[3]6e22e682ee00[3]662aea8ee200[3]662aea8ee200[3]6c28ee82ee00[3]6c28ee82ee00[3]6c28ee8aee00[3]6c28ee8aee00[3]6e22e282e200[3]6e22e282e200[3]6e2aee8aee00[3]6e2aee8aee00[3]6e2aee82e600[3]6e2aee82e600[3]6e2aea8eea00[3]6e2aea8eea00[3]6e2aec8aee00[3]6e2aec8aee00[3]6e28e888ee00[3]6e28e888ee00[3]6c2aea8aec00[3]6c2aea8aec00[3]6e28ec88ee00[3]6e28ec88ee00[3]6e28ec88e800[3]6e28ec88e800[2]ff[2]7dfdfff7ff[2]007cfe6e6c[3]7cffbfffdfd7[2]f7[2]007838[4]18[2]ff7d4dffefdfe3ff00fe[2]0c1c387c[2]ff[2]effbff[3]7b007c1c3c[2]0c[2]fcff5d[2]dd7fff[3]00ee[2]6efe7e0c[2]ff[8]007c607c[2]0c[2]7cfff7ffe3fd7dfd[2]007c607c7eee6e7eeffffdefffdfff[2]107e0e1c183830[2]fffd6dfdff[4]007efe6e7c[2]6c7cc393330183c3e1833c92a28002321200[2]ee2a6a2eea00[3]ee2a6a2eea00[3]ee2a6c2aee00[3]ee2a6c2aee00[3]ee286828ee00[3]ee286828ee00[3]ec2a6a2aec00[3]ec2a6a2aec00[3]ee286c28ee00[3]ee286c28ee00[3]ee286c28e800[3]ee286c28e800[3]6eaa[2]ea2e00[3]6eaa[2]ea2e00[2]fffb[2]bfff[2]edfd003c[2]7c6c[2]7e46877db5bf[3]b7bf78fe6e6c7c[2]6c7cff[2]7ff3ff[3]ef007cfc6c60[2]6c7cff[3]5f[2]df5f7b00fc[2]ec[4]fcff7febeffff7efff00fc747078[2]7078ef7fafbf[2]ffaf[2]10fc707c[2]70[3]ff[2]637fffdfd7ff007cfce0606c[2]7cf97ffff7ff[4]06e6666e7e[2]66[2]ffdf[2]ff[5]0038[2]18[5]ffbfdf[4]fff7007c38[5]78bf77fdff[3]f5ff40ee6e7c[3]6e66ffbfffbf[3]fbff00703070[3]343cff77f7efff[2]dfff00ee[2]fe[3]f6d6ff77[2]ff77fd5ddd00ee[2]76fe7eee6eff[2]7fdf[4]ff007cfc6c[4]7cff[2]e7ffe5fdff[2]007e[2]667e[2]60[2]fffd[2]f5[3]efff007e[2]6e[3]7e[2]ff7fe7effdfff5bf00fe7e767e7c6e66e7bf[2]ffdfff[2]e7187e76383c0e263efffe99ff[5]007f7e18[5]ff7f[4]fff7fd00e6[4]666e7eff[3]adf7[2]dbff0066[2]763c[3]18ff[3]d57f[2]ffd700d6[2]fefc[2]6c[2]fffe77bbff[2]affd00e7ee7c38[2]7c66ff[3]bbffdfd7[2]00ceee7c38[4]ff7fff[2]dfffefff00fe7e1c38[2]707e00ce8aec2aee00[3]ce8aec2aee00[3]ce88e828ee00[3]ce88e828ee00[3]cc8aea2aec00[3]cc8aea2aec00[3]ce88ec28ee00[3]ce88ec28ee00[3]ce88ec28e800[3]ce88ec28e800[3]ce8aeaaaee00[3]ce8aeaaaee00[2]ff[3]f5b7adfdff00[2]3c0e7e763e00bf[2]f7bfffeffdff70[2]3c7636[2]3e00ff[2]fdadafedff[2]00[2]3e7670363c00ff[2]dfffafefff[2]06[2]3e3676363e00ff[2]fdebbdefff[2]00[2]3e367e303c00dfd7bbd7[4]ff3c387c38[4]00ffbf7f5fffbfffbb007cec[2]6c7c0c7c7ffffbff[3]f7ffe0607c[2]6c[3]00ffdfe7df[2]ff[3]00381838[2]18[2]00ff[2]e7fbff[4]0018[2]3c18[3]707ff77defff[2]fdffe06eee7c[2]6c6e00dfff[7]3818[6]00ff[2]7eefff[4]00[2]ff7f6b[3]00ff[2]7f[2]fdd7[2]ff00[2]fc[2]6e6c[2]00ff[2]bda7bdfd[2]ff00[2]7e[2]66263e00ff[2]bfff[2]effdef00[2]7e36[3]3e30fbffaf[3]dfff[2]063e76[3]3e0600ff[2]bf[2]ffefff[2]00[2]7c[2]30[3]00fff7ffabdbdfff[2]00083c743c2c3c00ff[2]bdff[3]efff18[2]7e18[3]1c00ff[2]7f75f5[2]fdc300[2]ee[2]6e[2]7e3cff[3]f7afffdfff00[2]666e7c3c3800ff[2]7ade7fffedff00[2]c7f7fe7e[2]00ff[2]bff7df[2]a7ff00[2]667e3c[2]7e00ffddefbffdfffbc7002677763e1c[2]38ffbfbdebfff381ff007e[2]1c183c7e00[2]ee2a2c2a2e00[3]ee2a2c2a2e00[3]ee28[3]2e00[3]ee28[3]2e00[3]ec2a[3]2c00[3]ec2a[3]2c00[3]ee282c282e00[3]ee282c282e00[3]ee282c28[2]00[3]ee282c28[2]00[3002]
 
 
-CHRCopy=00[11]383e34362c7c00[3]3c0e7e763e0030[2]763e7e6e7c2070[2]3c7636[2]3e00[2]187c2c24647e00[3]3e7670363c001e0ebefe4ecefe0c[3]7c6cec6c7c00[2]107c623c607e00[3]3e367e303c001c103810[4]003c387c38[4]00[2]be7e4efebe1e38007cec[2]6c7c0c7c70f0fafe[2]eee600e0607c[2]6c[3]0038182018[2]38[2]00[2]381838[2]18[2]00[2]1c24383c1c[2]780018[2]3c18[3]707ef67ceefcfeec04e06eee7c[2]6c6e001c3c[2]38[4]003818[6]00[2]607eef[4]6a00[2]ff7f6b[3]00[2]207e[2]ecc6[2]00[3]fc[2]6e6c[2]00[2]1c3c263c7c[2]00[3]7e[2]66263e00[2]343f77[2]677c6000[2]7e36[3]3e3000027e2e[3]5e0600063e76[3]3e0600[2]3c[2]70607000[3]7c[2]30[3]00[2]347e28584e7e00[2]083c743c2c3c003c383c38[3]0e0018[2]7e18[3]1c000e6e64e4[2]7c7e00[2]ee[2]6e[2]7e00[3]eff62e3c1c3800[2]666e7c3c3800[2]0772de7efe6c6e00[2]c7f7fe7e[2]00[3]37f71c1e267700[2]667e3c[2]7e00[3]45ef3f7c1c38[2]002677763e1c[2]00363e3c083c327e00[2]7e[2]1c183c00[3e52]
+CHRCopy=3c6cccfe7c3c1e7c00fe6e7e[2]0e0c7c0038781810[2]30[2]007838[4]18[2]007c4c5e0c1ce27e00fe[2]0c1c387c[2]00fe6e787e1e[2]78007c1c3c[2]0c[2]fc0e4c[2]dc7fff0e[2]00ee[2]6efe7e0c[2]04fefc7cfe0e1efc007c607c[2]0c[2]7c1c7670e0fc7cecfc007c607c7eee6e7eeefe7c0c1c183070107e0e1c183830[2]00fc6cec7c7eee7e007efe6e7c[2]6c7c3c6cccfe7c3c1e7c00fe6e7e[2]0e0c7c[2]3c18[4]38f0007c38[5]78ae66ecfc[2]fee4ee40ee6e7c[3]6e6600387830[3]787e00703070[3]343c0076f6eefe[2]defe00ee[2]fe[3]f6d6006676fe76fc5ccc00ee[2]76fe7eee6e00fe7ecc[4]fc007cfc6c[4]7c78fee6fee4fc70[2]007e[2]667e[2]60[2]00fc[2]e4[3]ef7f007e[2]6e[3]7e[2]7c7ee66e7c[2]743e00fe7e767e7c6e66243e36781e[2]7e66187e76383c0e263e1cfe193c[3]3818007f7e18[5]007e[4]fef6fc00e6[4]666e7e00f7762c7674183c0066[2]763c[3]1800fe[2]d47e7c[2]4400d6[2]fefc[2]6c[2]44ee76383c[2]2c6c00e7ee7c38[2]7c6600effe383c1810[2]00ceee7c38[4]007efe1c[2]3860ff00fe7e1c38[2]707e00ce8aec2aee00[3]ce8aec2aee00[3]ce88e828ee00[3]ce88e828ee00[3]cc8aea2aec00[3]cc8aea2aec00[3]ce88ec28ee00[3]ce88ec28ee00[3]ce88ec28e800[3]ce88ec28e800[3e02]
 
 
 NameTable=00[3c0]
@@ -329,14 +329,14 @@ MetatileSet_8x8_props=00[2000]
 MetatileSet_8x8_propsUndo=00[2000]
 
 
-MetatileSetLabels_2x2=Unlabeled,Unlabeled,Unlabeled,Unlabeled
-MetatileSetLabels_2x2Undo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+MetatileSetLabels_2x2=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+MetatileSetLabels_2x2Undo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
 
-MetatileSetLabels_4x4=Unlabeled,Unlabeled,Unlabeled,Unlabeled
-MetatileSetLabels_4x4Undo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+MetatileSetLabels_4x4=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+MetatileSetLabels_4x4Undo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
 
-MetatileSetLabels_8x8=Unlabeled,Unlabeled
-MetatileSetLabels_8x8Undo=Unlabeled,Unlabeled
+MetatileSetLabels_8x8=Unlabeled,Unlabeled
+MetatileSetLabels_8x8Undo=Unlabeled,Unlabeled
 
 CHRBankLabels=Unlabeled,Unlabeled,Unlabeled,Unlabeled
 
@@ -501,18 +501,18 @@ Checkpoint_MetatileSet_8x8_props=00[2000]
 Checkpoint_MetatileSet_8x8_propsUndo=00[2000]
 
 
-Checkpoint_MetatileSetLabels_2x2=Unlabeled,Unlabeled,Unlabeled,Unlabeled
-Checkpoint_MetatileSetLabels_2x2Undo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+Checkpoint_MetatileSetLabels_2x2=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+Checkpoint_MetatileSetLabels_2x2Undo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
 
-Checkpoint_MetatileSetLabels_4x4=Unlabeled,Unlabeled,Unlabeled,Unlabeled
-Checkpoint_MetatileSetLabels_4x4Undo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+Checkpoint_MetatileSetLabels_4x4=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+Checkpoint_MetatileSetLabels_4x4Undo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
 
-Checkpoint_MetatileSetLabels_8x8=Unlabeled,Unlabeled
-Checkpoint_MetatileSetLabels_8x8Undo=Unlabeled,Unlabeled
+Checkpoint_MetatileSetLabels_8x8=Unlabeled,Unlabeled
+Checkpoint_MetatileSetLabels_8x8Undo=Unlabeled,Unlabeled
 
-Checkpoint_CHRBankLabels=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+Checkpoint_CHRBankLabels=Unlabeled,Unlabeled,Unlabeled,Unlabeled
 
-Checkpoint_CHRBankLabelsUndo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+Checkpoint_CHRBankLabelsUndo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
 
 
 Checkpoint_32_NTSC_MsprDuration=00000006[100]
@@ -581,7 +581,7 @@ Current preset ID=0
 
 GUI behaviour:
 ---------------------------------------------------------
-Use paired mode if possible=1
+Use paired mode if possible=0
 Affect backgrounds=1
 Affect sprites=1
 
@@ -605,14 +605,14 @@ Switch tile 4 ID=251
 
 Switch tile targets:
 ---------------------------------------------------------
-Switch tile 1 target=4096
-Switch tile 2 target=0
-Switch tile 3 target=12288
-Switch tile 4 target=8192
+Switch tile 1 target=0
+Switch tile 2 target=4096
+Switch tile 3 target=8192
+Switch tile 4 target=12288
 
 Switch tile checkboxes:
 ---------------------------------------------------------
 Switch tile 1 checkbox=1
 Switch tile 2 checkbox=1
-Switch tile 3 checkbox=0
-Switch tile 4 checkbox=0
+Switch tile 3 checkbox=1
+Switch tile 4 checkbox=1
