@@ -148,7 +148,7 @@ void state_game() {
     ppu_on_all();
     pal_fade_to(0,4);
 
-    music_play(song_loonboon);
+    music_play(song_grasswalk);
 
     while(1){
         ppu_wait_nmi();

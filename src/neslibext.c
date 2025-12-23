@@ -553,10 +553,28 @@ void set_chr_default(){
     set_chr_mode_5(7);
 }
 
-__attribute__((noinline))
+/*__attribute__((noinline))
 void set_bg_chr_page(uint8_t page){
     set_chr_mode_2((page<<2)+0);
     set_chr_mode_3((page<<2)+1);
     set_chr_mode_4((page<<2)+2);
     set_chr_mode_5((page<<2)+3);
+}*/
+
+
+__attribute__((noinline))
+void set_prg_a000(char bank_id){
+    __attribute__((leaf)) __asm__ volatile (
+        "stx __prg_a000 \n"
+        "lda #0b00000111 \n"
+        "ora __bank_select_hi \n"
+        "php \n"
+        "sei \n"
+        "sta $8000 \n"
+        "stx $8001 \n"
+        "plp"
+        :
+        :"x"(bank_id)
+        :"a","p"
+    );
 }
