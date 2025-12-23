@@ -33,17 +33,17 @@ __attribute__((interrupt_norecurse)) void nmi(){
                 PPU.vram.data = PAL_BG_PTR[PAL_BUF[2]];
                 PPU.vram.data = PAL_BG_PTR[PAL_BUF[3]];
 
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[0]];
+                PPU.vram.data = PAL_BG_PTR[PAL_BUF[4]];
                 PPU.vram.data = PAL_BG_PTR[PAL_BUF[5]];
                 PPU.vram.data = PAL_BG_PTR[PAL_BUF[6]];
                 PPU.vram.data = PAL_BG_PTR[PAL_BUF[7]];
 
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[0]];
+                PPU.vram.data = PAL_BG_PTR[PAL_BUF[8]];
                 PPU.vram.data = PAL_BG_PTR[PAL_BUF[9]];
                 PPU.vram.data = PAL_BG_PTR[PAL_BUF[10]];
                 PPU.vram.data = PAL_BG_PTR[PAL_BUF[11]];
 
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[0]];
+                PPU.vram.data = PAL_BG_PTR[PAL_BUF[12]];
                 PPU.vram.data = PAL_BG_PTR[PAL_BUF[13]];
                 PPU.vram.data = PAL_BG_PTR[PAL_BUF[14]];
                 PPU.vram.data = PAL_BG_PTR[PAL_BUF[15]];
@@ -54,17 +54,17 @@ __attribute__((interrupt_norecurse)) void nmi(){
                 PPU.vram.data = PAL_SPR_PTR[PAL_BUF[18]];
                 PPU.vram.data = PAL_SPR_PTR[PAL_BUF[19]];
 
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[0]];
+                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[4]];
                 PPU.vram.data = PAL_SPR_PTR[PAL_BUF[21]];
                 PPU.vram.data = PAL_SPR_PTR[PAL_BUF[22]];
                 PPU.vram.data = PAL_SPR_PTR[PAL_BUF[23]];
 
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[0]];
+                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[8]];
                 PPU.vram.data = PAL_SPR_PTR[PAL_BUF[25]];
                 PPU.vram.data = PAL_SPR_PTR[PAL_BUF[26]];
                 PPU.vram.data = PAL_SPR_PTR[PAL_BUF[27]];
 
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[0]];
+                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[12]];
                 PPU.vram.data = PAL_SPR_PTR[PAL_BUF[29]];
                 PPU.vram.data = PAL_SPR_PTR[PAL_BUF[30]];
                 PPU.vram.data = PAL_SPR_PTR[PAL_BUF[31]];
@@ -85,9 +85,6 @@ __attribute__((interrupt_norecurse)) void nmi(){
             PPU.mask = PPU_MASK_VAR; // re-set PPU.mask
             oam_and_readjoypad();
         }
-
-        
-        
     }
     irq_count = 0;
     irq_table_offset = 0;

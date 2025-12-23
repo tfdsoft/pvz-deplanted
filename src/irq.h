@@ -9,20 +9,22 @@ struct __irq_table {
     uint8_t arg0;
     uint8_t arg1;
     uint8_t arg2;
+    uint8_t arg3;
+    uint8_t arg4;
 };
 
 extern void *irq_ptr;
 extern uint8_t irq_count, irq_table_offset;
-extern uint8_t irq_table[31];
+extern uint8_t irq_table[33];
 
 
 extern void irq_basic();
 extern void irq_set_x_scroll();
 extern void irq_set_chr();
 extern void irq_set_chr_and_scroll();
-extern void irq_copy_bg_palette_and_scroll();
+extern void irq_update_bg_palette();
 //extern void irq_enable_sprites();
 
 
 
-#define IRQ(n) (*(volatile struct __irq_table *)(irq_table + (n*6)))
+#define IRQ(n) (*(volatile struct __irq_table *)(irq_table + (n*8)))

@@ -20,9 +20,9 @@ IRQ_ENABLE  = $e001
 
 .section .bss
     irq_table_offset:   .fill 1     ; offset in below table
-    irq_table:          .fill 31    ; 31 bytes should be enough.
-    irq_tmp:            .fill 1     ; 6 bytes * 5 interrupts 
-                                    ; = 30 bytes total. have the
+    irq_table:          .fill 33    ; 31 bytes should be enough.
+    irq_tmp:            .fill 1     ; 8 bytes * 4 interrupts 
+                                    ; = 32 bytes total. have the
                                     ; extra byte to catch the
                                     ; end of the table.
 
@@ -67,7 +67,7 @@ IRQ_ENABLE  = $e001
         ; increment table offset
         lda irq_table_offset
         clc
-        adc #$6
+        adc #$8
         sta irq_table_offset
         tay
 
@@ -179,32 +179,44 @@ stall:
 
 
 
-.globl irq_copy_bg_palette_and_scroll
-    irq_copy_bg_palette_and_scroll:
+.globl irq_update_bg_palette
+    irq_update_bg_palette:
         ; re-use the irq pointer for the
         ; palette data
         ldy irq_table_offset
 
         lda irq_table+3,y
         ldx irq_table+4,y
+
+        sec
+        sbc #1
+        bmi 1f
+        dex
+    
+    1:
         sta irq_ptr+0
         stx irq_ptr+1
-
-        ;burn cycles
-        ldy #1
-        jsr stall
 
         ldx #16
 
     1:  ; calculate the brightness of the new palette set
         txa
         tay
-        dey
         lda (irq_ptr),y
         tay
         lda (PAL_BG_PTR),y
         pha
         dex
+
+        ; unrolled for S P E E D
+        txa
+        tay
+        lda (irq_ptr),y
+        tay
+        lda (PAL_BG_PTR),y
+        pha
+        dex
+
         bne 1b
 
         ; turn off ppu
@@ -213,22 +225,28 @@ stall:
         sta $2001   ;PPU_MASK
 
         ; set ppu address
-        ldy #16
         lda #$3f
-        ldx #$00
         sta $2006
         stx $2006
 
+        ldy #9
+        jsr stall
+
+        ldy #16
+
     1:  ; copy to palette RAM
+        sty irq_tmp
         pla
-        tax ; background color in X
+        tay ; background color in Y
         pla ; color 1 in A
-        stx $2007
-        sta $2007
+        tax ; background color in X
         pla ; color 2 in A
+        sty $2007
+        stx $2007
         sta $2007
         pla ; color 3 in A
         sta $2007
+        ldy irq_tmp
         dey ; four DEYs take the same amount of time
         dey ; as subtract by four
         dey 
@@ -238,16 +256,19 @@ stall:
 
         tya
         pha
-        ldy #8
+        ldy #5
         jsr stall
         pla
         tay
+        nop
+        nop
+        nop
         nop
         bne 1b
 
 
     1:  ; reset everything before updating scroll
-
+        
         ; set 2kb chr 0 to the 8th bank
         lda #0
         jsr set_chr_mode_0
@@ -282,17 +303,18 @@ stall:
         lsr
         ora irq_tmp
 
-        nop
-        nop
         ldy PPU_MASK_VAR
+
+        php
         ; The last two PPU writes must happen during hblank:
         stx $2005
         sta $2006
-
+        
         ; Restore new_x.
         ;stx irq_tmp
 
         sty $2001
+        plp
 
         inc PAL_UPDATE
         rts

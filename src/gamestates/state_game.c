@@ -1,18 +1,22 @@
-putinbank(extra_code_bank.game.pal)
+putinbank(fixed_lo.game.pal)
 const unsigned char pal_game_statusbar[] = {
     0x0f,0x07,0x17,0x37,
-    0x0f,0x07,0x17,0x27,
-    0x0f,0x07,0x17,0x37,
-    0x0f,0x07,0x17,0x27
+    0x00,0x07,0x17,0x27,
+    0x10,0x07,0x17,0x37,
+    0x00,0x07,0x17,0x27
 };
 
 putinbank(fixed_lo.game.pal)
 const unsigned char pal_game_day[] = {
     0x0f,0x29,0x38,0x30,
-    0x0f,0x21,0x26,0x30,
-    0x0f,0x07,0x17,0x37,
-    0x0f,0x07,0x17,0x27
+    0x00,0x21,0x26,0x30,
+    0x10,0x07,0x17,0x37,
+    0x00,0x07,0x17,0x27
 };
+
+putinbank(fixed_lo.game.pal)
+const unsigned char pal_game_night[]={ 0x0f,0x0c,0x08,0x2d,0x0f,0x01,0x06,0x2d,0x0f,0x07,0x17,0x37,0x0f,0x07,0x17,0x27 };
+
 
 putinbank(extra_code_bank.game.nt)
 const unsigned char nt_game_day_statusbar[] = {
@@ -131,24 +135,34 @@ void state_game() {
 
     pal_bg(pal_game_statusbar);
 
+    
     flush_irq();
-    add_advanced_interrupt(
-        6,
-        irq_set_chr,
-        args88(0,8)
-    );
-    add_advanced_interrupt(
-        32,
-        irq_copy_bg_palette_and_scroll,
-        (uint16_t)&pal_game_day
-    );
+    add_interrupt(6, irq_set_chr);
+        IRQ(0).arg0 = 0;
+        IRQ(0).arg1 = 8;
+
+    add_interrupt(32, irq_update_bg_palette);
+        IRQ(1).arg0 = ((uint16_t)pal_game_day & 0xff);
+        IRQ(1).arg1 = ((uint16_t)pal_game_day >> 8);
+
+    add_interrupt(42, irq_update_bg_palette);
+        IRQ(2).arg0 = ((uint16_t)pal_game_statusbar & 0xff);
+        IRQ(2).arg1 = ((uint16_t)pal_game_statusbar >> 8);
+
+    add_interrupt(58, irq_update_bg_palette);
+        IRQ(3).arg0 = ((uint16_t)pal_game_night & 0xff);
+        IRQ(3).arg1 = ((uint16_t)pal_game_night >> 8);
+
     enable_irq();
 
 
     ppu_on_all();
     pal_fade_to(0,4);
 
-    music_play(song_grasswalk);
+    music_play(song_loonboon);
+
+
+    wait_frames(6);
 
     while(1){
         ppu_wait_nmi();
@@ -167,61 +181,5 @@ void state_game() {
             break;
         }
     }
-}
-
-
-
-putinbank(extra_code_bank.game)
-void state_test() {
-    automatic_fs_updates = 1;
-
-    vram_adr(0x000);
-    donut_decompress_vram(chr_game_stage_day, chr_bank_1);
-
-    set_2k_chr_0(8);
-    vram_adr(0x000);
-    donut_decompress_vram(chr_game_statusbar, chr_bank_1);
-
-    vram_adr(0x2000);
-    vram_unrle(nt_game_day_conveyer);
-
-
-    pal_bg(pal_game_statusbar);
-
     flush_irq();
-    add_advanced_interrupt(
-        6,
-        irq_set_chr,
-        args88(0,8)
-    );
-    add_advanced_interrupt(
-        32,
-        irq_copy_bg_palette_and_scroll,
-        (uint16_t)&pal_game_day
-    );
-    enable_irq();
-
-
-    ppu_on_all();
-    pal_fade_to(0,4);
-
-    music_play(song_rigor_mormist);
-
-    while(1){
-        ppu_wait_nmi();
-        scroll(0,0);
-        oam_clear();
-
-
-
-        if(player1_pressed & PAD_A){
-            music_play(song_win_music_dot_oh_gee_gee);
-            for(short i=270; i>0; i--){
-                ppu_wait_nmi();
-            }
-            gamestate = 0x10;
-            pal_fade_to(4,8);
-            break;
-        }
-    }
 }

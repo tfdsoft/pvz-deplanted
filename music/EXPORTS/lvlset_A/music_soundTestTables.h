@@ -2,11 +2,14 @@
 
 #if !__VS_SYSTEM
 
-putinbank(sound_test_bank.musictext.data.0) const char musicSoundTestString00[14] = "WATERY GRAVES";
-putinbank(sound_test_bank.musictext.data.1) const char musicSoundTestString01[16] = "LAURA SHIGIHARA";
+putinbank(sound_test_bank.musictext.data.0) const char musicSoundTestString00[11] = "Crazy Dave";
+putinbank(sound_test_bank.musictext.data.1) const char musicSoundTestString01[18] = "Choose Your Seeds";
+putinbank(sound_test_bank.musictext.data.2) const char musicSoundTestString02[14] = "WATERY GRAVES";
+putinbank(sound_test_bank.musictext.data.3) const char musicSoundTestString03[16] = "LAURA SHIGIHARA";
 
 
 putinbank(sound_test_bank.musictext.ptr) const char* const xbgmtextsUpper[] = {
+	NULL,
 	NULL,
 	NULL,
 	NULL,
@@ -24,33 +27,35 @@ putinbank(sound_test_bank.musictext.ptr) const char* const xbgmtextsUpper[] = {
 
 putinbank(sound_test_bank.musictext.ptr) const char* const xbgmtextsLower[] = {
 	musicSoundTestString00,
-	musicSoundTestString00,
-	musicSoundTestString00,
-	musicSoundTestString00,
-	musicSoundTestString00,
-	musicSoundTestString00,
-	musicSoundTestString00,
-	musicSoundTestString00,
-	musicSoundTestString00,
-	musicSoundTestString00,
-	musicSoundTestString00,
-	musicSoundTestString00,
+	musicSoundTestString01,
+	musicSoundTestString02,
+	musicSoundTestString02,
+	musicSoundTestString02,
+	musicSoundTestString02,
+	musicSoundTestString02,
+	musicSoundTestString02,
+	musicSoundTestString02,
+	musicSoundTestString02,
+	musicSoundTestString02,
+	musicSoundTestString02,
+	musicSoundTestString02,
 };
 
 
 putinbank(sound_test_bank.musictext.ptr) const char* const xbgmtextsOriginalArtist[] = {
-	musicSoundTestString01,
-	musicSoundTestString01,
-	musicSoundTestString01,
-	musicSoundTestString01,
-	musicSoundTestString01,
-	musicSoundTestString01,
-	musicSoundTestString01,
-	musicSoundTestString01,
-	musicSoundTestString01,
-	musicSoundTestString01,
-	musicSoundTestString01,
-	musicSoundTestString01,
+	musicSoundTestString03,
+	musicSoundTestString03,
+	musicSoundTestString03,
+	musicSoundTestString03,
+	musicSoundTestString03,
+	musicSoundTestString03,
+	musicSoundTestString03,
+	musicSoundTestString03,
+	musicSoundTestString03,
+	musicSoundTestString03,
+	musicSoundTestString03,
+	musicSoundTestString03,
+	musicSoundTestString03,
 };
 
 
@@ -72,6 +77,7 @@ const uint8_t xbgmtextsOriginalArtistSize[] = {};
 
 putinbank(sound_test_bank.musictext.index) const uint8_t xbgmlookuptable[] = {
 	song_crazy_dave,
+	song_choose_your_seeds,
 	song_grasswalk,
 	song_moongrains,
 	song_watery_graves,

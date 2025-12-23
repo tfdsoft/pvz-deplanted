@@ -3,7 +3,12 @@
 	songs: [
 		{
 			fmsSongName: "crazy dave",
-			lowerText: "WATERY GRAVES",
+			lowerText: "Crazy Dave",
+			originalArtistText: "LAURA SHIGIHARA",
+		},
+		{
+			fmsSongName: "choose your seeds",
+			lowerText: "Choose Your Seeds",
 			originalArtistText: "LAURA SHIGIHARA",
 		},
 		{

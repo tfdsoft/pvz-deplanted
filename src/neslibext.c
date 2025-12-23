@@ -578,3 +578,10 @@ void set_prg_a000(char bank_id){
         :"a","p"
     );
 }
+
+
+
+__attribute__((noinline))
+void wait_frames(short frames){
+    for(;frames>0;frames--) ppu_wait_nmi();
+}

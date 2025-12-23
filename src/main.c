@@ -67,16 +67,22 @@ int main(void){
 
     set_wram_mode(WRAM_ON);
 
-    //gamestate = 0x19;
+    gamestate = 0x20;
 
     while(1){
         __asm__("sei");
         pal_bright(0);
         ppu_off();
         oam_clear();
-        set_chr_default();
         flush_irq();
-        vram_adr(0);
+        set_chr_default();
+        
+        __attribute__((leaf)) __asm__ volatile (
+            "lda $2003 \n"
+            "lda $0 \n"
+            "sta $2006 \n"
+            "sta $2006 \n"
+        );
         //famistudio_music_pause(1);
 
         switch(gamestate){
@@ -104,10 +110,6 @@ int main(void){
             //case 0x11:
             //    banked_call(extra_code_bank, state_levelselect);
             //    break;
-            
-            case 0x19:
-                banked_call(extra_code_bank, state_test);
-                break;
 /*
             case 0x14:
                 banked_call(sound_test_bank, state_soundtest);

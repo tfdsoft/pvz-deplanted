@@ -19,26 +19,11 @@ void enable_irq(){
 }
 
 
-__attribute__((noinline)) void add_basic_interrupt(
+__attribute__((noinline)) void add_interrupt(
     uint8_t reload_value, void* func_ptr
 ){
     IRQ(irq_count).reload = reload_value;
     IRQ(irq_count).func_ptr = func_ptr;
-
-    // reload value of 255 to catch the last interrupt
-    IRQ((irq_count+1)).reload = 255;
-
-    irq_count++;
-}
-
-__attribute__((noinline)) void add_advanced_interrupt(
-    uint8_t reload_value, void* func_ptr, uint32_t args
-){
-    IRQ(irq_count).reload = reload_value;
-    IRQ(irq_count).func_ptr = func_ptr;
-    IRQ(irq_count).arg0 = low_byte(args);
-    IRQ(irq_count).arg1 = high_byte(args);
-    IRQ(irq_count).arg2 = third_byte(args);
 
     // reload value of 255 to catch the last interrupt
     IRQ((irq_count+1)).reload = 255;

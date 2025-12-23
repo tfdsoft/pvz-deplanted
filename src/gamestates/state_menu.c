@@ -103,6 +103,7 @@ void state_menu() {
 
     automatic_fs_updates=1;
 
+    disable_nmi();
     // load menu stuff
     vram_adr(0x000);
     donut_decompress_vram(chr_menu_global, chr_bank_0);
@@ -113,7 +114,7 @@ void state_menu() {
     vram_adr(0x2000);
     vram_unrle(nt_title);
 
-    
+    enable_nmi();
 
     pal_all(pal_title);
 

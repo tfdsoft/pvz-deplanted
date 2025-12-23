@@ -601,6 +601,19 @@ __attribute__((noinline)) void pad_poll(unsigned char pad){
  * set the address of video memory
 */
 void vram_adr(unsigned short address){
+    /* __asm__(
+        "lda PPU_CTRL_VAR \n"
+        "pha \n"
+        "and #0b01111111 \n"
+        "sta $2000 \n"
+        "stx $2006 \n"
+        "sty $2006  \n"
+        "pla \n"
+        "sta $2000 \n"
+        :
+        :"x"(low_byte(address)),"y"(high_byte(address))
+        :"a","p"
+    ); */
     PPU.vram.address = high_byte(address);
     PPU.vram.address = low_byte(address);
 }
