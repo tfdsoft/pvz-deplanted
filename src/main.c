@@ -67,7 +67,7 @@ int main(void){
 
     set_wram_mode(WRAM_ON);
 
-    gamestate = 0x20;
+    //gamestate = 0x20;
 
     while(1){
         __asm__("sei");

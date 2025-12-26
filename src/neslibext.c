@@ -562,7 +562,7 @@ void set_bg_chr_page(uint8_t page){
 }*/
 
 
-__attribute__((noinline))
+/*__attribute__((noinline))
 void set_prg_a000(char bank_id){
     __attribute__((leaf)) __asm__ volatile (
         "stx __prg_a000 \n"
@@ -577,7 +577,7 @@ void set_prg_a000(char bank_id){
         :"x"(bank_id)
         :"a","p"
     );
-}
+}*/
 
 
 

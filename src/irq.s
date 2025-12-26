@@ -229,7 +229,7 @@ stall:
         sta $2006
         stx $2006
 
-        ldy #9
+        ldy #10
         jsr stall
 
         ldy #16
@@ -273,6 +273,11 @@ stall:
         lda #0
         jsr set_chr_mode_0
 
+        ;lda #0b111
+        ;ora __bank_select_hi
+        ;dec __in_progress
+        ;sta $8000
+
         ;; CODE BORROWED FROM THE NESDEV WIKI
         ; The first two PPU writes can come anytime during the scanline:
         ; Nametable number << 2 to $2006.
@@ -305,7 +310,6 @@ stall:
 
         ldy PPU_MASK_VAR
 
-        php
         ; The last two PPU writes must happen during hblank:
         stx $2005
         sta $2006
@@ -314,7 +318,6 @@ stall:
         ;stx irq_tmp
 
         sty $2001
-        plp
 
         inc PAL_UPDATE
         rts
