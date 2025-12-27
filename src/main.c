@@ -60,10 +60,10 @@ int main(void){
 
     PPU.control = PPU_CTRL_VAR = 0b10100000;
     PPU.mask = PPU_MASK_VAR = 0b00000110;
-    ppu_off(); // turn off everything
+    //ppu_off(); // turn off everything
 
-    banked_call(extra_code_bank, state_ramcheck); 
-    set_vram_buffer();
+    //banked_call_a000(extra_code_bank, state_ramcheck); 
+    //set_vram_buffer();
 
     set_wram_mode(WRAM_ON);
 
@@ -76,19 +76,11 @@ int main(void){
         oam_clear();
         flush_irq();
         set_chr_default();
-        
-        __attribute__((leaf)) __asm__ volatile (
-            "lda $2003 \n"
-            "lda $0 \n"
-            "sta $2006 \n"
-            "sta $2006 \n"
-        );
-        //famistudio_music_pause(1);
 
         switch(gamestate){
             // when in doubt, go back to startup
             default: 
-                banked_call(extra_code_bank, state_startup); 
+                banked_call_a000(extra_code_bank, state_startup); 
                 //state_startup();
                 break;
 
@@ -96,7 +88,7 @@ int main(void){
             //  CREDITS-RELATED STUFF
             //
             case 0x00:
-                banked_call(extra_code_bank, state_credits);
+                banked_call_a000(extra_code_bank, state_credits);
                 //state_menu();
                 break;
               
@@ -104,7 +96,7 @@ int main(void){
             //  MENU-RELATED STUFF
             //
             case 0x10:
-                banked_call(extra_code_bank, state_menu);
+                banked_call_a000(extra_code_bank, state_menu);
                 break;
   
             //case 0x11:
@@ -119,7 +111,7 @@ int main(void){
             //  GAME-RELATED STUFF
             //
             case 0x20:
-                banked_call(extra_code_bank, state_game);
+                banked_call_a000(extra_code_bank, state_game);
                 break;
 
             //

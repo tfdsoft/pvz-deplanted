@@ -5,10 +5,14 @@
 putinbank(sound_test_bank.musictext.data.0) const char musicSoundTestString00[11] = "Crazy Dave";
 putinbank(sound_test_bank.musictext.data.1) const char musicSoundTestString01[18] = "Choose Your Seeds";
 putinbank(sound_test_bank.musictext.data.2) const char musicSoundTestString02[14] = "WATERY GRAVES";
-putinbank(sound_test_bank.musictext.data.3) const char musicSoundTestString03[16] = "LAURA SHIGIHARA";
+putinbank(sound_test_bank.musictext.data.3) const char musicSoundTestString03[11] = "Zen Garden";
+putinbank(sound_test_bank.musictext.data.4) const char musicSoundTestString04[21] = "Zombies On Your Lawn";
+putinbank(sound_test_bank.musictext.data.5) const char musicSoundTestString05[16] = "LAURA SHIGIHARA";
 
 
 putinbank(sound_test_bank.musictext.ptr) const char* const xbgmtextsUpper[] = {
+	NULL,
+	NULL,
 	NULL,
 	NULL,
 	NULL,
@@ -36,6 +40,8 @@ putinbank(sound_test_bank.musictext.ptr) const char* const xbgmtextsLower[] = {
 	musicSoundTestString02,
 	musicSoundTestString02,
 	musicSoundTestString02,
+	musicSoundTestString03,
+	musicSoundTestString04,
 	musicSoundTestString02,
 	musicSoundTestString02,
 	musicSoundTestString02,
@@ -43,19 +49,21 @@ putinbank(sound_test_bank.musictext.ptr) const char* const xbgmtextsLower[] = {
 
 
 putinbank(sound_test_bank.musictext.ptr) const char* const xbgmtextsOriginalArtist[] = {
-	musicSoundTestString03,
-	musicSoundTestString03,
-	musicSoundTestString03,
-	musicSoundTestString03,
-	musicSoundTestString03,
-	musicSoundTestString03,
-	musicSoundTestString03,
-	musicSoundTestString03,
-	musicSoundTestString03,
-	musicSoundTestString03,
-	musicSoundTestString03,
-	musicSoundTestString03,
-	musicSoundTestString03,
+	musicSoundTestString05,
+	musicSoundTestString05,
+	musicSoundTestString05,
+	musicSoundTestString05,
+	musicSoundTestString05,
+	musicSoundTestString05,
+	musicSoundTestString05,
+	musicSoundTestString05,
+	musicSoundTestString05,
+	musicSoundTestString05,
+	musicSoundTestString05,
+	musicSoundTestString05,
+	musicSoundTestString05,
+	musicSoundTestString05,
+	musicSoundTestString05,
 };
 
 
@@ -86,9 +94,11 @@ putinbank(sound_test_bank.musictext.index) const uint8_t xbgmlookuptable[] = {
 	song_braniac_maniac,
 	song_loonboon,
 	song_celebrawl,
+	song_zen_garden,
+	song_me_when_theres_zombies_on_my_lawn,
 	song_win_music_dot_oh_gee_gee,
-	song_final_fanfare_dot_oh_gee_gee,
 	song_adventure_start,
+	song_final_fanfare_dot_oh_gee_gee,
 };
 
 #else

@@ -13,6 +13,7 @@ __attribute__((retain)) static uint8_t __zp VRAM_INDEX;
 __attribute__((noinline)) void __post_vram_update(){
 	VRAM_BUF[0] = 0xff;
 	VRAM_INDEX = 0;
+	PPU.status;
 }
 
 __attribute__((noinline)) void set_vram_buffer(void){
@@ -108,9 +109,6 @@ void str_vram_buffer(
 	VRAM_INDEX += (run + 3);
 	VRAM_BUF[VRAM_INDEX] = 0xff;
 }
-
-
-
 
 
 

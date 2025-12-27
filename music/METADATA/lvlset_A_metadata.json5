@@ -52,17 +52,27 @@
 			originalArtistText: "LAURA SHIGIHARA",
 		},
 		{
+			fmsSongName: "zen garden",
+			lowerText: "Zen Garden",
+			originalArtistText: "LAURA SHIGIHARA",
+		},
+		{
+			fmsSongName: "me when there's zombies on my lawn",
+			lowerText: "Zombies On Your Lawn",
+			originalArtistText: "LAURA SHIGIHARA",
+		},
+		{
 			fmsSongName: "WIN MUSIC DOT OH GEE GEE",
 			lowerText: "WATERY GRAVES",
 			originalArtistText: "LAURA SHIGIHARA",
 		},
 		{
-			fmsSongName: "FINAL FANFARE DOT OH GEE GEE",
+			fmsSongName: "ADVENTURE START",
 			lowerText: "WATERY GRAVES",
 			originalArtistText: "LAURA SHIGIHARA",
 		},
 		{
-			fmsSongName: "ADVENTURE START",
+			fmsSongName: "FINAL FANFARE DOT OH GEE GEE",
 			lowerText: "WATERY GRAVES",
 			originalArtistText: "LAURA SHIGIHARA",
 		},

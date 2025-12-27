@@ -18,8 +18,8 @@ __attribute__((interrupt_norecurse)) void nmi(){
     // if rendering is off, do not access vram
     if ((PPU_MASK_VAR & 0b00011000)) {
         // send the palette in!
+        PPU.mask=0;
         if(VRAM_UPDATE){
-            PPU.mask=0;
             if(PAL_UPDATE){
                 PAL_UPDATE = 0;
 
@@ -75,15 +75,14 @@ __attribute__((interrupt_norecurse)) void nmi(){
                 flush_vram_update2();
             }
 
-            PPU.vram.address = 0;
-            PPU.vram.address = 0;
-
+            
             PPU.status; // read ppu status. thanks llvm-mos!
+            //PPU.vram.address = 0;
+            //PPU.vram.address = 0;
             PPU.scroll = SCROLL_X;
             PPU.scroll = SCROLL_Y;
             PPU.control = PPU_CTRL_VAR;
             PPU.mask = PPU_MASK_VAR; // re-set PPU.mask
-            oam_and_readjoypad();
         }
     }
     irq_count = 0;
@@ -92,9 +91,10 @@ __attribute__((interrupt_norecurse)) void nmi(){
     IRQ_LATCH = irq_table[0];
     IRQ_RELOAD = irq_table[0];
     IRQ_ENABLE = irq_table[0];
-    PPU.status;
-    __attribute__((leaf))__asm__ volatile ("cli");
     PPU.mask = PPU_MASK_VAR; // re-set PPU.mask
+    oam_and_readjoypad();
+    __attribute__((leaf))__asm__ volatile ("cli");
+    
     FRAME_CNT++; // increase frame count
 
     __attribute__((leaf))__asm__ volatile(
@@ -113,14 +113,6 @@ __attribute__((interrupt_norecurse)) void nmi(){
 
         "1: \n"
     );
-    
-    /*if(automatic_fs_updates) {
-        push_prg_a000();
-        automatic_fs_updates = 0;
-        //music_update();
-        automatic_fs_updates++;
-        pop_prg_a000();
-    }*/
 
 }
 

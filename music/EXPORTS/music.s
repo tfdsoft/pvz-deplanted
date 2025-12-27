@@ -17,51 +17,51 @@ music_data_pvz_deplanted_music:
 	.word @song0ch2
 	.word @song0ch3
 	.word @song0ch4
-	;.if famiSTUDIO_EXP_EPSM_SSG_CHN_CNT > 0
+	;; famiSTUDIO_EXP_EPSM_SSG_CHN_CNT > 0
 	.word @song0ch5
-	;.endif
-	;.if famiSTUDIO_EXP_EPSM_SSG_CHN_CNT > 1
+	;;
+	;; famiSTUDIO_EXP_EPSM_SSG_CHN_CNT > 1
 	.word @song0ch6
-	;.endif
-	;.if famiSTUDIO_EXP_EPSM_SSG_CHN_CNT > 2
+	;;
+	;; famiSTUDIO_EXP_EPSM_SSG_CHN_CNT > 2
 	.word @song0ch7
-	;.endif
-	;.if famiSTUDIO_EXP_EPSM_FM_CHN_CNT > 0
+	;;
+	;; famiSTUDIO_EXP_EPSM_FM_CHN_CNT > 0
 	.word @song0ch8
-	;.endif
-	;.if famiSTUDIO_EXP_EPSM_FM_CHN_CNT > 1
+	;;
+	;; famiSTUDIO_EXP_EPSM_FM_CHN_CNT > 1
 	.word @song0ch9
-	;.endif
-	;.if famiSTUDIO_EXP_EPSM_FM_CHN_CNT > 2
+	;;
+	;; famiSTUDIO_EXP_EPSM_FM_CHN_CNT > 2
 	.word @song0ch10
-	;.endif
-	;.if famiSTUDIO_EXP_EPSM_FM_CHN_CNT > 3
+	;;
+	;; famiSTUDIO_EXP_EPSM_FM_CHN_CNT > 3
 	.word @song0ch11
-	;.endif
-	;.if famiSTUDIO_EXP_EPSM_FM_CHN_CNT > 4
+	;;
+	;; famiSTUDIO_EXP_EPSM_FM_CHN_CNT > 4
 	.word @song0ch12
-	;.endif
-	;.if famiSTUDIO_EXP_EPSM_FM_CHN_CNT > 5
+	;;
+	;; famiSTUDIO_EXP_EPSM_FM_CHN_CNT > 5
 	.word @song0ch13
-	;.endif
-	;.if famiSTUDIO_EXP_EPSM_RHYTHM_CHN1_ENABLE
+	;;
+	;; famiSTUDIO_EXP_EPSM_RHYTHM_CHN1_ENABLE
 	.word @song0ch14
-	;.endif
-	;.if famiSTUDIO_EXP_EPSM_RHYTHM_CHN2_ENABLE
+	;;
+	;; famiSTUDIO_EXP_EPSM_RHYTHM_CHN2_ENABLE
 	.word @song0ch15
-	;.endif
-	;.if famiSTUDIO_EXP_EPSM_RHYTHM_CHN3_ENABLE
+	;;
+	;; famiSTUDIO_EXP_EPSM_RHYTHM_CHN3_ENABLE
 	.word @song0ch16
-	;.endif
-	;.if famiSTUDIO_EXP_EPSM_RHYTHM_CHN4_ENABLE
+	;;
+	;; famiSTUDIO_EXP_EPSM_RHYTHM_CHN4_ENABLE
 	.word @song0ch17
-	;.endif
-	;.if famiSTUDIO_EXP_EPSM_RHYTHM_CHN5_ENABLE
+	;;
+	;; famiSTUDIO_EXP_EPSM_RHYTHM_CHN5_ENABLE
 	.word @song0ch18
-	;.endif
-	;.if famiSTUDIO_EXP_EPSM_RHYTHM_CHN6_ENABLE
+	;;
+	;; famiSTUDIO_EXP_EPSM_RHYTHM_CHN6_ENABLE
 	.word @song0ch19
-	;.endif
+	;;
 	.word 307,256
 
 .export music_data_pvz_deplanted_music

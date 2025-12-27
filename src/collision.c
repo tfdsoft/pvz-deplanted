@@ -2,7 +2,7 @@
 
 
 
-
+/*
 putinbank(fixed_lo.collision)
 uint8_t get_metatile(uint8_t x, uint16_t y){
     uint8_t tmp = coll_buffer[(y&0xfff0)+(x>>4)];
@@ -48,4 +48,4 @@ void run_player_collision(){
     player.x.int24 += player_speed_x;
 
 
-}
+}*/

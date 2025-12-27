@@ -1,6 +1,6 @@
 static uint8_t music_bank;
 //uint8_t prev_bank;
-uint8_t current_bank, song_count;
+static uint8_t song_count;
 extern uint8_t famistudio_song_speed;
 
 __attribute__((noinline)) void music_play(uint8_t s){
@@ -8,12 +8,12 @@ __attribute__((noinline)) void music_play(uint8_t s){
     push_prg_a000();
 
     //uint8_t prev_bank = get_prg_a000();
-    current_bank = music_bank_0;
+    //current_bank = music_bank_0;
     song_count = 0;
 
     // ok so we need to figure out what bank the
     // requested song is in.
-    set_prg_a000(current_bank);
+    set_prg_a000(music_bank_0);
 
     //if(s > 0){
     if(s == 255) s++;
@@ -21,28 +21,25 @@ __attribute__((noinline)) void music_play(uint8_t s){
     __attribute__((leaf)) __asm__ volatile (
 
         "1: \n" // bank_loop
-        "tsx \n"
-        "pha \n"
-        "sec \n"
-        "sbc $a000 \n"
-        
-        //"clc\n" // add 1 since the exporter doesn't
-        //"adc #$01\n" // account for the dpcm aligner
+            "tsx \n"
+            "pha \n"
+            "sec \n"
+            "sbc $a000 \n"
 
-        "bcc 1f \n"
-        "txs \n"
-        "tay \n"
-        "inc __prg_a000 \n"
-        "lda __prg_a000 \n"
-        "jsr set_prg_a000 \n"
-        "tya \n"
+            "bcc 1f \n"
+            "txs \n"
+            "tay \n"
+            "inc __prg_a000 \n"
+            "lda __prg_a000 \n"
+            "jsr set_prg_a000 \n"
+            "tya \n"
 
-        "sec \n"
-        "bcs 1b \n" // bra
+            "sec \n"
+            "bcs 1b \n" // bra
 
         "1: \n"
-        "pla \n"
-        "ldx __prg_a000 \n"
+            "pla \n"
+            "ldx __prg_a000 \n"
 
         :"=a"(song_count),"=x"(music_bank)
         :"a"(s)

@@ -12,18 +12,14 @@ MAPPER_USE_BATTERY;
 MAPPER_CHR_ROM_KB(0);
 MAPPER_CHR_RAM_KB(64);
 
-
-
 // four screens of characters
 MAPPER_USE_4_SCREEN_NAMETABLE;
 
 // multiregion
 INES_TIMING_MULTIREGION;
 
-//INES_DEFAULT_EXPANSION(4);
-
 __asm__ (
-    "; enable EPSM \n"
+    // enable EPSM
     "__console_type = 3 \n"
     ".global __console_type \n"
     "__extended_console_type = 4 \n"

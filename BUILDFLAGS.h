@@ -6,7 +6,7 @@
 //  ============================
 //  VERSION NUMBER
 //  the version of the game.
-const char str_version[] = "2.0";
+//  #define str_version "2.0"
 //  ============================
 //  DEMO FLAGS
 //  compiling a pre-release?

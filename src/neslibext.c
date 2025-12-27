@@ -1,26 +1,3 @@
-
-
-/*void __temporary_prg_a000(char bank_id){
-    __attribute__((leaf)) __asm__ volatile(
-        "pha \n"
-        "tax \n"
-        "lda #0b111 \n"
-        "ora __bank_select_hi \n"
-        "jmp __set_reg_retry \n"
-    );
-}
-
-void __pop_prg_a000(){
-    __attribute__((leaf)) __asm__ volatile(
-        "pla \n"
-        "sta __prg_a000\n"
-        "tax \n"
-        "lda #0b111 \n"
-        "ora __bank_select_hi \n"
-        "jmp __set_reg_retry \n"
-    );
-}*/
-
 void push_prg_a000(){
     __attribute__((leaf)) __asm__ volatile (
         "lda __prg_a000 \n"
@@ -53,7 +30,8 @@ void pop_prg_a000(){
 }*/
 
 
-__attribute__((noinline)) void pal_fade_to(unsigned char from, unsigned char to){
+__attribute__((noinline))
+void pal_fade_to(unsigned char from, unsigned char to){
     __attribute__((leaf)) __asm__ volatile (
         	// A = from
             // X = to
@@ -135,7 +113,7 @@ __attribute__((section(".prg_rom_fixed_lo.1"),retain))
         MOUSE_X_MAXIMUM
     };
 
-__attribute__((aligned(128),noinline)) void oam_and_readjoypad(){
+__attribute__((aligned(64),noinline)) void oam_and_readjoypad(){
     __attribute__((leaf)) __asm__ volatile (
         //".section .zp \n"
         //"mouse: .fill 4 \n"
@@ -421,7 +399,7 @@ void enable_nmi(){
 /*
  * vram_unrle_ignore0(*src)
  * decompress a nametable, but don't write zero
-*//*
+*/
 __attribute__((noinline))
 void vram_unrle_ignore0(const unsigned char* src){
     unsigned char tag = src[0]; // tag is the least common byte
@@ -476,7 +454,7 @@ void vram_unrle_ignore0(const unsigned char* src){
     //PPU_CTRL_VAR |= 0b10000000;
     //PPU.control = PPU_CTRL_VAR;
 }
-*/
+
 
 /*
 uint8_t fast_mod8(uint8_t n, uint8_t mod){
@@ -561,8 +539,8 @@ void set_bg_chr_page(uint8_t page){
     set_chr_mode_5((page<<2)+3);
 }*/
 
-
-/*__attribute__((noinline))
+// replacement for the built-in one
+__attribute__((noinline))
 void set_prg_a000(char bank_id){
     __attribute__((leaf)) __asm__ volatile (
         "stx __prg_a000 \n"
@@ -570,14 +548,36 @@ void set_prg_a000(char bank_id){
         "ora __bank_select_hi \n"
         "php \n"
         "sei \n"
+        "nop \n"
         "sta $8000 \n"
+        "plp \n"
         "stx $8001 \n"
-        "plp"
+        "lda #0 \n"
+        "sta __in_progress \n"
         :
         :"x"(bank_id)
         :"a","p"
     );
-}*/
+}
+
+// replacement for the built-in one
+__attribute__((noinline))
+void set_chr_bank(char reg, char bank_id){
+    __attribute__((leaf)) __asm__ volatile (
+        "ora __bank_select_hi \n"
+        "php \n"
+        "sei \n"
+        "nop \n"
+        "sta $8000 \n"
+        "plp \n"
+        "stx $8001 \n"
+        "lda #0 \n"
+        "sta __in_progress \n"
+        :
+        :"a"(reg),"x"(bank_id)
+        :"p"
+    );
+}
 
 
 
