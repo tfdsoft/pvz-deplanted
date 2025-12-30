@@ -10,7 +10,7 @@ MAPPER_USE_BATTERY;
 
 // 64kb of chr-ram should be fine
 MAPPER_CHR_ROM_KB(0);
-MAPPER_CHR_RAM_KB(64);
+MAPPER_CHR_RAM_KB(8);
 
 // four screens of characters
 MAPPER_USE_4_SCREEN_NAMETABLE;

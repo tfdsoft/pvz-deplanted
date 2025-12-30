@@ -60,9 +60,9 @@ int main(void){
 
     PPU.control = PPU_CTRL_VAR = 0b10100000;
     PPU.mask = PPU_MASK_VAR = 0b00000110;
-    //ppu_off(); // turn off everything
+    ppu_off(); // turn off everything
 
-    //banked_call_a000(extra_code_bank, state_ramcheck); 
+    banked_call_a000(extra_code_bank, state_ramcheck); 
     //set_vram_buffer();
 
     set_wram_mode(WRAM_ON);
