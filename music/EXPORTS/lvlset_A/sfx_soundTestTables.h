@@ -27,6 +27,13 @@ putinbank(sound_test_bank.sfxtext.data.021) const char sfxSoundTestString15[ 9] 
 putinbank(sound_test_bank.sfxtext.data.022) const char sfxSoundTestString16[10] = "SECRETKEY";
 putinbank(sound_test_bank.sfxtext.data.023) const char sfxSoundTestString17[11] = "UNLOCKPATH";
 putinbank(sound_test_bank.sfxtext.data.024) const char sfxSoundTestString18[ 6] = "PAUSE";
+putinbank(sound_test_bank.sfxtext.data.025) const char sfxSoundTestString19[10] = "bleep.ogg";
+putinbank(sound_test_bank.sfxtext.data.026) const char sfxSoundTestString1A[18] = "bowlingimpact.ogg";
+putinbank(sound_test_bank.sfxtext.data.027) const char sfxSoundTestString1B[16] = "buttonclick.ogg";
+putinbank(sound_test_bank.sfxtext.data.028) const char sfxSoundTestString1C[10] = "chime.ogg";
+putinbank(sound_test_bank.sfxtext.data.029) const char sfxSoundTestString1D[10] = "chomp.ogg";
+putinbank(sound_test_bank.sfxtext.data.030) const char sfxSoundTestString1E[ 9] = "coin.ogg";
+putinbank(sound_test_bank.sfxtext.data.031) const char sfxSoundTestString1F[16] = "gravebutton.ogg";
 
 
 putinbank(sound_test_bank.sfxtext.ptr)
@@ -56,6 +63,13 @@ const char* const sfxtexts[] = {
 	sfxSoundTestString16,
 	sfxSoundTestString17,
 	sfxSoundTestString18,
+	sfxSoundTestString19,
+	sfxSoundTestString1A,
+	sfxSoundTestString1B,
+	sfxSoundTestString1C,
+	sfxSoundTestString1D,
+	sfxSoundTestString1E,
+	sfxSoundTestString1F,
 };
 
 #else

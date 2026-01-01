@@ -67,7 +67,7 @@ int main(void){
 
     set_wram_mode(WRAM_ON);
 
-    //gamestate = 0x20;
+    //gamestate = 0x10;
 
     while(1){
         __asm__("sei");
@@ -111,7 +111,7 @@ int main(void){
             //  GAME-RELATED STUFF
             //
             case 0x20:
-                banked_call_a000(extra_code_bank, state_game);
+                banked_call_a000(extra_code_bank_1, state_game);
                 break;
 
             //

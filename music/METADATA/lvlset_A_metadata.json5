@@ -37,6 +37,11 @@
 			originalArtistText: "LAURA SHIGIHARA",
 		},
 		{
+			fmsSongName: "ultimate battle",
+			lowerText: "ultimate battle",
+			originalArtistText: "LAURA SHIGIHARA",
+		},
+		{
 			fmsSongName: "braniac maniac",
 			lowerText: "WATERY GRAVES",
 			originalArtistText: "LAURA SHIGIHARA",
@@ -152,6 +157,27 @@
 		},
 		{
 			text: "PAUSE",
+		},
+		{
+			text: "bleep.ogg",
+		},
+		{
+			text: "bowlingimpact.ogg",
+		},
+		{
+			text: "buttonclick.ogg",
+		},
+		{
+			text: "chime.ogg",
+		},
+		{
+			text: "chomp.ogg",
+		},
+		{
+			text: "coin.ogg",
+		},
+		{
+			text: "gravebutton.ogg",
 		},
 	],
 	PCM: [/*

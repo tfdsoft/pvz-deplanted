@@ -5,10 +5,10 @@ BtnChecker=0
 BtnSelTiles=0
 BtnChrBank1=1
 BtnChrBank2=0
-BtnGridAll=0
-BtnGridTile=0
+BtnGridAll=1
+BtnGridTile=1
 BtnGridAtr=0
-BtnGridBlock=1
+BtnGridBlock=0
 BtnGridScr=0
 BtnSelectedOnlyInverted=0
 BtnSolidityMask=0
@@ -50,10 +50,10 @@ VarBankActive_mapBuffer=0
 VarBankActive_msprBuffer=0
 VarPalBank_mapBuffer=0
 VarPalBank_msprBuffer=0
-VarTileViewTagBuf=1
+VarTileViewTagBuf=0
 VarBgPalCur=3
 VarPalActive=0
-VarTileActive=113
+VarTileActive=0
 VarBankActive=0
 VarPPUMask=0
 VarPPUMaskSet0=0
@@ -67,24 +67,24 @@ VarMetaSpriteActive=0
 VarSpriteActive=0
 VarSpriteGridX=64
 VarSpriteGridY=64
-VarNameW=32
-VarNameH=30
-VarNameViewX=0
-VarNameViewY=-1
-VarNameViewX2=0
-VarNameViewY2=-1
+VarNameW=8
+VarNameH=8
+VarNameViewX=-12
+VarNameViewY=-12
+VarNameViewX2=-12
+VarNameViewY2=-12
 VarNameSelectionL=-1
-VarNameSelectionR=10
+VarNameSelectionR=0
 VarNameSelectionT=-1
-VarNameSelectionB=12
+VarNameSelectionB=0
 VarNameCopyW=-1
 VarNameCopyH=-1
-VarCHRSelectionL=1
-VarCHRSelectionR=2
-VarCHRSelectionT=7
-VarCHRSelectionB=8
-VarCHRCopyW=2
-VarCHRCopyH=2
+VarCHRSelectionL=0
+VarCHRSelectionR=1
+VarCHRSelectionT=0
+VarCHRSelectionB=1
+VarCHRCopyW=-1
+VarCHRCopyH=-1
 VarCHRCopyRect=1
 VarCHRSelectRect=1
 VarCHRBanks=4
@@ -107,7 +107,7 @@ VarMetatileSets_8x8=2
 VarUndo_metatileSets_8x8=2
 VarCheckpoint_metatileSets_8x8=2
 VarUndo_checkpoint_metatileSets_8x8=2
-VarCustomScanlineWarningCyan=1
+VarCustomScanlineWarningCyan=2
 VarBrushPresetIndex=0
 BtnStateMtProps0=0
 BtnStateMtProps1=0
@@ -158,40 +158,40 @@ RadioAutoexport_UseSubDir_NEXXT=0
 CheckAutoexport_MetatileAsBMP=0
 
 
-VarCHRSelected=00[71]0100[8e]
+VarCHRSelected=0100[ff]
 
 
-Palette=1916293819133c2919001730190b1a290f1c21320f1122330f1223340f1324350f1324360f1526370f1627370f1928380f1829380f1b2a390f1b2b3c0f1c2c3b
+Palette=0f1610300f[d]1c21320f1122330f1223340f1324350f1324360f1526370f1627370f1928380f1829380f1b2a390f1b2b3c0f1c2c3b
 
 
-PalUndo=1916292819133c2919001730190b1a290f1c21320f1122330f1223340f1324350f1324360f1526370f1627370f1928380f1829380f1b2a390f1b2b3c0f1c2c3b
+PalUndo=0f1610300f[d]1c21320f1122330f1223340f1324350f1324360f1526370f1627370f1928380f1829380f1b2a390f1b2b3c0f1c2c3b
 
 
-CHRMain=00[10]ff[8]00[10]ff[18]00[1c0]0f1020c242c24020000f1f3dbd3d3f1f100f060a3e4378070f000105013c07000c92658d[2]05324c000c9a72[2]facc80[3]c0b8c4bec200[4]40384000[3]1e214085[2]848000[2]1e3f7a[2]7b7f40211e0a3e4378073f1e0105013c0700[2]1824ca1a[2]0a6400[2]1834e4[2]f498[2]80c0b8c4bec200[4]40384000[3]07081061a1612000[2]070f1e5e1e1f1008070a3e4378070f070005013c0700[2]86493246[2]021900[2]86cdb9[2]fde62640c0b8c4bec200c0800040384000[2]0f1020c242c24020000f1f3dbd3d3f1f100f060a3e4378070f000105013c070018a8648c[2]04685800109870[2]f89080[3]c0b8c4bec200[4]40384000[2]0d3f7fff[2]7fff[2]000d304f5d1d57587f3f[2]0d3f4179472f100d00[2]3e0600b0fcfeff[2]feff[2]00b00cf2dad8f20afefc[2]f0706c62def408b00080909c00[2]1b7fff[5]00[2]1b609fbb3bafff[2]7f[2]1b417947b05f201b003e0600[2]60f8fcfe[2]fcfe00[2]6018e4b4b0e4fefcf8[2]706c62de14e8106080909c00[83]0100[2]01000200[2]0307[2]02[2]06387eff[4]7f7e3c4a8da185b1497e00[2]c090408000[4]406080406020187cfeff[3]fe7c3864e2094119a27c000102050807020600[2]01020700[3]3c7eff[4]7f7e0034725e7a4e3400[2]80609060c0602000[2]80608000[3]387efeff[4]7e00381cd6bee65c00[81]0f1f3f7f[4]ff000b173837353669ff[5]7f[2]3f6e6f[4]371f00c0e0f0f8[3]fc[2]00c0[2]a0503048f8fc[5]f8[2]e038f8[4]f0e000[c4]0103[2]01[2]00[4]01[2]00[2]071f3f7eff[2]7f0f00071f2d7c7f0b00[4]80c0[2]80[2]00[4]80[2]00[2]e0f8dcfeff[2]fef00060e8ccf69ef000[4]0103[2]01[2]00[3]0102[2]0100071f3f7eff[2]7f0f00071f2d7c7f0b00[4]80c0[2]80[2]00[3]8040[2]8000e0f8dcfeff[2]fef00060e8ccf69ef000[81]df30a042c242c0a020cf5fbd3dbd3f5f30cf070f3f7f[2]07cf000105013c07000c92658d[2]05324c000c9a72[2]facc80[3]c0f8fcfec200[4]40384000[3]be614085[2]848000409ebf7a[2]7b7f40619f0f3f7f[2]07bf9e0105013c0700[2]1824ca1a[2]0a6400[2]1834e4[2]f498[2]80c0f8fcfec200[4]40384000[2]106f9850a161a1600010672f5e1e5e1f5098670f3f7f[2]072f670005013c0700[2]86493246[2]021900[2]86cdb9[2]fde62640c0f8fcfec200c0800040384000[2]df30a042c242c0a020cf5fbd3dbd3f5f30cf070f3f7f[2]07cf000105013c070018a8648c[2]04685800109870[2]f89080[3]c0f8fcfec200[4]40384000[4]01030f17271700[2]01000408190a372f231b779808f7090100[2]0867f700[2]50f8fe[2]fae8e0005000020e3ae8a0e0f5fe[2]f8804080100dae7800[2]8000[c1]4fb02446c24240a0004fdbb93dbdbf5f500f060a3e4378070f000105013c07000c92e58d[2]05324c000c1a72[2]facc80[3]c0b8c4bec200[4]40384000[3]9e61498d85848000[2]9eb6727a7b7f40a11e0a3e437807bf1e0105013c0700[2]1824ca1a[2]0a6400[2]1834e4[2]f498[2]80c0b8c4bec200[4]40384000[3]275892a361a1a000[2]276d5c1e5e5f5028070a3e4378072f070005013c0700[2]86497246[2]021900[2]868db9[2]fde62640c0b8c4bec200c0800040384000[2]4fb02446c24240a0004fdbb93dbdbf5f500f060a3e4378070f000105013c070018a8e48c[2]04685800101870[2]f89080[3]c0b8c4bec200[4]40384000[12]03070f0e00[7]0107[2]0300[11]c0e0[2]80[2]00[6]4060e08000[c4]030f1f[2]3f00[3]03[2]120f1c3f0f[5]070002080d[2]0f0e0700[4]c0f0f8[2]fc00[4]20c8b070fcf0[5]e0006810b0[2]f070e000[c2]0f274fff[2]7f3f00[2]183000[2]80400f000100[6]303e3f[3]1f00[2]c0f2fe[2]f2fcf800[8]c000b0a0006000[3]304050f090e000[c4]1f637d7f[2]00[2]1f609c8e80[2]7f[4]56[2]180080[4]a9af7f3900[3]f8c6befe[2]00[2]f806397101[2]fe[4]da[2]c6c001[4]253d[2]e600[c0]0605080e171f[2]1300020701080e0f[2]10130c00[5]0f0c03[2]07[2]0300[2]c030[2]38f8dcce00[2]c0e0f010b8f878c02080004000[2]8030d070e0a0c000[c2]071f[2]3f[2]0e0400[6]01[2]00[8]01[6]0300[2]e0f0f8[2]e0a08000[6]40501000[7]e0d0c0[4]e000[30c1]
+CHRMain=00[4]01070f1f00[9]031f7fff[4]00[8]3fff[5]f000[9]fcfeff[4]7f3f0100[6]80fcff[5]0f00[a]c0f8feff[4]00[c]80e0f0f800[b]010307[2]0f00[8]3f7fff[6]00[8]f8e0c080c0e0f0f800[5]01070300[b]0d7eff[3]00[b]ff[5]1f070100[9]c0f0e8fc[2]feff[2]7f3f1f0f00[b]80c0e0[2]f000[8]0f1f[2]3f[3]7f[2]00[8]ffe7c3838100[8]06070f00[3]80c0e0f0f8ff[2]7b071f00070300[8]ff[6]7fc000[8]feff[6]7f0703[2]01[2]00[5]80[2]c0[2]e0d0f0f8[2]fc[3]fe[2]00[8]7e[2]fe[2]fc[4]00[c]03070f0e0f[3]0403070f0e1f0f070381e0f0[2]c0e0f0389ceef7[2]1f7f[2]bfdfeff5fb9f7f[2]3f1f0f050300c0e0[2]f0[4]3fdfef[2]f7[4]00[8]f0c0f0e0f0[4]7e[2]7f[2]3f[4]00[8]fc[4]fe[2]7e[2]00[8]0f[3]070300[3]0f[3]0703000703f0[3]e0c000[3]f7[3]eecf1fff[2]1f0f07030100[3]c0[3]e8fcfeff[2]f0[2]6080c0e0f0f8f7[2]6f0f1f0f070200[8]f0e0[2]c0[2]8000[2]3f[4]7f[2]7e[2]00[8]7f[2]3f[3]1f[2]0f00[b]80[2]c0[2]e00100[8]07[3]00[2]06[2]f807[3]00[2]06[2]0031[2]800001[2]00[2]31[2]800001[2]001f0f870301c0[4]60b0180ccecf[2]00[3]81c1e3f7ff00[8]fe[2]fc[3]f8[2]f000[8]0f07[2]030100[b]f0f8fcfeff[2]7f3f00[d]80e0f8181f0003[2]0100[b]ff7fff[2]fe00[4]01030f1718171bf68cf0801018105f6fb7dbdd9b271f406030181c182000ff[6]fefc00[8]f0e0[2]c08000[b]1f0f070100[c]ff[4]7f1f0300[a]f0ff[5]3f00[9]0fff[5]fc00[8]ff[4]fef8c000[9]f8f0e08000[3c7c]
 
 
-CHRUndo=00[10]ff[8]00[10]ff[18]00[1c0]0f1020c242c24020000f1f3dbd3d3f1f100f060a3e4378070f000105013c07000c92658d[2]05324c000c9a72[2]facc80[3]c0b8c4bec200[4]40384000[3]1e214085[2]848000[2]1e3f7a[2]7b7f40211e0a3e4378073f1e0105013c0700[2]1824ca1a[2]0a6400[2]1834e4[2]f498[2]80c0b8c4bec200[4]40384000[3]07081061a1612000[2]070f1e5e1e1f1008070a3e4378070f070005013c0700[2]86493246[2]021900[2]86cdb9[2]fde62640c0b8c4bec200c0800040384000[2]0f1020c242c24020000f1f3dbd3d3f1f100f060a3e4378070f000105013c070018a8648c[2]04685800109870[2]f89080[3]c0b8c4bec200[4]40384000[2]0d3f7fff[2]7fff[2]000d304f5d1d57587f3f[2]0d3f4179472f100d00[2]3e0600b0fcfeff[2]feff[2]00b00cf2dad8f20afefc[2]f0706c62def408b00080909c00[2]1b7fff[5]00[2]1b609fbb3bafff[2]7f[2]1b417947b05f201b003e0600[2]60f8fcfe[2]fcfe00[2]6018e4b4b0e4fefcf8[2]706c62de14e8106080909c00[83]0100[2]01000200[2]0307[2]02[2]06387eff[4]7f7e3c4a8da185b1497e00[2]c090408000[4]406080406020187cfeff[3]fe7c3864e2094119a27c000102050807020600[2]01020700[3]3c7eff[4]7f7e0034725e7a4e3400[2]80609060c0602000[2]80608000[3]387efeff[4]7e00381cd6bee65c00[81]0f1f3f7f[4]ff000b173837353669ff[5]7f[2]3f6e6f[4]371f00c0e0f0f8[3]fc[2]00c0[2]a0503048f8fc[5]f8[2]e038f8[4]f0e000[c4]0103[2]01[2]00[4]01[2]00[2]071f3f7eff[2]7f0f00071f2d7c7f0b00[4]80c0[2]80[2]00[4]80[2]00[2]e0f8dcfeff[2]fef00060e8ccf69ef000[4]0103[2]01[2]00[3]0102[2]0100071f3f7eff[2]7f0f00071f2d7c7f0b00[4]80c0[2]80[2]00[3]8040[2]8000e0f8dcfeff[2]fef00060e8ccf69ef000[81]df30a042c242c0a020cf5fbd3dbd3f5f30cf070f3f7f[2]07cf000105013c07000c92658d[2]05324c000c9a72[2]facc80[3]c0f8fcfec200[4]40384000[3]be614085[2]848000409ebf7a[2]7b7f40619f0f3f7f[2]07bf9e0105013c0700[2]1824ca1a[2]0a6400[2]1834e4[2]f498[2]80c0f8fcfec200[4]40384000[2]106f9850a161a1600010672f5e1e5e1f5098670f3f7f[2]072f670005013c0700[2]86493246[2]021900[2]86cdb9[2]fde62640c0f8fcfec200c0800040384000[2]df30a042c242c0a020cf5fbd3dbd3f5f30cf070f3f7f[2]07cf000105013c070018a8648c[2]04685800109870[2]f89080[3]c0f8fcfec200[4]40384000[4]01030f17271700[2]01000408190a372f231b779808f7090100[2]0867f700[2]50f8fe[2]fae8e0005000020e3ae8a0e0f5fe[2]f8804080100dae7800[2]8000[c1]4fb02446c24240a0004fdbb93dbdbf5f500f060a3e4378070f000105013c07000c92e58d[2]05324c000c1a72[2]facc80[3]c0b8c4bec200[4]40384000[3]9e61498d85848000[2]9eb6727a7b7f40a11e0a3e437807bf1e0105013c0700[2]1824ca1a[2]0a6400[2]1834e4[2]f498[2]80c0b8c4bec200[4]40384000[3]275892a361a1a000[2]276d5c1e5e5f5028070a3e4378072f070005013c0700[2]86497246[2]021900[2]868db9[2]fde62640c0b8c4bec200c0800040384000[2]4fb02446c24240a0004fdbb93dbdbf5f500f060a3e4378070f000105013c070018a8e48c[2]04685800101870[2]f89080[3]c0b8c4bec200[4]40384000[12]03070f0e00[7]0107[2]0300[11]c0e0[2]80[2]00[6]4060e08000[c4]030f1f[2]3f00[3]03[2]120f1c3f0f[5]070002080d[2]0f0e0700[4]c0f0f8[2]fc00[4]20c8b070fcf0[5]e0006810b0[2]f070e000[c2]0f274fff[2]7f3f00[2]183000[2]80400f000100[6]303e3f[3]1f00[2]c0f2fe[2]f2fcf800[8]c000b0a0006000[3]304050f090e000[c4]1f637d7f[2]00[2]1f609c8e80[2]7f[4]56[2]180080[4]a9af7f3900[3]f8c6befe[2]00[2]f806397101[2]fe[4]da[2]c6c001[4]253d[2]e600[c0]0605080e171f[2]1300020701080e0f[2]10130c00[5]0f0c03[2]07[2]0300[2]c030[2]38f8dcce00[2]c0e0f010b8f878c02080004000[2]8030d070e0a0c000[c2]071f[2]3f[2]0e0400[6]01[2]00[8]01[6]0300[2]e0f0f8[2]e0a08000[6]40501000[7]e0d0c0[4]e000[30c1]
+CHRUndo=00[4]01070f1f00[9]031f7fff[4]00[8]3fff[5]f000[9]fcfeff[4]7f3f0100[6]80fcff[5]0f00[a]c0f8feff[4]00[c]80e0f0f800[b]010307[2]0f00[8]3f7fff[6]00[8]f8e0c080c0e0f0f800[5]01070300[b]0d7eff[3]00[b]ff[5]1f070100[9]c0f0e8fc[2]feff[2]7f3f1f0f00[b]80c0e0[2]f000[8]0f1f[2]3f[3]7f[2]00[8]ffe7c3838100[8]06070f00[3]80c0e0f0f8ff[2]7b071f00070300[8]ff[6]7fc000[8]feff[6]7f0703[2]01[2]00[5]80[2]c0[2]e0d0f0f8[2]fc[3]fe[2]00[8]7e[2]fe[2]fc[4]00[c]03070f0e0f[3]0403070f0e1f0f070381e0f0[2]c0e0f0389ceef7[2]1f7f[2]bfdfeff5fb9f7f[2]3f1f0f050300c0e0[2]f0[4]3fdfef[2]f7[4]00[8]f0c0f0e0f0[4]7e[2]7f[2]3f[4]00[8]fc[4]fe[2]7e[2]00[8]0f[3]070300[3]0f[3]0703000703f0[3]e0c000[3]f7[3]eecf1fff[2]1f0f07030100[3]c0[3]e8fcfeff[2]f0[2]6080c0e0f0f8f7[2]6f0f1f0f070200[8]f0e0[2]c0[2]8000[2]3f[4]7f[2]7e[2]00[8]7f[2]3f[3]1f[2]0f00[b]80[2]c0[2]e00100[8]07[3]00[2]06[2]f807[3]00[2]06[2]0031[2]800001[2]00[2]31[2]800001[2]001f0f870301c0[4]60b0180ccecf[2]00[3]81c1e3f7ff00[8]fe[2]fc[3]f8[2]f000[8]0f07[2]030100[b]f0f8fcfeff[2]7f3f00[d]80e0f8181f0003[2]0100[b]ff7fff[2]fe00[4]01030f1718171bf68cf0801018105f6fb7dbdd9b271f406030181c182000ff[6]fefc00[8]f0e0[2]c08000[b]1f0f070100[c]ff[4]7f1f0300[a]f0ff[5]3f00[9]0fff[5]fc00[8]ff[4]fef8c000[9]f8f0e08000[3c7c]
 
 
-CHRCopy=00[2]030f1f[2]3f[2]00[2]03[2]120f1c0200[2]c0f0f8[2]fc[2]00[3]20c8b070680f[5]0700[2]0c0f0d0f0e0700[2]f0[5]e000[2]10f0b0f070e000[2]0f1020c242c24020000f1f3dbd3d3f1f18a8648c[2]04685800109870[2]f8908040211e0a3e4378073f1e0105013c07009880c0b8c4bec200[4]40384000[2]1008070a3e4378070f070005013c07002640c0b8c4bec200c0800040384000[2]100f060a3e4378070f000105013c070080[2]c0b8c4bec200[4]40384000[3f42]
+CHRCopy=00[4000]
 
 
-NameTable=00[108]2022303240425052606270728082909200[10]2123313341435153616371738183919300[10]a0a2b0b2c0c2d0d2e0e2f0f200[14]a1a3b1b3c1c3d1d3e1e3f1f300[f5]010203000102030001020300[14c]
+NameTable=39000102040506390708090a0b0c0d0e0f1003111213141516171803191a1b1c1d1e1f2003212223242526272803292a2b2c2d2e2f3031323933343536373839
 
 
-NameCopy=00[3c0]
+NameCopy=00[40]
 
 
-NameUndo=00[108]2022303240425052606270728082909200[10]2123313341435153616371738183919300[10]a0a2b0b2c0c2d0d2e0e2f0f200[14]a1a3b1b3c1c3d1d3e1e3f1f300[f5]010203000102030001020300[14c]
+NameUndo=39000102040506390708090a0b0c0d0e0f1003111213141516171803191a1b1c1d1e1f2003212223242526272803292a2b2c2d2e2f3031323933343536373839
 
 
-AttrTable=00[12]1090540100[d]50a000[1b]
+AttrTable=00[4]
 
 
-AttrCopy=00[40]
+AttrCopy=00[4]
 
 
-AttrUndo=00[12]1090540100[d]50a000[1b]
+AttrUndo=00[4]
 
 
 MetaSprites=ff[10000]
@@ -329,14 +329,14 @@ MetatileSet_8x8_props=00[2000]
 MetatileSet_8x8_propsUndo=00[2000]
 
 
-MetatileSetLabels_2x2=Unlabeled,Unlabeled,Unlabeled,Unlabeled
-MetatileSetLabels_2x2Undo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+MetatileSetLabels_2x2=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+MetatileSetLabels_2x2Undo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
 
-MetatileSetLabels_4x4=Unlabeled,Unlabeled,Unlabeled,Unlabeled
-MetatileSetLabels_4x4Undo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+MetatileSetLabels_4x4=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+MetatileSetLabels_4x4Undo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
 
-MetatileSetLabels_8x8=Unlabeled,Unlabeled
-MetatileSetLabels_8x8Undo=Unlabeled,Unlabeled
+MetatileSetLabels_8x8=Unlabeled,Unlabeled
+MetatileSetLabels_8x8Undo=Unlabeled,Unlabeled
 
 CHRBankLabels=Unlabeled,Unlabeled,Unlabeled,Unlabeled
 
@@ -408,16 +408,16 @@ Checkpoint_CHRMain=00[4000]
 Checkpoint_CHRUndo=00[4000]
 
 
-Checkpoint_NameTable=00[3c0]
+Checkpoint_NameTable=00[40]
 
 
-Checkpoint_NameUndo=00[3c0]
+Checkpoint_NameUndo=00[40]
 
 
-Checkpoint_AttrTable=00[40]
+Checkpoint_AttrTable=00[4]
 
 
-Checkpoint_AttrUndo=00[40]
+Checkpoint_AttrUndo=00[4]
 
 
 Checkpoint_MetaSprites=ff[10000]
@@ -501,18 +501,18 @@ Checkpoint_MetatileSet_8x8_props=00[2000]
 Checkpoint_MetatileSet_8x8_propsUndo=00[2000]
 
 
-Checkpoint_MetatileSetLabels_2x2=Unlabeled,Unlabeled,Unlabeled,Unlabeled
-Checkpoint_MetatileSetLabels_2x2Undo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+Checkpoint_MetatileSetLabels_2x2=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+Checkpoint_MetatileSetLabels_2x2Undo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
 
-Checkpoint_MetatileSetLabels_4x4=Unlabeled,Unlabeled,Unlabeled,Unlabeled
-Checkpoint_MetatileSetLabels_4x4Undo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+Checkpoint_MetatileSetLabels_4x4=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+Checkpoint_MetatileSetLabels_4x4Undo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
 
-Checkpoint_MetatileSetLabels_8x8=Unlabeled,Unlabeled
-Checkpoint_MetatileSetLabels_8x8Undo=Unlabeled,Unlabeled
+Checkpoint_MetatileSetLabels_8x8=Unlabeled,Unlabeled
+Checkpoint_MetatileSetLabels_8x8Undo=Unlabeled,Unlabeled
 
-Checkpoint_CHRBankLabels=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+Checkpoint_CHRBankLabels=Unlabeled,Unlabeled,Unlabeled,Unlabeled
 
-Checkpoint_CHRBankLabelsUndo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
+Checkpoint_CHRBankLabelsUndo=Unlabeled,Unlabeled,Unlabeled,Unlabeled
 
 
 Checkpoint_32_NTSC_MsprDuration=00000006[100]
@@ -581,7 +581,7 @@ Current preset ID=0
 
 GUI behaviour:
 ---------------------------------------------------------
-Use paired mode if possible=0
+Use paired mode if possible=1
 Affect backgrounds=1
 Affect sprites=1
 
@@ -605,14 +605,14 @@ Switch tile 4 ID=251
 
 Switch tile targets:
 ---------------------------------------------------------
-Switch tile 1 target=0
-Switch tile 2 target=4096
-Switch tile 3 target=8192
-Switch tile 4 target=12288
+Switch tile 1 target=4096
+Switch tile 2 target=0
+Switch tile 3 target=12288
+Switch tile 4 target=8192
 
 Switch tile checkboxes:
 ---------------------------------------------------------
 Switch tile 1 checkbox=1
 Switch tile 2 checkbox=1
-Switch tile 3 checkbox=1
-Switch tile 4 checkbox=1
+Switch tile 3 checkbox=0
+Switch tile 4 checkbox=0

@@ -71,7 +71,7 @@ unsigned char check_vram_amount(){
         if(PPU.vram.data == 0x55) break;
 
         bank++;
-    } while (bank != 7);
+    } while (bank != 6);
     return bank;
 }
 
@@ -84,7 +84,7 @@ void state_ramcheck(){
 
     type = 0;
     ramcount = check_vram_amount();
-    ramneeded = 7;
+    ramneeded = 6;
     // first, test chr-ram.
     if (ramcount != ramneeded) {
         __attribute__((leaf)) __asm__ volatile(

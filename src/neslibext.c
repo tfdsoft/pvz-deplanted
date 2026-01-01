@@ -1,3 +1,8 @@
+
+__attribute__((retain)) unsigned char* __zp PAL_BG_PTR_OLD;
+
+
+
 void push_prg_a000(){
     __attribute__((leaf)) __asm__ volatile (
         "lda __prg_a000 \n"

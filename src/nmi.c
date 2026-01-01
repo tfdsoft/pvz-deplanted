@@ -68,6 +68,7 @@ __attribute__((interrupt_norecurse)) void nmi(){
                 PPU.vram.data = PAL_SPR_PTR[PAL_BUF[29]];
                 PPU.vram.data = PAL_SPR_PTR[PAL_BUF[30]];
                 PPU.vram.data = PAL_SPR_PTR[PAL_BUF[31]];
+                PAL_BG_PTR_OLD = PAL_BG_PTR;
             }
 
             if(NAME_UPD_ENABLE){

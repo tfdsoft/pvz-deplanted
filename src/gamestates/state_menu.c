@@ -118,30 +118,6 @@ void state_menu() {
 
     pal_all(pal_title);
 
-    
-    /*flush_irq();
-    add_advanced_interrupt( // set button chr
-        94, 
-        irq_set_chr,
-        args88(5,7)
-    );
-    add_advanced_interrupt( // ground scroll
-        79, 
-        irq_set_chr_and_scroll,
-        args88(5,8)
-    );
-    add_advanced_interrupt( // set background chr
-        47, 
-        irq_set_chr_and_scroll,
-        args88(3,0x10)
-    );
-    enable_irq();*/
-    
-    // run once before fading in
-    //oam_clear();
-    //oam_meta_spr(1,0,mspr_title);
-
-    //str_vram_buffer(str_version, NT_ADR_A(20,9));
 
     #ifdef FLAG_ISDEMO
         str_vram_buffer(str_demo, NT_ADR_A(1,3));
@@ -157,7 +133,7 @@ void state_menu() {
     enable_irq();*/
 
     ppu_on_all();
-    pal_fade_to(1,4);
+    pal_bright(4);
 
     // for some reason, the compiler
     // absolutely REFUSES to put an
@@ -173,7 +149,35 @@ void state_menu() {
         scroll(0,0);
         oam_clear();
         
+        one_vram_buffer(
+            (0x31 + level.world),
+            NT_ADR_A(19,14)
+        );
+        one_vram_buffer(
+            (0x31 + level.stage),
+            NT_ADR_A(21,14)
+        );
+
+        if(player1_pressed & PAD_UP) {
+            level.world++;
+            sfx_play(sfx_buttonclick,0);
+        }
+        if(player1_pressed & PAD_DOWN) {
+            level.world--;
+            sfx_play(sfx_buttonclick,0);
+        }
         
+        if(player1_pressed & PAD_RIGHT) {
+            level.stage++;
+            sfx_play(sfx_bleep,0);
+        }
+        if(player1_pressed & PAD_LEFT) {
+            level.stage--;
+            sfx_play(sfx_bleep,0);
+        }
+        
+
+        /*
         if((selection >= 2) && (selection < 5)){
             oam_meta_spr(
                 low_byte(mspr_select_pos[selection]),
@@ -210,6 +214,7 @@ void state_menu() {
         if(player1_pressed & PAD_B) {
             break;
         }
+        */
 
         if(player1_pressed & PAD_A) {
             switch(selection){
@@ -224,11 +229,8 @@ void state_menu() {
             pal_bright(0);
             break;
         }
-        //if(player1_pressed & PAD_SELECT) {
-        //    gamestate = 0xf0;
-        //    break;
-        //}
-
+        
+        
     }
 }
 

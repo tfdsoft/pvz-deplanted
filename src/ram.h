@@ -11,7 +11,7 @@ unsigned char gamestate=0xff;
 
 unsigned char song;
 
-
+/*
 struct Player {
     // X
     union {
@@ -77,14 +77,17 @@ struct Camera {
         };
     } y;
 };
+*/
 
+struct Plants {
 
-__attribute__((retain))
-uint8_t return_gamestate;
+};
 
-__attribute__((retain)) struct Player player;
-__attribute__((retain)) struct Camera camera;
-__attribute__((retain)) int16_t player_speed_x, player_speed_y;
+//__attribute__((retain)) uint8_t return_gamestate;
+
+//__attribute__((retain)) struct Player player;
+//__attribute__((retain)) struct Camera camera;
+//__attribute__((retain)) int16_t player_speed_x, player_speed_y;
 
 __attribute__((section(".prg_ram"),retain)) 
 uint8_t sram_buffer[2048];
@@ -97,4 +100,10 @@ uint8_t sram_buffer[2048];
 
 
 __attribute__((section(".prg_ram"),retain)) 
-uint8_t saved_menu_theme;
+struct {
+    uint8_t stage : 4;
+    uint8_t world : 3;
+} level;
+
+__attribute__((section(".prg_ram"),retain)) 
+uint8_t game_sun;

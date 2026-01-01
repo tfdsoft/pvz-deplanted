@@ -179,7 +179,9 @@ stall:
 
 
 
+.balign 128
 .globl irq_update_bg_palette
+    
     irq_update_bg_palette:
         ; re-use the irq pointer for the
         ; palette data
@@ -204,7 +206,7 @@ stall:
         tay
         lda (irq_ptr),y
         tay
-        lda (PAL_BG_PTR),y
+        lda (PAL_BG_PTR_OLD),y
         pha
         dex
 
@@ -213,7 +215,7 @@ stall:
         tay
         lda (irq_ptr),y
         tay
-        lda (PAL_BG_PTR),y
+        lda (PAL_BG_PTR_OLD),y
         pha
         dex
 

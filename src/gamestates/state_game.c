@@ -1,4 +1,5 @@
 putinbank(fixed_lo.game.pal)
+__attribute__((aligned(16)))
 const unsigned char pal_game_statusbar[] = {
     0x0f,0x07,0x17,0x37,
     0x2d,0x07,0x17,0x27,
@@ -7,22 +8,24 @@ const unsigned char pal_game_statusbar[] = {
 };
 
 putinbank(fixed_lo.game.pal)
+__attribute__((aligned(16)))
 const unsigned char pal_game_day[] = {
     0x0f,0x29,0x38,0x30,
-    0x00,0x21,0x26,0x30,
+    0x00,0x21,0x16,0x30,
     0x10,0x27,0x38,0x30,
     0x00,0x07,0x17,0x27
 };
 
 putinbank(fixed_lo.game.pal)
+__attribute__((aligned(16)))
 const unsigned char pal_game_night[]={
     0x0f,0x0c,0x08,0x2d,
     0x0f,0x01,0x06,0x2d,
-    0x0f,0x07,0x17,0x37,
+    0x0f,0x07,0x08,0x2d,
     0x0f,0x07,0x17,0x27
 };
 
-putinbank(extra_code_bank.game.nt)
+putinbank(extra_code_bank_1.game.nt)
 const unsigned char nt_game_statusbar[] = {
 0x02,0x00,0x02,0x20,0x10,0x11,0x11,0x12,0x11,0x02,0x18,0x13,0x00,0x00,0x14,0x0c,
 0x0d,0x15,0x01,0x02,0x18,0x16,0x00,0x00,0x14,0x0e,0x0f,0x15,0x01,0x02,0x18,0x16,
@@ -31,7 +34,7 @@ const unsigned char nt_game_statusbar[] = {
 0x02,0x00
 };
 
-putinbank(extra_code_bank.game.nt)
+putinbank(extra_code_bank_1.game.nt)
 const unsigned char nt_game_conveyer[] = {
 0x01,0x00,0x01,0x20,0x10,0x11,0x01,0x1b,0x13,0x00,0x00,0x14,0x00,0x01,0x1b,0x16,
 0x00,0x00,0x14,0x00,0x01,0x1b,0x16,0x00,0x00,0x14,0x20,0x01,0x1b,0x16,0x00,0x00,
@@ -39,7 +42,7 @@ const unsigned char nt_game_conveyer[] = {
 0x03,0xaa,0x01,0x07,0x0a,0x01,0x07,0x00,0x01,0x2f,0x01,0x00
 };
 
-putinbank(extra_code_bank.game.nt)
+putinbank(extra_code_bank_1.game.nt)
 const unsigned char nt_game_day[] = {
 0x03,0x00,0x03,0x3f,0x01,0x03,0x5f,0x1f,0x1d,0x01,0x03,0x1d,0x02,0x04,0x01,0x03,
 0x1d,0x05,0x06,0x07,0x08,0x07,0x08,0x07,0x08,0x07,0x08,0x07,0x08,0x07,0x08,0x07,
@@ -88,60 +91,137 @@ const unsigned char nt_game_day[] = {
 0x20,0x00,0x03,0x06,0x22,0x00,0x03,0x06,0x02,0x00,0x03,0x16,0x03,0x00
 };
 
-putinbank(extra_code_bank.game)
-void state_game() {
-    unsigned char statusbar_scroll = 0;
-    automatic_fs_updates = 1;
+putinbank(extra_code_bank_1.game.musicids)
+const unsigned char mus_ids[] = {
+    song_grasswalk,
+    song_moongrains,
+    song_watery_graves,
+    song_rigor_mormist,
+    song_graze_the_roof_wip
+};
 
-    vram_adr(0x000);
-    donut_decompress_vram(chr_game_stage_day, chr_bank_1);
+putinbank(extra_code_bank_1.game.statusbar)
+void tick_statusbar(unsigned char statusbar_scroll){
 
-    set_2k_chr_0(8);
-    vram_adr(0x000);
-    donut_decompress_vram(chr_game_statusbar, chr_bank_1);
+    switch (level.stage){
+        default:
+            break;
+        case 4:
+        case 9:
+            one_vram_buffer_repeat(
+                (0x20 + ((statusbar_scroll >> 2) & 3)), 
+                28, NT_ADR_A(2,4)
+            );
+    }
+}
 
-    vram_adr(0x2000);
-    vram_unrle(nt_game_conveyer);
-    vram_adr(0x2800);
-    vram_unrle_ignore0(nt_game_day);
+putinbank(extra_code_bank_1.game.assets)
+void load_game_assets(){
+    unsigned char song;
 
-
+    // LOAD THE STATUSBAR
     pal_bg(pal_game_statusbar);
 
+    set_2k_chr_0(8);
+    vram_adr(0);
+    donut_decompress_vram(chr_game_statusbar, chr_bank_1);
     
+    song = mus_ids[(level.world)];
+
+    // LOAD STAGE BACKGROUND GRAPHICS
+    set_2k_chr_0(0);
+    vram_adr(0);
+    switch(level.world) {
+        default:
+            donut_decompress_vram(chr_game_stage_day, chr_bank_1);
+            break;
+        //case 0x20:
+        //case 0x30:
+            //donut_decompress_vram(chr_game_stage_pool, chr_bank_1);
+        //    break;
+        //case 0x40:
+            //donut_decompress_vram(chr_game_stage_roof, chr_bank_1);
+        //    break;
+    }
+
+    // LOAD STATUSBAR TILEMAP
+    vram_adr(0x2000);
+    switch(level.stage){
+        default:
+            vram_unrle(nt_game_statusbar);
+            break;
+        case 4:
+            vram_unrle(nt_game_conveyer);
+            song = song_loonboon;
+            break;
+        case 9:
+            vram_unrle(nt_game_conveyer);
+            song = song_ultimate_battle;
+            if(level.world == 4){ // which is actually 5 
+                song = song_braniac_maniac;
+            } 
+            break;
+    }
+    
+    // LOAD STAGE TILEMAP
+    vram_adr(0x2800);
+    switch(level.world) {
+        default:
+            vram_unrle(nt_game_day);
+            break;
+    }
+    
+    music_play(song);
+}
+
+
+putinbank(extra_code_bank_1.game)
+void state_game() {
+    unsigned char statusbar_scroll = 0;
+    unsigned char* palette_ptr;
+
+    automatic_fs_updates = 0;
+    
+    //level = 0x20;
+
+    load_game_assets();
+    
+    if (level.world & 1) palette_ptr = (uint8_t*)pal_game_night;
+    else palette_ptr = (uint8_t*)pal_game_day;
+
     flush_irq();
     add_interrupt(6, irq_set_chr);
         IRQ(0).arg0 = 0;
         IRQ(0).arg1 = 8;
 
     add_interrupt(32, irq_update_bg_palette);
-        IRQ(1).arg0 = ((uint16_t)pal_game_day & 0xff);
-        IRQ(1).arg1 = ((uint16_t)pal_game_day >> 8);
+        IRQ(1).arg0 = ((uint16_t)palette_ptr & 0xff);
+        IRQ(1).arg1 = ((uint16_t)palette_ptr >> 8);
 
     enable_irq();
 
 
     ppu_on_all();
-    pal_fade_to(0,4);
+    pal_bright(4);
+    automatic_fs_updates = 1;
 
-    music_play(song_loonboon);
-
-
-    wait_frames(6);
 
     while(1){
         ppu_wait_nmi();
         scroll(0,0);
         statusbar_scroll++;
         oam_clear();
+        
+        tick_statusbar(statusbar_scroll);
 
-        one_vram_buffer_repeat(
-            (0x20 + ((statusbar_scroll >> 2) & 3)), 
-            28, NT_ADR_A(2,4)
-        );
+        
 
         if(player1_pressed & PAD_A){
-            music_play(song_win_music_dot_oh_gee_gee);
+            unsigned char song = song_win_music_dot_oh_gee_gee;
+            if ((level.world == 4) && (level.stage == 9)) {
+                song = song_final_fanfare_dot_oh_gee_gee;
+            }
+            music_play(song);
             for(short i=270; i>0; i--){
                 ppu_wait_nmi();
             }

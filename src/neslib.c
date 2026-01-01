@@ -67,7 +67,7 @@ __attribute__((retain)) uint8_t * __zp PAL_SPR_PTR;
 __attribute__((section(".zp.name_upd_adr"),retain)) volatile const char *NAME_UPD_ADR;
 __attribute__((section(".zp.name_upd_enable"),retain)) volatile char NAME_UPD_ENABLE;
 
-
+__attribute__((aligned(256)))
 static const uint8_t palBrightTable[192] = {
     // 0
     0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f, 0x0f,
