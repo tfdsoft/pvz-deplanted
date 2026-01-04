@@ -284,16 +284,14 @@ stall:
         ;; CODE BORROWED FROM THE NESDEV WIKI
         ; The first two PPU writes can come anytime during the scanline:
         ; Nametable number << 2 to $2006.
-        lda #0
-        lsr
-        lda #1
-        rol
+        ldy irq_table_offset
+        lda irq_table+7,y  ; nametable ID 
         asl
         asl
         sta $2006
 
         ; Y position to $2005.
-        lda #49
+        lda irq_table+6,y  ; nametable ID 
         sta $2005
         
         ; Prepare for the 2 later writes:
@@ -301,7 +299,7 @@ stall:
         and #%11111000
         asl
         asl
-        ldx #0  ; X position in X for $2005 later.
+        ldx irq_table+5,y  ; X position in X for $2005 later.
         sta irq_tmp
 
         ; ((Y & $F8) << 2) | (X >> 3) in A for $2006 later.
@@ -313,8 +311,6 @@ stall:
 
         ldy PPU_MASK_VAR
 
-        php
-        plp
         ; The last two PPU writes must happen during hblank:
         stx $2005
         sta $2006

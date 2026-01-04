@@ -2,18 +2,18 @@ putinbank(fixed_lo.game.pal)
 __attribute__((aligned(16)))
 const unsigned char pal_game_statusbar[] = {
     0x0f,0x07,0x17,0x37,
-    0x2d,0x07,0x17,0x27,
-    0x00,0x00,0x10,0x30,
-    0x10,0x19,0x28,0x38
+    0x0f,0x07,0x17,0x27,
+    0x0f,0x00,0x10,0x30,
+    0x0f,0x19,0x28,0x38
 };
 
 putinbank(fixed_lo.game.pal)
 __attribute__((aligned(16)))
 const unsigned char pal_game_day[] = {
     0x0f,0x29,0x38,0x30,
-    0x00,0x21,0x16,0x30,
-    0x10,0x27,0x38,0x30,
-    0x00,0x07,0x17,0x27
+    0x17,0x21,0x16,0x30,
+    0x27,0x27,0x38,0x30,
+    0x17,0x07,0x17,0x27
 };
 
 putinbank(fixed_lo.game.pal)
@@ -116,7 +116,7 @@ void tick_statusbar(unsigned char statusbar_scroll){
 }
 
 putinbank(extra_code_bank_1.game.assets)
-void load_game_assets(){
+unsigned char game_load_assets(){
     unsigned char song;
 
     // LOAD THE STATUSBAR
@@ -171,9 +171,69 @@ void load_game_assets(){
             break;
     }
     
-    music_play(song);
+    return song;
 }
 
+putinbank(extra_code_bank_1.game.assets)
+unsigned char game_choose_seeds(){
+    wait_frames(90);
+
+    uint16_t
+        camera_scroll=0,
+        camera_speed=0;
+
+    // scroll the camera over
+    for(uint8_t cnt=0; cnt < 60; cnt++){
+        ppu_wait_nmi();
+        camera_speed += 0x08; 
+        camera_scroll += camera_speed;
+        IRQ(1).arg2 = high_byte(camera_scroll);
+    }
+    for(uint8_t cnt=0; cnt < 60; cnt++){
+        ppu_wait_nmi();
+        camera_speed -= 0x08; 
+        camera_scroll += camera_speed;
+        IRQ(1).arg2 = high_byte(camera_scroll);
+    }
+
+    // wait a bit, then show the choose seeds screen
+    wait_frames(30);
+    camera_speed = 0xff; // re-use camera_speed
+    while(1){
+        ppu_wait_nmi();
+        camera_speed -= (camera_speed / 4);
+        IRQ(2).reload = camera_speed;
+
+        if(player1_pressed & PAD_START) break;
+    }
+
+    // SEED CHOOSINGS GO HERE 
+
+    
+    // hide the choose seeds screen, then wait 30 frames
+    while(camera_speed < 0xf0) {
+        ppu_wait_nmi();
+        IRQ(2).reload = camera_speed;
+        camera_speed += (camera_speed / 4)+1;
+    }
+    IRQ(2).reload = 0xff;
+    wait_frames(30);
+    
+    // scroll the camera back
+    camera_speed = 0; // RESET CAMERA SPEED. DON'T FORGET!
+    for(uint8_t cnt=0; cnt < 60; cnt++){
+        ppu_wait_nmi();
+        camera_speed -= 0x08; 
+        camera_scroll += camera_speed;
+        IRQ(1).arg2 = high_byte(camera_scroll);
+    }
+    for(uint8_t cnt=0; cnt < 60; cnt++){
+        ppu_wait_nmi();
+        camera_speed += 0x08; 
+        camera_scroll += camera_speed;
+        IRQ(1).arg2 = high_byte(camera_scroll);
+    }
+}
 
 putinbank(extra_code_bank_1.game)
 void state_game() {
@@ -184,19 +244,32 @@ void state_game() {
     
     //level = 0x20;
 
-    load_game_assets();
+    unsigned char song = game_load_assets();
     
     if (level.world & 1) palette_ptr = (uint8_t*)pal_game_night;
     else palette_ptr = (uint8_t*)pal_game_day;
 
     flush_irq();
+    // set statusbar chr
     add_interrupt(6, irq_set_chr);
         IRQ(0).arg0 = 0;
         IRQ(0).arg1 = 8;
 
+    // screen split
     add_interrupt(32, irq_update_bg_palette);
         IRQ(1).arg0 = ((uint16_t)palette_ptr & 0xff);
         IRQ(1).arg1 = ((uint16_t)palette_ptr >> 8);
+        IRQ(1).arg3 = 49; // y position
+        IRQ(1).arg4 = 2; // nametable number (0-3)
+
+    // second screen split (for choosing seeds)
+    add_interrupt(255, irq_update_bg_palette);
+        IRQ(2).arg0 = ((uint16_t)pal_game_statusbar & 0xff);
+        IRQ(2).arg1 = ((uint16_t)pal_game_statusbar >> 8);
+        IRQ(2).arg2 = 0; // x position
+        IRQ(2).arg3 = 68; // y position
+        IRQ(2).arg4 = 0; // nametable number (0-3)
+        
 
     enable_irq();
 
@@ -205,6 +278,14 @@ void state_game() {
     pal_bright(4);
     automatic_fs_updates = 1;
 
+
+
+    music_play(song_choose_your_seeds);
+
+    game_choose_seeds();
+    
+    
+    music_play(song);
 
     while(1){
         ppu_wait_nmi();
