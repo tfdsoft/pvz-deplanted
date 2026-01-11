@@ -148,6 +148,7 @@ void state_startup() {
 
     automatic_fs_updates = 0;
 
+    unsigned char sfx = 0;
     while(1){
         ppu_wait_nmi();
 
@@ -163,12 +164,15 @@ void state_startup() {
         //if((player1_pressed & PAD_LEFT)) music_play(--song);
         
         if((player1_pressed & PAD_RIGHT)) {
-            ++song;
-            if(song == song_max) song = 0;
-            music_play(song);
+            ++sfx;
+            if(sfx >= sfx_max) sfx = 0;
+        }
+
+        if((player1_pressed & PAD_A)) {
+            sfx_play(sfx,0);
         }
         
-        if(player1_pressed & PAD_A) {
+        if(player1_pressed & PAD_START) {
             sfx_play(sfx_quitsound_01,0);
             automatic_fs_updates = 1;
 
@@ -176,7 +180,8 @@ void state_startup() {
             break;
         }
         
-        
+        one_vram_buffer(num_to_ascii((sfx & 0x0f)),NT_ADR_A(3,2));
+        one_vram_buffer(num_to_ascii((sfx & 0xf0)>>4),NT_ADR_A(2,2));
 
 
 

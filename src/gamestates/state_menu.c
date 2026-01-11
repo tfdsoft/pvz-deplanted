@@ -154,7 +154,7 @@ void state_menu() {
             NT_ADR_A(19,14)
         );
         one_vram_buffer(
-            (0x31 + level.stage),
+            (0x30 + level.stage),
             NT_ADR_A(21,14)
         );
 

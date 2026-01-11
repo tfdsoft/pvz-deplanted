@@ -14,7 +14,7 @@
 .export _music_data_pvz_deplanted_music0:=music_data_pvz_deplanted_music0
 
 music_data_pvz_deplanted_music0:
-	.byte 2
+	.byte 4
 	.word @instruments
 	.word @instruments_exp
 	.word @samples-5
@@ -122,7 +122,7 @@ music_data_pvz_deplanted_music0:
 	.word @song1ch19
 	;
 	.word 204,170
-; 02 : dpcm
+; 02 : ADVENTURE START
 	.word @song2ch0
 	.word @song2ch1
 	.word @song2ch2
@@ -174,71 +174,175 @@ music_data_pvz_deplanted_music0:
 	.word @song2ch19
 	;
 	.word 307,256
+; 03 : FINAL FANFARE DOT OH GEE GEE
+	.word @song3ch0
+	.word @song3ch1
+	.word @song3ch2
+	.word @song3ch3
+	.word @song3ch4
+	; FAMISTUDIO_EXP_EPSM_SSG_CHN_CNT > 0
+	.word @song3ch5
+	;
+	; FAMISTUDIO_EXP_EPSM_SSG_CHN_CNT > 1
+	.word @song3ch6
+	;
+	; FAMISTUDIO_EXP_EPSM_SSG_CHN_CNT > 2
+	.word @song3ch7
+	;
+	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 0
+	.word @song3ch8
+	;
+	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 1
+	.word @song3ch9
+	;
+	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 2
+	.word @song3ch10
+	;
+	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 3
+	.word @song3ch11
+	;
+	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 4
+	.word @song3ch12
+	;
+	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 5
+	.word @song3ch13
+	;
+	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN1_ENABLE
+	.word @song3ch14
+	;
+	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN2_ENABLE
+	.word @song3ch15
+	;
+	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN3_ENABLE
+	.word @song3ch16
+	;
+	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN4_ENABLE
+	.word @song3ch17
+	;
+	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN5_ENABLE
+	.word @song3ch18
+	;
+	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN6_ENABLE
+	.word @song3ch19
+	;
+	.word 307,256
+; 04 : dpcm
+	.word @song4ch0
+	.word @song4ch1
+	.word @song4ch2
+	.word @song4ch3
+	.word @song4ch4
+	; FAMISTUDIO_EXP_EPSM_SSG_CHN_CNT > 0
+	.word @song4ch5
+	;
+	; FAMISTUDIO_EXP_EPSM_SSG_CHN_CNT > 1
+	.word @song4ch6
+	;
+	; FAMISTUDIO_EXP_EPSM_SSG_CHN_CNT > 2
+	.word @song4ch7
+	;
+	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 0
+	.word @song4ch8
+	;
+	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 1
+	.word @song4ch9
+	;
+	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 2
+	.word @song4ch10
+	;
+	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 3
+	.word @song4ch11
+	;
+	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 4
+	.word @song4ch12
+	;
+	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 5
+	.word @song4ch13
+	;
+	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN1_ENABLE
+	.word @song4ch14
+	;
+	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN2_ENABLE
+	.word @song4ch15
+	;
+	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN3_ENABLE
+	.word @song4ch16
+	;
+	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN4_ENABLE
+	.word @song4ch17
+	;
+	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN5_ENABLE
+	.word @song4ch18
+	;
+	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN6_ENABLE
+	.word @song4ch19
+	;
+	.word 307,256
 
 .export music_data_pvz_deplanted_music0
 .global FAMISTUDIO_DPCM_PTR
 
 @instruments:
-	.word @env9,@env11,@env12,@env0 ; 00 : blank
+	.word @env14,@env12,@env13,@env0 ; 00 : blank
 
 @instruments_exp:
-	.word @env9, @env11, @env0 ; 00 : 28. organ (FM)
-	.word @env17, @env11
+	.word @env10, @env12, @env0 ; 00 : 28. organ (FM)
+	.word @env19, @env12
 	.byte $00, $03
 	.word 4000
 	.word @instrument_epsm_extra_patch0
-	.word @env9, @env11, @env0 ; 01 : 2. pizzicato (FM)
-	.word @env17, @env11
+	.word @env10, @env12, @env0 ; 01 : 2. pizzicato (FM)
+	.word @env19, @env12
 	.byte $00, $03
 	.word 4000
 	.word @instrument_epsm_extra_patch1
-	.word @env9, @env11, @env0 ; 02 : 1. Piano (FM)
-	.word @env17, @env11
+	.word @env10, @env12, @env0 ; 02 : 1. Piano (FM)
+	.word @env19, @env12
 	.byte $00, $03
 	.word 4000
 	.word @instrument_epsm_extra_patch2
-	.word @env9, @env11, @env0 ; 03 : 5. strings (FM)
-	.word @env17, @env11
+	.word @env10, @env12, @env0 ; 03 : 5. strings (FM)
+	.word @env19, @env12
 	.byte $00, $03
 	.word 4000
 	.word @instrument_epsm_extra_patch3
-	.word @env9, @env11, @env0 ; 04 : 21. Pizzicato (FM)
-	.word @env17, @env11
+	.word @env10, @env12, @env0 ; 04 : 21. Pizzicato (FM)
+	.word @env19, @env12
 	.byte $00, $03
 	.word 4000
 	.word @instrument_epsm_extra_patch4
-	.word @env9, @env11, @env0 ; 05 : blank: epsm edition
-	.word @env17, @env11
+	.word @env8, @env12, @env0 ; 05 : blank: epsm edition
+	.word @env19, @env12
 	.byte $00, $03
 	.word 4000
 	.word @instrument_epsm_extra_patch5
-	.word @env9, @env11, @env0 ; 06 : 17. Glockenspiel (FM)
-	.word @env17, @env11
+	.word @env10, @env12, @env0 ; 06 : 17. Glockenspiel (FM)
+	.word @env19, @env12
 	.byte $00, $03
 	.word 4000
 	.word @instrument_epsm_extra_patch6
-	.word @env6, @env11, @env23 ; 07 : 7. Harp (PSG)
-	.word @env17, @env11
+	.word @env6, @env12, @env25 ; 07 : 7. Harp (PSG)
+	.word @env19, @env12
 	.byte $00, $03
 	.word 4000
 	.word @instrument_epsm_extra_patch7
-	.word @env9, @env11, @env0 ; 08 : 6. Attacker Bass (FM)
-	.word @env17, @env11
+	.word @env10, @env12, @env0 ; 08 : 6. Attacker Bass (FM)
+	.word @env19, @env12
 	.byte $00, $03
 	.word 4000
 	.word @instrument_epsm_extra_patch8
-	.word @env9, @env11, @env5 ; 09 : 3. Oboe (FM)
-	.word @env17, @env11
+	.word @env10, @env12, @env5 ; 09 : 3. Oboe (FM)
+	.word @env19, @env12
 	.byte $00, $03
 	.word 4000
 	.word @instrument_epsm_extra_patch10
-	.word @env9, @env11, @env0 ; 0a : 27. sinewave (FM)
-	.word @env17, @env11
+	.word @env10, @env12, @env0 ; 0a : 27. sinewave (FM)
+	.word @env19, @env12
 	.byte $00, $03
 	.word 4000
 	.word @instrument_epsm_extra_patch11
-	.word @env9, @env11, @env0 ; 0b : 76. cerebass (FM)
-	.word @env17, @env11
+	.word @env10, @env12, @env0 ; 0b : 76. cerebass (FM)
+	.word @env19, @env12
 	.byte $00, $03
 	.word 4000
 	.word @instrument_epsm_extra_patch12
@@ -250,7 +354,7 @@ music_data_pvz_deplanted_music0:
 @instrument_epsm_extra_patch2:
 	.byte $3a,$c0,$01,$1f,$18,$04,$34,$00,$33,$1f,$00,$00,$f4,$00,$32,$1f,$04,$00,$b1,$00,$01,$1d,$0c,$00,$f7,$00,$1b,$25,$2c,$11,$00
 @instrument_epsm_extra_patch3:
-	.byte $24,$c0,$31,$13,$00,$04,$13,$00,$21,$10,$01,$04,$16,$00,$73,$14,$00,$04,$13,$00,$61,$0e,$00,$04,$26,$00,$21,$1a,$1d,$19,$00
+	.byte $24,$c0,$31,$13,$00,$04,$13,$00,$21,$10,$01,$04,$16,$00,$73,$14,$00,$04,$13,$00,$61,$0e,$00,$04,$26,$00,$21,$20,$1d,$1f,$00
 @instrument_epsm_extra_patch4:
 	.byte $13,$c0,$72,$1f,$16,$18,$48,$00,$31,$1f,$1f,$0d,$06,$00,$24,$1f,$15,$10,$48,$00,$11,$1f,$1f,$10,$09,$00,$10,$22,$17,$0e,$00
 @instrument_epsm_extra_patch5:
@@ -285,36 +389,40 @@ music_data_pvz_deplanted_music0:
 @env7:
 	.byte $b8,$be,$00,$01
 @env8:
-	.byte $00,$cf,$c6,$c2,$c0,$00,$04
+	.byte $04,$cf,$00,$01,$ca,$c5,$c0,$00,$06
 @env9:
-	.byte $00,$cf,$7f,$00,$02
+	.byte $00,$cf,$c6,$c2,$c0,$00,$04
 @env10:
-	.byte $ca,$7f,$00,$00
+	.byte $00,$cf,$7f,$00,$02
 @env11:
-	.byte $c0,$7f,$00,$01
+	.byte $ca,$7f,$00,$00
 @env12:
-	.byte $7f,$00,$00
+	.byte $c0,$7f,$00,$01
 @env13:
-	.byte $c1,$7f,$00,$00
+	.byte $7f,$00,$00
 @env14:
-	.byte $c0,$c5,$00,$01
+	.byte $04,$cf,$00,$01,$c0,$00,$04
 @env15:
-	.byte $00,$cf,$c8,$c5,$c4,$c3,$c2,$c1,$c0,$00,$08
+	.byte $c1,$7f,$00,$00
 @env16:
-	.byte $00,$cf,$cc,$c9,$c6,$c5,$c3,$c1,$c0,$00,$08
+	.byte $c0,$c5,$00,$01
 @env17:
-	.byte $c8,$7f,$00,$00
+	.byte $00,$cf,$c8,$c5,$c4,$c3,$c2,$c1,$c0,$00,$08
 @env18:
-	.byte $c9,$d1,$00,$01
+	.byte $00,$cf,$cc,$c9,$c6,$c5,$c3,$c1,$c0,$00,$08
 @env19:
-	.byte $00,$cf,$ca,$c7,$c4,$c3,$c2,$c1,$c0,$00,$08
+	.byte $c8,$7f,$00,$00
 @env20:
-	.byte $00,$c4,$c3,$c2,$c1,$c1,$c0,$00,$06
+	.byte $c9,$d1,$00,$01
 @env21:
-	.byte $00,$cb,$c6,$c3,$c2,$c1,$c0,$00,$06
+	.byte $00,$cf,$ca,$c7,$c4,$c3,$c2,$c1,$c0,$00,$08
 @env22:
-	.byte $00,$c7,$c5,$c4,$c3,$c2,$c2,$c1,$02,$c0,$00,$09
+	.byte $00,$c4,$c3,$c2,$c1,$c1,$c0,$00,$06
 @env23:
+	.byte $00,$cb,$c6,$c3,$c2,$c1,$c0,$00,$06
+@env24:
+	.byte $00,$c7,$c5,$c4,$c3,$c2,$c2,$c1,$02,$c0,$00,$09
+@env25:
 	.byte $00,$bf,$c0,$00,$02
 
 @samples:
@@ -340,11 +448,11 @@ music_data_pvz_deplanted_music0:
 	.byte $00+.lobyte(FAMISTUDIO_DPCM_PTR),$ff,$0f,$40,$06 ; 13 evillaugh3 (Pitch:15)
 	.byte $40+.lobyte(FAMISTUDIO_DPCM_PTR),$ff,$0f,$40,$06 ; 14 evillaugh4 (Pitch:15)
 	.byte $20+.lobyte(FAMISTUDIO_DPCM_PTR),$9e,$0f,$40,$08 ; 15 F4 - oil drum snare (Pitch:15)
-	.byte $00+.lobyte(FAMISTUDIO_DPCM_PTR),$ff,$0f,$40,$02 ; 16 finalfanfare0 (Pitch:15)
-	.byte $40+.lobyte(FAMISTUDIO_DPCM_PTR),$ff,$0f,$40,$02 ; 17 finalfanfare1 (Pitch:15)
-	.byte $00+.lobyte(FAMISTUDIO_DPCM_PTR),$ff,$0f,$40,$03 ; 18 finalfanfare2 (Pitch:15)
+	.byte $00+.lobyte(FAMISTUDIO_DPCM_PTR),$ff,$0f,$3e,$02 ; 16 finalfanfare0 (Pitch:15)
+	.byte $40+.lobyte(FAMISTUDIO_DPCM_PTR),$ff,$0f,$38,$02 ; 17 finalfanfare1 (Pitch:15)
+	.byte $00+.lobyte(FAMISTUDIO_DPCM_PTR),$ff,$0f,$58,$03 ; 18 finalfanfare2 (Pitch:15)
 	.byte $40+.lobyte(FAMISTUDIO_DPCM_PTR),$ff,$0f,$40,$03 ; 19 finalfanfare3 (Pitch:15)
-	.byte $00+.lobyte(FAMISTUDIO_DPCM_PTR),$e9,$0f,$40,$04 ; 1a finalfanfare4 (Pitch:15)
+	.byte $00+.lobyte(FAMISTUDIO_DPCM_PTR),$e9,$0f,$4c,$04 ; 1a finalfanfare4 (Pitch:15)
 	.byte $66+.lobyte(FAMISTUDIO_DPCM_PTR),$50,$0f,$40,$01 ; 1b industrial snare (Pitch:15)
 	.byte $0a+.lobyte(FAMISTUDIO_DPCM_PTR),$3b,$0f,$40,$09 ; 1c laser dabs (Pitch:15)
 	.byte $00+.lobyte(FAMISTUDIO_DPCM_PTR),$26,$0f,$40,$09 ; 1d snarish drum (Pitch:15)
@@ -1462,10 +1570,7 @@ music_data_pvz_deplanted_music0:
 	.byte $42
 	.word @song1ch15loop
 @song2ch0:
-	.byte $46, $0a
-@song2ch0loop:
-	.byte $ff, $ff, $ff, $ff, $42
-	.word @song2ch0loop
+	.byte $46, $1d, $95, $44, $00
 @song2ch19:
 @song2ch18:
 @song2ch17:
@@ -1484,12 +1589,61 @@ music_data_pvz_deplanted_music0:
 @song2ch3:
 @song2ch2:
 @song2ch1:
-@song2ch1loop:
-	.byte $ff, $ff, $ff, $ff, $42
-	.word @song2ch1loop
+	.byte $95, $44, $00
 @song2ch4:
-@song2ch4loop:
+	.byte $11, $81, $12, $81, $13, $81, $14, $81, $15, $83, $44, $00
+@song3ch0:
+	.byte $46, $1d, $95, $44, $00
+@song3ch19:
+@song3ch18:
+@song3ch17:
+@song3ch16:
+@song3ch15:
+@song3ch14:
+@song3ch13:
+@song3ch12:
+@song3ch11:
+@song3ch10:
+@song3ch9:
+@song3ch8:
+@song3ch7:
+@song3ch6:
+@song3ch5:
+@song3ch3:
+@song3ch2:
+@song3ch1:
+	.byte $95, $44, $00
+@song3ch4:
+	.byte $17, $81, $18, $81, $19, $81, $1a, $81, $1b, $83, $44, $00
+@song4ch0:
+	.byte $46, $0a
+@song4ch0loop:
+	.byte $ff, $ff, $ff, $ff, $42
+	.word @song4ch0loop
+@song4ch19:
+@song4ch18:
+@song4ch17:
+@song4ch16:
+@song4ch15:
+@song4ch14:
+@song4ch13:
+@song4ch12:
+@song4ch11:
+@song4ch10:
+@song4ch9:
+@song4ch8:
+@song4ch7:
+@song4ch6:
+@song4ch5:
+@song4ch3:
+@song4ch2:
+@song4ch1:
+@song4ch1loop:
+	.byte $ff, $ff, $ff, $ff, $42
+	.word @song4ch1loop
+@song4ch4:
+@song4ch4loop:
 	.byte $21, $22, $23, $24, $17, $18, $19, $1a, $1b, $11, $12, $13, $14, $15, $00, $99, $1c, $00, $83, $0b, $0c, $20, $05, $03
 	.byte $06, $02, $04, $07, $16, $01, $0d, $09, $00, $83, $1f, $00, $83, $10, $0f, $0a, $0e, $08, $00, $83, $1e, $1d, $00, $ff
 	.byte $ff, $ff, $81, $42
-	.word @song2ch4loop
+	.word @song4ch4loop

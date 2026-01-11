@@ -106,8 +106,8 @@ void tick_statusbar(unsigned char statusbar_scroll){
     switch (level.stage){
         default:
             break;
-        case 4:
-        case 9:
+        case 5:
+        case 10:
             one_vram_buffer_repeat(
                 (0x20 + ((statusbar_scroll >> 2) & 3)), 
                 28, NT_ADR_A(2,4)
@@ -150,11 +150,11 @@ unsigned char game_load_assets(){
         default:
             vram_unrle(nt_game_statusbar);
             break;
-        case 4:
+        case 5:
             vram_unrle(nt_game_conveyer);
             song = song_loonboon;
             break;
-        case 9:
+        case 10:
             vram_unrle(nt_game_conveyer);
             song = song_ultimate_battle;
             if(level.world == 4){ // which is actually 5 
@@ -175,7 +175,7 @@ unsigned char game_load_assets(){
 }
 
 putinbank(extra_code_bank_1.game.assets)
-unsigned char game_choose_seeds(){
+void game_choose_seeds(){
     wait_frames(90);
 
     uint16_t
@@ -299,7 +299,7 @@ void state_game() {
 
         if(player1_pressed & PAD_A){
             unsigned char song = song_win_music_dot_oh_gee_gee;
-            if ((level.world == 4) && (level.stage == 9)) {
+            if ((level.world == 4) && (level.stage == 10)) {
                 song = song_final_fanfare_dot_oh_gee_gee;
             }
             music_play(song);
