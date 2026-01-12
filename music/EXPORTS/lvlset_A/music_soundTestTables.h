@@ -94,7 +94,7 @@ putinbank(sound_test_bank.musictext.index) const uint8_t xbgmlookuptable[] = {
 	song_moongrains,
 	song_watery_graves,
 	song_rigor_mormist,
-	song_graze_the_roof_wip,
+	song_graze_the_roof,
 	song_ultimate_battle,
 	song_braniac_maniac,
 	song_loonboon,

@@ -354,7 +354,7 @@ music_data_pvz_deplanted_music0:
 @instrument_epsm_extra_patch2:
 	.byte $3a,$c0,$01,$1f,$18,$04,$34,$00,$33,$1f,$00,$00,$f4,$00,$32,$1f,$04,$00,$b1,$00,$01,$1d,$0c,$00,$f7,$00,$1b,$25,$2c,$11,$00
 @instrument_epsm_extra_patch3:
-	.byte $24,$c0,$31,$13,$00,$04,$13,$00,$21,$10,$01,$04,$16,$00,$73,$14,$00,$04,$13,$00,$61,$0e,$00,$04,$26,$00,$21,$20,$1d,$1f,$00
+	.byte $24,$c0,$31,$13,$00,$04,$13,$00,$21,$10,$01,$04,$16,$00,$73,$14,$00,$04,$13,$00,$61,$0e,$00,$04,$26,$00,$21,$1c,$1d,$1b,$00
 @instrument_epsm_extra_patch4:
 	.byte $13,$c0,$72,$1f,$16,$18,$48,$00,$31,$1f,$1f,$0d,$06,$00,$24,$1f,$15,$10,$48,$00,$11,$1f,$1f,$10,$09,$00,$10,$22,$17,$0e,$00
 @instrument_epsm_extra_patch5:
@@ -455,13 +455,14 @@ music_data_pvz_deplanted_music0:
 	.byte $00+.lobyte(FAMISTUDIO_DPCM_PTR),$e9,$0f,$4c,$04 ; 1a finalfanfare4 (Pitch:15)
 	.byte $66+.lobyte(FAMISTUDIO_DPCM_PTR),$50,$0f,$40,$01 ; 1b industrial snare (Pitch:15)
 	.byte $0a+.lobyte(FAMISTUDIO_DPCM_PTR),$3b,$0f,$40,$09 ; 1c laser dabs (Pitch:15)
-	.byte $00+.lobyte(FAMISTUDIO_DPCM_PTR),$26,$0f,$40,$09 ; 1d snarish drum (Pitch:15)
-	.byte $42+.lobyte(FAMISTUDIO_DPCM_PTR),$88,$0d,$40,$07 ; 1e sunflower (Pitch:13)
-	.byte $3f+.lobyte(FAMISTUDIO_DPCM_PTR),$0a,$0f,$40,$07 ; 1f tennis (Pitch:15)
-	.byte $00+.lobyte(FAMISTUDIO_DPCM_PTR),$ff,$0f,$40,$00 ; 20 winmusic0 (Pitch:15)
-	.byte $40+.lobyte(FAMISTUDIO_DPCM_PTR),$ff,$0f,$40,$00 ; 21 winmusic1 (Pitch:15)
-	.byte $00+.lobyte(FAMISTUDIO_DPCM_PTR),$ff,$0f,$40,$01 ; 22 winmusic2 (Pitch:15)
-	.byte $40+.lobyte(FAMISTUDIO_DPCM_PTR),$97,$0f,$40,$01 ; 23 winmusic3 (Pitch:15)
+	.byte $19+.lobyte(FAMISTUDIO_DPCM_PTR),$37,$0f,$40,$09 ; 1d scratch standard (Pitch:15)
+	.byte $00+.lobyte(FAMISTUDIO_DPCM_PTR),$26,$0f,$40,$09 ; 1e snarish drum (Pitch:15)
+	.byte $42+.lobyte(FAMISTUDIO_DPCM_PTR),$88,$0d,$40,$07 ; 1f sunflower (Pitch:13)
+	.byte $3f+.lobyte(FAMISTUDIO_DPCM_PTR),$0a,$0f,$40,$07 ; 20 tennis (Pitch:15)
+	.byte $00+.lobyte(FAMISTUDIO_DPCM_PTR),$ff,$0f,$40,$00 ; 21 winmusic0 (Pitch:15)
+	.byte $40+.lobyte(FAMISTUDIO_DPCM_PTR),$ff,$0f,$40,$00 ; 22 winmusic1 (Pitch:15)
+	.byte $00+.lobyte(FAMISTUDIO_DPCM_PTR),$ff,$0f,$40,$01 ; 23 winmusic2 (Pitch:15)
+	.byte $40+.lobyte(FAMISTUDIO_DPCM_PTR),$97,$0f,$40,$01 ; 24 winmusic3 (Pitch:15)
 
 @song0ch0:
 	.byte $46, $02
@@ -1257,19 +1258,19 @@ music_data_pvz_deplanted_music0:
 	.word @song1ch1loop
 @song1ch4:
 @song1ch4loop:
-	.byte $ff, $ff, $ff, $bf, $20, $81, $0b, $81, $20, $81, $20, $81
+	.byte $ff, $ff, $ff, $bf, $21, $81, $0b, $81, $21, $81, $21, $81
 @song1ref56:
-	.byte $20, $81, $0b
+	.byte $21, $81, $0b
 @song1ref59:
-	.byte $81, $20, $81, $00
+	.byte $81, $21, $81, $00
 @song1ref63:
-	.byte $81, $20, $81, $0b, $81, $20, $81, $20, $81, $0b, $81, $00
+	.byte $81, $21, $81, $0b, $81, $21, $81, $21, $81, $0b, $81, $00
 	.byte $41, $0d
 	.word @song1ref59
 	.byte $41, $0e
 	.word @song1ref56
 @song1ref81:
-	.byte $0b, $81, $20, $81, $0b, $81, $20, $81, $0b
+	.byte $0b, $81, $21, $81, $0b, $81, $21, $81, $0b
 	.byte $41, $09
 	.word @song1ref63
 	.byte $41, $13
@@ -1320,7 +1321,7 @@ music_data_pvz_deplanted_music0:
 	.word @song1ref59
 	.byte $41, $13
 	.word @song1ref56
-	.byte $81, $20, $81, $00, $81
+	.byte $81, $21, $81, $00, $81
 	.byte $41, $0a
 	.word @song1ref16
 	.byte $42
@@ -1643,7 +1644,7 @@ music_data_pvz_deplanted_music0:
 	.word @song4ch1loop
 @song4ch4:
 @song4ch4loop:
-	.byte $21, $22, $23, $24, $17, $18, $19, $1a, $1b, $11, $12, $13, $14, $15, $00, $99, $1c, $00, $83, $0b, $0c, $20, $05, $03
-	.byte $06, $02, $04, $07, $16, $01, $0d, $09, $00, $83, $1f, $00, $83, $10, $0f, $0a, $0e, $08, $00, $83, $1e, $1d, $00, $ff
-	.byte $ff, $ff, $81, $42
+	.byte $22, $23, $24, $25, $17, $18, $19, $1a, $1b, $11, $12, $13, $14, $15, $00, $99, $1c, $00, $83, $0b, $0c, $21, $05, $03
+	.byte $06, $02, $04, $07, $16, $01, $0d, $09, $00, $83, $20, $00, $83, $10, $0f, $0a, $0e, $08, $00, $83, $1f, $1d, $00, $81
+	.byte $1e, $00, $ff, $ff, $fb, $42
 	.word @song4ch4loop
