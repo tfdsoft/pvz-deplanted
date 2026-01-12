@@ -311,6 +311,8 @@ stall:
 
         ldy PPU_MASK_VAR
 
+        nop
+        nop
         ; The last two PPU writes must happen during hblank:
         stx $2005
         sta $2006
