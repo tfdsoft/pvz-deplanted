@@ -27,6 +27,9 @@ file(chr_menu_pvzlogo, chr_bank_0) = {
 
 
 // game stuff
+file(chr_game_globalsprites, chr_bank_1) = {
+    #embed "./chr/dnt/Game_GlobalSprites.bin"
+};
 file(chr_game_statusbar, chr_bank_1) = {
     #embed "./chr/dnt/Game_StatusBar.bin"
 };

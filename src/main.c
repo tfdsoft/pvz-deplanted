@@ -71,14 +71,14 @@ int main(void){
 
     //level.stage = 1;
     //level.world = 1;
-    //gamestate = 0x20;
+    gamestate = 0x20;
 
     while(1){
         __asm__("sei");
         pal_bright(0);
         ppu_off();
         oam_clear();
-        flush_irq();
+        disable_irq();
         set_chr_default();
 
         switch(gamestate){

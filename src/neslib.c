@@ -9,6 +9,10 @@
 #define high_byte(a) *((unsigned char*)&a+1)
 #define low_byte(a) *((unsigned char*)&a)
 
+#define OAM_FLIP_V		0x80
+#define OAM_FLIP_H		0x40
+#define OAM_BEHIND		0x20
+
 // implemented:
 // _pal_all,_pal_bg,_pal_spr,_pal_col,_pal_clear
 // _pal_bright,_pal_spr_bright,_pal_bg_bright

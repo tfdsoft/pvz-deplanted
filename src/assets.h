@@ -47,6 +47,7 @@ extern const uint8_t chr_menu_tfdlogo[];
 extern const uint8_t chr_menu_pvzlogo[];
 
 // chr bank 1
+extern const uint8_t chr_game_globalsprites[];
 extern const uint8_t chr_game_statusbar[];
 extern const uint8_t chr_game_stage_day[];
 

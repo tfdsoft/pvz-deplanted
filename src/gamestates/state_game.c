@@ -1,5 +1,15 @@
-putinbank(fixed_lo.game.pal)
-__attribute__((aligned(16)))
+//
+// PALETTES
+//
+putinbank(extra_code_bank_1.game.pal) __attribute__((aligned(16)))
+const unsigned char pal_game_sprites[] = {
+    0x0a,0x16,0x29,0x38,
+    0x0a,0x13,0x29,0x3c,
+    0x0a,0x17,0x00,0x30,
+    0x0a,0x00,0x10,0x20
+};
+
+putinbank(fixed_lo.game.pal) __attribute__((aligned(16)))
 const unsigned char pal_game_statusbar[] = {
     0x0f,0x07,0x17,0x37,
     0x0f,0x07,0x17,0x27,
@@ -7,8 +17,7 @@ const unsigned char pal_game_statusbar[] = {
     0x0f,0x07,0x15,0x3d
 };
 
-putinbank(fixed_lo.game.pal)
-__attribute__((aligned(16)))
+putinbank(fixed_lo.game.pal) __attribute__((aligned(16)))
 const unsigned char pal_game_day[] = {
     0x0f,0x29,0x38,0x30,
     0x0f,0x21,0x26,0x30,
@@ -16,8 +25,7 @@ const unsigned char pal_game_day[] = {
     0x17,0x29,0x17,0x30
 };
 
-putinbank(fixed_lo.game.pal)
-__attribute__((aligned(16)))
+putinbank(fixed_lo.game.pal) __attribute__((aligned(16)))
 const unsigned char pal_game_night[]={
    0x0f,0x0c,0x2d,0x00,
    0x0f,0x02,0x05,0x00,
@@ -26,6 +34,10 @@ const unsigned char pal_game_night[]={
 };
 
 
+
+//
+// NAMETABLES
+//
 putinbank(extra_code_bank_1.game.nt)
 const unsigned char nt_game_statusbar[] = {
 0x06,0x00,0x06,0x20,0x90,0x91,0x91,0x92,0x91,0x06,0x14,0x93,0x00,0x06,0x05,0x94,
@@ -70,14 +82,13 @@ const unsigned char nt_game_conveyer[] = {
 
 putinbank(extra_code_bank_1.game.nt)
 const unsigned char nt_game_day_theroad[] = {
-0x01,0x00,0x01,0xfe,0x00,0x00,0x02,0x01,0x02,0x00,0x02,0x00,0x01,0x03,0x02,0x00,
-0x01,0x16,0x02,0x00,0x00,0x02,0x00,0x01,0x02,0x02,0x01,0x02,0x00,0x01,0x15,0x02,
-0x00,0x00,0x02,0x01,0x02,0x00,0x02,0x00,0x01,0x17,0x02,0x00,0x00,0x02,0x00,0x02,
-0x00,0x02,0x01,0x02,0x00,0x01,0x40,0x02,0x00,0x01,0x12,0x02,0x02,0x00,0x01,0x09,
-0x02,0x00,0x01,0x12,0x02,0x00,0x00,0x02,0x00,0x00,0x02,0x01,0x02,0x00,0x01,0x02,
-0x02,0x00,0x01,0x12,0x02,0x00,0x02,0x00,0x02,0x00,0x02,0x00,0x02,0x00,0x00,0x02,
-0x02,0x00,0x01,0x12,0x02,0x00,0x00,0x02,0x00,0x00,0x02,0x02,0x00,0x02,0x00,0x02,
-0x02,0x00,0x01,0xfe,0x00,0x01,0xd2,0x01,0x00
+0x01,0x00,0x01,0xfe,0x00,0x00,0x02,0x01,0x03,0x00,0x02,0x01,0x03,0x00,0x01,0x17,
+0x02,0x02,0x00,0x00,0x02,0x00,0x00,0x02,0x00,0x01,0x16,0x02,0x00,0x01,0x03,0x02,
+0x01,0x02,0x00,0x01,0x16,0x02,0x01,0x04,0x00,0x02,0x00,0x01,0x02,0x02,0x02,0x00,
+0x01,0x19,0x02,0x01,0x04,0x00,0x01,0x34,0x02,0x01,0x02,0x00,0x01,0x1d,0x02,0x00,
+0x01,0x07,0x02,0x02,0x00,0x01,0x14,0x02,0x00,0x02,0x02,0x00,0x02,0x02,0x00,0x00,
+0x02,0x00,0x01,0x15,0x02,0x00,0x02,0x02,0x00,0x02,0x00,0x02,0x00,0x02,0x02,0x00,
+0x01,0xfe,0x00,0x01,0xd4,0x01,0x00
 };
 
 putinbank(extra_code_bank_1.game.nt)
@@ -231,9 +242,80 @@ const unsigned char nt_game_day_5[] = {
 0x00,0x03,0x07,0x03,0x00
 };
 
+//
+// METASPRITES
+//
+putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_0[]={
+	- 8,-16,0xc0,0,
+	- 8,  0,0xd0,0,
+	  0,-16,0xc0,0|OAM_FLIP_H,
+	  0,  0,0xd0,0|OAM_FLIP_H,
+	0x80
+};
+putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_1[]={
+	- 8,-16,0xc2,0,
+	- 8,  0,0xd2,0,
+	  0,-16,0xc2,0|OAM_FLIP_H,
+	  0,  0,0xd2,0|OAM_FLIP_H,
+	0x80
+};
+putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_2[]={
+	- 8,-16,0xc4,0,
+	- 8,  0,0xd4,0,
+	  0,-16,0xc4,0|OAM_FLIP_H,
+	  0,  0,0xd4,0|OAM_FLIP_H,
+	0x80
+};
+putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_3[]={
+	- 8,-16,0xc6,0,
+	- 8,  0,0xd6,0,
+	  0,-16,0xc6,0|OAM_FLIP_H,
+	  0,  0,0xd6,0|OAM_FLIP_H,
+	0x80
+};
+putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_4[]={
+	- 8,-16,0xc8,0,
+	- 8,  0,0xd8,0,
+	  0,-16,0xc8,0|OAM_FLIP_H,
+	  0,  0,0xd8,0|OAM_FLIP_H,
+	0x80
+};
+putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_5[]={
+	- 8,-16,0xca,0,
+	- 8,  0,0xda,0,
+	  0,-16,0xca,0|OAM_FLIP_H,
+	  0,  0,0xda,0|OAM_FLIP_H,
+	0x80
+};
+putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_6[]={
+	- 8,-16,0xcc,0,
+	- 8,  0,0xdc,0,
+	  0,-16,0xcc,0|OAM_FLIP_H,
+	  0,  0,0xdc,0|OAM_FLIP_H,
+	0x80
+};
+putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_7[]={
+	- 8,-16,0xce,0,
+	- 8,  0,0xde,0,
+	  0,-16,0xce,0|OAM_FLIP_H,
+	  0,  0,0xde,0|OAM_FLIP_H,
+	0x80
+};
 
-putinbank(extra_code_bank_1.game.musicids)
-const unsigned char mus_ids[] = {
+putinbank(extra_code_bank_1.game.ms_ptr)
+const unsigned char * const ms_game_grass_ptr[]={
+	ms_game_grass_0, 
+	ms_game_grass_1, 
+	ms_game_grass_2, 
+	ms_game_grass_3, 
+	ms_game_grass_4, 
+	ms_game_grass_5, 
+	ms_game_grass_6, 
+	ms_game_grass_7, 
+};
+
+
+putinbank(extra_code_bank_1.game.musicids) const unsigned char mus_ids[] = {
     song_grasswalk,
     song_moongrains,
     song_watery_graves,
@@ -241,8 +323,7 @@ const unsigned char mus_ids[] = {
     song_graze_the_roof
 };
 
-putinbank(extra_code_bank_1.game.tiledata)
-const unsigned char t_lawn_columns[] = {
+putinbank(extra_code_bank_1.game.tiledata) const unsigned char t_lawn_columns[] = {
     0x1a, 0x01, 0x01, 0x02,
     0x1a, 0x01, 0x01, 0x02,
     0x1b, 0x25, 0x25
@@ -262,18 +343,20 @@ void tick_statusbar(unsigned char statusbar_scroll){
     }
 }
 
-putinbank(extra_code_bank_1.game.assets)
+putinbank(extra_code_bank_1.game.functions)
 unsigned char game_load_assets(){
     unsigned char song;
 
     // LOAD THE STATUSBAR
     pal_bg(pal_game_statusbar);
+    pal_spr(pal_game_sprites);
 
     set_2k_chr_0(8);
     vram_adr(0x0);
     donut_decompress_vram(chr_menu_global, chr_bank_0);
     donut_decompress_vram(chr_menu_font_pvz_filled, chr_bank_0);
     donut_decompress_vram(chr_game_statusbar, chr_bank_1);
+    donut_decompress_vram(chr_game_globalsprites, chr_bank_1);
     
     song = mus_ids[(level.world)];
 
@@ -342,7 +425,12 @@ unsigned char game_load_assets(){
     return song;
 }
 
-putinbank(extra_code_bank_1.game.assets)
+putinbank(extra_code_bank_1.game.functions)
+void game_draw_the_FUCKING_grass(unsigned char x, unsigned char y){
+    oam_meta_spr(x,y,ms_game_grass_ptr[(x>>5)]);
+}
+
+putinbank(extra_code_bank_1.game.functions)
 void game_choose_seeds(){
     wait_frames(90);
 
@@ -366,7 +454,7 @@ void game_choose_seeds(){
 
     // wait a bit, then show the choose seeds screen
     wait_frames(20);
-    /*
+    
     camera_speed = 0xff; // re-use camera_speed
     while(1){
         ppu_wait_nmi();
@@ -389,7 +477,7 @@ void game_choose_seeds(){
         camera_speed += (camera_speed / 4)+1;
     }
     IRQ(2).reload = 0xff;
-    */
+    
     wait_frames(20);
     
     // scroll the camera back
@@ -411,135 +499,160 @@ void game_choose_seeds(){
     // HOLD IT!
     if (level.world == 0) { // if we're on the day stage...
         wait_frames(15); // wait 15 frames...
+        uint8_t x = 34;
         switch(level.stage) {
             case 1:
                 for(char i = 0; i < 9; i++){
                     for(char j = 0; j < 3; j++){
-                        wait_frames(2);
+                        for(char FRAMES=0; FRAMES < 4; FRAMES++){
+                            ppu_wait_nmi();
+                            oam_clear();
+                            
+                            uint8_t offset = ((i*3) + j);
+                            uint16_t addr = (NT_ADR_C(offset,16) + 4);
 
-                        uint8_t offset = ((i*3) + j);
-                        uint16_t addr = (NT_ADR_C(offset,16) + 4);
+                            game_draw_the_FUCKING_grass(x,148);
 
-                        one_vram_buffer_repeat_vert(
-                            0x23,
-                            3,
-                            addr+0x20
-                        );
-                        one_vram_buffer(
-                            0x28,
-                            addr+0x80
-                        );
+                            if(FRAMES == 1){
+                                one_vram_buffer_repeat_vert(
+                                    0x23,
+                                    3,
+                                    addr+0x20
+                                );
+                                one_vram_buffer(
+                                    0x28,
+                                    addr+0x80
+                                );
+                            }
+                            
+                            if(FRAMES == 3){
+                                multi_vram_buffer_vert(
+                                    (const char*)&t_lawn_columns[(j<<2)],
+                                    3,
+                                    addr+0x20
+                                );
 
-                        //sfx_play(sfx_dirt_rise,0);
+                                one_vram_buffer(
+                                    0x33,
+                                    addr
+                                );
+                                one_vram_buffer(
+                                    0x37,
+                                    addr+0x80
+                                );
 
-                        wait_frames(2);
-                        
-                        multi_vram_buffer_vert(
-                            (const char*)&t_lawn_columns[(j<<2)],
-                            3,
-                            addr+0x20
-                        );
-
-                        one_vram_buffer(
-                            0x33,
-                            addr
-                        );
-                        one_vram_buffer(
-                            0x37,
-                            addr+0x80
-                        );
-
-                        sfx_play(sfx_dirt_rise,0);
+                                sfx_play(sfx_dirt_rise,0);
+                            }
+                            x+=2;
+                        }
                     }
                 }
                 break;
             case 2:
                 for(char i = 0; i < 9; i++){
                     for(char j = 0; j < 3; j++){
-                        wait_frames(2);
+                        for(char FRAMES=0; FRAMES < 4; FRAMES++){
+                            ppu_wait_nmi();
+                            oam_clear();
 
-                        uint8_t offset = ((i*3) + j);
-                        uint16_t addr = (NT_ADR_C(offset,13) + 4);
+                            uint8_t offset = ((i*3) + j);
+                            uint16_t addr = (NT_ADR_C(offset,13) + 4);
 
-                        one_vram_buffer_repeat_vert(
-                            0x20,
-                            3,
-                            addr+0x20
-                        );
+                            game_draw_the_FUCKING_grass(x,118);
+                            game_draw_the_FUCKING_grass(x,174);
 
-                        one_vram_buffer(
-                            0x01,
-                            addr+0xe0
-                        );
-                        one_vram_buffer_repeat_vert(
-                            0x20,
-                            2,
-                            addr+0x100
-                        );
-                        one_vram_buffer(
-                            0x28,
-                            addr+0x140
-                        );
+                            if(FRAMES == 1){
+                                one_vram_buffer_repeat_vert(
+                                    0x20,
+                                    3,
+                                    addr+0x20
+                                );
 
-                        wait_frames(2);
+                                one_vram_buffer(
+                                    0x01,
+                                    addr+0xe0
+                                );
+                                one_vram_buffer_repeat_vert(
+                                    0x20,
+                                    2,
+                                    addr+0x100
+                                );
+                                one_vram_buffer(
+                                    0x28,
+                                    addr+0x140
+                                );
+                            }
 
+                            
+                            if(FRAMES == 3){
+                                one_vram_buffer(
+                                    0x33,
+                                    addr
+                                );
+                                multi_vram_buffer_vert(
+                                    (const char*)&t_lawn_columns[(j<<2)],
+                                    3,
+                                    addr+0x20
+                                );
+                                multi_vram_buffer_vert(
+                                    (const char*)&t_lawn_columns[(j<<2)],
+                                    3,
+                                    addr+0xe0
+                                );
+                                one_vram_buffer(
+                                    0x37,
+                                    addr+0x140
+                                );
 
-
-                        one_vram_buffer(
-                            0x33,
-                            addr
-                        );
-                        multi_vram_buffer_vert(
-                            (const char*)&t_lawn_columns[(j<<2)],
-                            3,
-                            addr+0x20
-                        );
-                        multi_vram_buffer_vert(
-                            (const char*)&t_lawn_columns[(j<<2)],
-                            3,
-                            addr+0xe0
-                        );
-                        one_vram_buffer(
-                            0x37,
-                            addr+0x140
-                        );
-
-                        sfx_play(sfx_dirt_rise,0);
+                                sfx_play(sfx_dirt_rise,0);
+                            }
+                            x+=2;
+                        }
                     }
                 }
                 break;
             case 4:
                 for(char i = 0; i < 9; i++){
                     for(char j = 0; j < 3; j++){
-                        wait_frames(2);
+                        for(char FRAMES=0; FRAMES < 4; FRAMES++){
+                            ppu_wait_nmi();
+                            oam_clear();
 
-                        uint8_t offset = ((i*3) + j);
-                        uint16_t addr = (NT_ADR_C(offset,11) + 4);
+                            uint8_t offset = ((i*3) + j);
+                            uint16_t addr = (NT_ADR_C(offset,11) + 4);
 
-                        one_vram_buffer_repeat_vert(
-                            0x20,
-                            3,
-                            addr
-                        );
-                        one_vram_buffer_repeat_vert(
-                            0x20,
-                            3,
-                            addr+0x180
-                        );
+                            game_draw_the_FUCKING_grass(x,98);
+                            game_draw_the_FUCKING_grass(x,196);
 
-                        wait_frames(2);
-                        multi_vram_buffer_vert(
-                            (const char*)&t_lawn_columns[(j<<2)],
-                            3,
-                            addr
-                        );
-                        multi_vram_buffer_vert(
-                            (const char*)&t_lawn_columns[(j<<2)],
-                            3,
-                            addr+0x180
-                        );
+                            if(FRAMES == 1){
+                                one_vram_buffer_repeat_vert(
+                                    0x20,
+                                    3,
+                                    addr
+                                );
+                                one_vram_buffer_repeat_vert(
+                                    0x20,
+                                    3,
+                                    addr+0x180
+                                );
+                            }
 
-                        sfx_play(sfx_dirt_rise,0);
+                            if(FRAMES == 3){
+                                multi_vram_buffer_vert(
+                                    (const char*)&t_lawn_columns[(j<<2)],
+                                    3,
+                                    addr
+                                );
+                                multi_vram_buffer_vert(
+                                    (const char*)&t_lawn_columns[(j<<2)],
+                                    3,
+                                    addr+0x180
+                                );
+
+                                sfx_play(sfx_dirt_rise,0);
+                            }
+                            x+=2;
+                        }
                     }
                 }
                 break;
@@ -562,10 +675,13 @@ void state_game() {
     else palette_ptr = (uint8_t*)pal_game_day;
 
     flush_irq();
+    
     // set statusbar chr
     add_interrupt(6, irq_set_chr);
         IRQ(0).arg0 = 0;
         IRQ(0).arg1 = 8;
+
+    //__asm__("brk");
 
     // screen split
     add_interrupt(32, irq_update_bg_palette);
