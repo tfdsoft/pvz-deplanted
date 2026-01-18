@@ -36,3 +36,9 @@ file(chr_game_statusbar, chr_bank_1) = {
 file(chr_game_stage_day, chr_bank_1) = {
     #embed "./chr/dnt/Game_Stage_Day.bin"
 };
+
+
+
+
+
+// DA PLANTS!!!

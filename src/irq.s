@@ -20,9 +20,9 @@ IRQ_ENABLE  = $e001
 
 .section .bss
     irq_table_offset:   .fill 1     ; offset in below table
-    irq_table:          .fill 33    ; 31 bytes should be enough.
-    irq_tmp:            .fill 1     ; 8 bytes * 4 interrupts 
-                                    ; = 32 bytes total. have the
+    irq_table:          .fill 64    ; 64 bytes should be enough.
+    irq_lastbyte:       .fill 1     ; 8 bytes * 8 interrupts 
+    irq_tmp:            .fill 1     ; = 64 bytes total. have the
                                     ; extra byte to catch the
                                     ; end of the table.
 

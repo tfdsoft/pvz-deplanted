@@ -89,8 +89,8 @@ struct Plants {
 //__attribute__((retain)) struct Camera camera;
 //__attribute__((retain)) int16_t player_speed_x, player_speed_y;
 
-__attribute__((section(".prg_ram"),retain)) 
-uint8_t sram_buffer[2048];
+//__attribute__((section(".prg_ram"),retain)) 
+//uint8_t sram_buffer[2048];
 
 #define bg_buffer (&sram_buffer[0])
 #define coll_buffer (&sram_buffer[0])
@@ -98,6 +98,22 @@ uint8_t sram_buffer[2048];
 #define bg_buffer_1 (&bg_buffer[0])
 #define bg_buffer_2 (&bg_buffer[1024])
 
+
+
+
+__attribute__((section(".prg_ram"),retain)) 
+struct {
+    unsigned char sun;
+    
+    #define lawn_width 9
+    #define lawn_height 6 // 6 for pool and fog
+    struct {
+        unsigned char ID[lawn_width*lawn_height];           // which plant is it
+        unsigned char health[lawn_width*lawn_height];       // how much health does it have left
+        unsigned char anim_speed[lawn_width*lawn_height];   // how quickly does it animate
+        unsigned short anim_timer[lawn_width*lawn_height];  // current animation frame
+    } plants;
+} game_lawn;
 
 __attribute__((section(".prg_ram"),retain)) 
 struct {

@@ -6,7 +6,6 @@
 
 #include "ram.h"
 
-
 // == the compiler/linker figures these out ==
 #include "musicDefines.h"
 #include "musicBankData.h"
@@ -15,13 +14,17 @@
 // ===========================================
 #include "../music/EXPORTS/sfx.h"
 
+
 #include "libraries.h"
 #include "irq.c"
 #include "nmi.c"
 
-
+/*
 #include "./defines/physics.h"
 #include "collision.c"
+*/
+
+#include "./defines/plantdata.h"
 
 #include "./gamestates/state_startup.c"
 #include "./gamestates/state_romcheck.c"

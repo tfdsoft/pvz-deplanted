@@ -36,6 +36,11 @@
 // banks 62 and 63 are fixed. not much i can do about that
 
 
+
+
+
+
+
 // chr bank 0
 #define chr_menu_bank chr_bank_0
 extern const uint8_t chr_menu_font_pvz_filled[];
@@ -51,18 +56,10 @@ extern const uint8_t chr_game_globalsprites[];
 extern const uint8_t chr_game_statusbar[];
 extern const uint8_t chr_game_stage_day[];
 
-// chr bank 2
-//extern const uint8_t chr_background_0[];
-//extern const uint8_t chr_background_1[];
-//extern const uint8_t chr_background_2[];
 
-// chr bank 3
-//extern const uint8_t chr_ground_0[];
+// chr bank 2
+//extern const uint8_t chr_game_seedpacket_peashooter[];
+//extern const uint8_t chr_game_animation_peashooter[];
 //extern const uint8_t chr_ground_1[];
 //extern const uint8_t chr_ground_2[];
 //extern const uint8_t chr_ground_3[];
-
-
-
-//extern const uint8_t * const chr_bg[];
-//extern const uint8_t * const chr_g[];
