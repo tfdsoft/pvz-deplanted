@@ -21,6 +21,7 @@ extern uint8_t irq_table[33];
 extern void irq_basic();
 extern void irq_set_x_scroll();
 extern void irq_set_chr();
+extern void irq_set_4k_chr_0();
 extern void irq_set_chr_and_scroll();
 extern void irq_update_bg_palette();
 //extern void irq_enable_sprites();

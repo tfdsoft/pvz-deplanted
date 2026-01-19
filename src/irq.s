@@ -144,7 +144,61 @@ stall:
         ;inc irq_count
         rts
 
+.globl irq_set_4k_chr_0
+    ; ptr+3 = chr bank value
+    ; set 2kb chr 0 and 2kb chr 1
+    irq_set_4k_chr_0:
+        ldy #$3
+        jsr stall
+        
+        ldy irq_table_offset
 
+        lda #0
+        ldx irq_table+3,y
+
+        ora __bank_select_hi
+        sta $8000
+        stx $8001
+        ora #1
+        inx
+        inx
+        sta $8000
+        stx $8001
+        sta __in_progress
+
+        rts
+
+;.globl irq_set_4k_chr_1
+    ; ptr+3 = chr bank value
+    ; set 2kb chr 0 and 2kb chr 1
+;    irq_set_4k_chr_1:
+;        ldy #$3
+;        jsr stall
+        
+;        ldy irq_table_offset
+
+;        lda #2
+;        ldx irq_table+3,y
+
+;        ora __bank_select_hi
+;        tay
+;        sty $8000
+;        stx $8001
+;        inx
+;        iny
+;        sty $8000
+;        stx $8001
+;        inx
+;        iny
+;        sty $8000
+;        stx $8001
+;        inx
+;        iny
+;        sty $8000
+;        stx $8001
+;        sta __in_progress
+
+;        rts
 
 .globl irq_set_chr_and_scroll
     ; ptr+3 = chr bank ID
@@ -189,19 +243,16 @@ stall:
 
         lda irq_table+3,y
         ldx irq_table+4,y
-
-        sec
-        sbc #1
-        bmi 1f
-        dex
     
-    1:
+
         sta irq_ptr+0
         stx irq_ptr+1
 
         ldx #16
 
     1:  ; calculate the brightness of the new palette set
+        ; UNROLLED FOR SPEED!
+        dex
         txa
         tay
         lda (irq_ptr),y
@@ -210,7 +261,6 @@ stall:
         pha
         dex
 
-        ; unrolled for S P E E D
         txa
         tay
         lda (irq_ptr),y
@@ -219,7 +269,28 @@ stall:
         pha
         dex
 
+        txa
+        tay
+        lda (irq_ptr),y
+        tay
+        lda (PAL_BG_PTR_OLD),y
+        pha
+        dex
+
+        txa
+        tay
+        lda (irq_ptr),y
+        tay
+        lda (PAL_BG_PTR_OLD),y
+        pha
+        dex
+        
+        inx
         bne 1b
+
+        ldy #1
+        jsr stall
+        nop
 
         ; turn off ppu
         lda PPU_MASK_VAR
@@ -231,8 +302,23 @@ stall:
         sta $2006
         stx $2006
 
-        ldy #12
+        ; set 4kb chr 0 to the 0th bank
+        lda #0
+        tax
+        ora __bank_select_hi
+        sta __in_progress
+        sta $8000
+        stx $8001
+        ora #1
+        inx
+        inx
+        sta $8000
+        stx $8001
+
+        ldy #1
         jsr stall
+        nop
+        nop
 
         ldy #16
 
@@ -267,24 +353,13 @@ stall:
 
 
     1:  ; reset everything before updating scroll
+        ldy irq_table_offset
         
-        ; set 2kb chr 0 to the 8th bank
-        lda #0
-        tax
-        ora __bank_select_hi
-        sta $8000
-        stx $8001
-        sta __in_progress
-
-        ;lda #0b111
-        ;ora __bank_select_hi
-        ;dec __in_progress
-        ;sta $8000
 
         ;; CODE BORROWED FROM THE NESDEV WIKI
         ; The first two PPU writes can come anytime during the scanline:
         ; Nametable number << 2 to $2006.
-        ldy irq_table_offset
+        
         lda irq_table+7,y  ; nametable ID 
         asl
         asl
@@ -309,10 +384,14 @@ stall:
         lsr
         ora irq_tmp
 
-        ldy PPU_MASK_VAR
+        
+        ldy #2
+        jsr stall
 
         nop
         nop
+
+        ldy PPU_MASK_VAR
         ; The last two PPU writes must happen during hblank:
         stx $2005
         sta $2006

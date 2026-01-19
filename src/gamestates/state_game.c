@@ -368,7 +368,7 @@ unsigned char game_load_assets(){
     set_2k_chr_1(18);
     vram_adr(0x0);
     donut_decompress_vram(chr_game_statusbar, chr_bank_1);
-    for(char i=0; i<(sizeof(PlantData)/11); i++){
+    for(char i=0; i<(sizeof(PlantData)/sizeof(PlantData[0])); i++){
         donut_decompress_vram(PlantData[i].PlantImage, chr_bank_2);
     }
     
@@ -391,6 +391,10 @@ unsigned char game_load_assets(){
             //donut_decompress_vram(chr_game_stage_roof, chr_bank_1);
         //    break;
     }
+
+    set_2k_chr_1(2);
+    vram_adr(0x0c00);
+    donut_decompress_vram(chr_game_globalsprites, chr_bank_1);
 
     // LOAD STATUSBAR TILEMAP
     vram_adr(0x2000);
@@ -638,8 +642,11 @@ void game_choose_seeds(){
                             uint8_t offset = ((i*3) + j);
                             uint16_t addr = (NT_ADR_C(offset,11) + 4);
 
-                            game_draw_the_FUCKING_grass(x,98);
                             game_draw_the_FUCKING_grass(x,196);
+                            //game_draw_the_FUCKING_grass(x,120);
+                            game_draw_the_FUCKING_grass(x,98);
+                            
+                            
 
                             if(FRAMES == 1){
                                 one_vram_buffer_repeat_vert(
@@ -694,9 +701,8 @@ void state_game() {
     flush_irq();
     
     // set statusbar chr
-    add_interrupt(6, irq_set_chr);
-        IRQ(0).arg0 = 0;
-        IRQ(0).arg1 = 16;
+    add_interrupt(6, irq_set_4k_chr_0);
+        IRQ(0).arg0 = 16;
 
     //__asm__("brk");
 
@@ -714,12 +720,10 @@ void state_game() {
         IRQ(2).arg2 = 0; // x position
         IRQ(2).arg3 = 54; // y position
         IRQ(2).arg4 = 0; // nametable number (0-3)
-    add_interrupt(0,irq_set_chr);
-        IRQ(3).arg0 = 0;
-        IRQ(3).arg1 = 8;
-    add_interrupt(6,irq_set_chr);
-        IRQ(4).arg0 = 0;
-        IRQ(4).arg1 = 16;
+    add_interrupt(0,irq_set_4k_chr_0);
+        IRQ(3).arg0 = 8;
+    add_interrupt(6,irq_set_4k_chr_0);
+        IRQ(4).arg0 = 16;
 
     enable_irq();
 

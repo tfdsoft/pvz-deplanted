@@ -83,7 +83,7 @@ __attribute__((interrupt_norecurse)) void nmi(){
             PPU.scroll = SCROLL_X;
             PPU.scroll = SCROLL_Y;
             PPU.control = PPU_CTRL_VAR;
-            PPU.mask = PPU_MASK_VAR; // re-set PPU.mask
+            //PPU.mask = PPU_MASK_VAR; // re-set PPU.mask
         }
     }
     irq_count = 0;
