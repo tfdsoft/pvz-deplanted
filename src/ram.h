@@ -103,17 +103,24 @@ struct Plants {
 
 __attribute__((section(".prg_ram"),retain)) 
 struct {
-    unsigned char sun;
-    
-    #define lawn_width 9
-    #define lawn_height 6 // 6 for pool and fog
     struct {
-        unsigned char ID[lawn_width*lawn_height];           // which plant is it
-        unsigned char health[lawn_width*lawn_height];       // how much health does it have left
-        unsigned char anim_speed[lawn_width*lawn_height];   // how quickly does it animate
-        unsigned short anim_timer[lawn_width*lawn_height];  // current animation frame
-    } plants;
-} game_lawn;
+        unsigned char sun;
+        
+        #define lawn_width 9
+        #define lawn_height 6 // 6 for pool and fog
+        struct {
+            unsigned char ID[lawn_width*lawn_height];           // which plant is it
+            unsigned char health[lawn_width*lawn_height];       // how much health does it have left
+            unsigned char anim_speed[lawn_width*lawn_height];   // how quickly does it animate
+            unsigned short anim_timer[lawn_width*lawn_height];  // current animation frame
+        } plants;
+
+        uint8_t seeds[9];
+    } lawn;
+
+    uint8_t plant_is_unlocked[49]; 
+    uint8_t slots_unlocked;
+} game;
 
 __attribute__((section(".prg_ram"),retain)) 
 struct {

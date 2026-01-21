@@ -310,6 +310,15 @@ putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_
 	0x80
 };
 
+putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_cursor_p1[]={
+      0,  0,0x3a,1,
+	  8,  0,0x3c,1,
+	0x80
+};
+
+
+
+
 putinbank(extra_code_bank_1.game.ms_ptr)
 const unsigned char * const ms_game_grass_ptr[]={
 	ms_game_grass_0, 
@@ -451,6 +460,39 @@ void game_draw_the_FUCKING_grass(unsigned char x, unsigned char y){
     oam_meta_spr(x,y,ms_game_grass_ptr[((x-32)>>5)]);
 }
 
+putinbank(extra_code_bank_1.game.statusbar)
+uint8_t game_check_unlocked_plants(uint8_t* data, uint8_t size){
+    uint8_t count = 0;
+    for (uint8_t i=0; i < size; i++){
+        if(data[i]) count++;
+    }
+    return count;
+}
+
+putinbank(extra_code_bank_1.game.statusbar)
+void game_block_locked_plants(){
+    for (uint8_t i=0; i < 40; i++){
+        if((i&3)==0)ppu_wait_nmi();
+        if(!game.plant_is_unlocked[i]) {
+            uint16_t address = NT_ADR_A(
+                (2+((i & 7)<<1)),
+                (9+((i & 0xf8)>>1))
+            );
+            one_vram_buffer_repeat_vert(
+                0x17,
+                3,
+                address
+            );
+            one_vram_buffer_repeat_vert(
+                0x02,
+                3,
+                address+1
+            );
+        }
+        
+    }
+}
+
 putinbank(extra_code_bank_1.game.functions)
 void game_choose_seeds(){
     wait_frames(90);
@@ -473,31 +515,85 @@ void game_choose_seeds(){
         IRQ(1).arg2 = high_byte(camera_scroll);
     }
 
-    // wait a bit, then show the choose seeds screen
-    wait_frames(20);
-    
-    camera_speed = 0xff; // re-use camera_speed
-    while(1){
-        ppu_wait_nmi();
-        camera_speed -= (camera_speed / 4);
-        IRQ(2).reload = camera_speed;
+    IRQ(2).reload = 0xff;
+    if(game_check_unlocked_plants(game.plant_is_unlocked,sizeof(game.plant_is_unlocked)) > 6){
+        union {
+            unsigned char thewholething;
+            struct {
+                unsigned char x : 3;
+                unsigned char y : 3;
+                unsigned char:2;
+            };
+        } selection;
+        selection.thewholething = 0;
 
-        if(player1_pressed & PAD_START){
-            sfx_play(sfx_diamond,0);
-            break;
+        game_block_locked_plants();
+        
+        camera_speed = 0x80; // re-use camera_speed
+        while((camera_speed-3) > 0){
+            ppu_wait_nmi();
+            camera_speed -= (camera_speed / 4);
+            IRQ(2).reload = (camera_speed - 3);
+        }
+        while(1){
+            ppu_wait_nmi();
+            oam_clear();
+
+            //one_vram_buffer(0x30+selection.x,NT_ADR_A(28,2));
+
+            oam_meta_spr(
+                (16+(selection.x << 4)),
+                (76+(selection.y << 5)),
+                ms_game_cursor_p1
+            );
+
+            if (player1_pressed & PAD_RIGHT)
+                do {
+                    selection.x++;
+                } while (game.plant_is_unlocked[selection.thewholething] == 0);
+            if (player1_pressed & PAD_LEFT)
+                do {
+                    selection.x--;
+                } while (game.plant_is_unlocked[selection.thewholething] == 0);
+            if (player1_pressed & PAD_DOWN)
+                do {
+                    selection.y++;
+                } while (game.plant_is_unlocked[selection.thewholething] == 0);
+            if (player1_pressed & PAD_UP)
+                do {
+                    selection.y--;
+                } while (game.plant_is_unlocked[selection.thewholething] == 0);
+            
+            
+                //while ((player1_pressed & PAD_LEFT) 
+            //&& (game.plant_is_unlocked[selection.thewholething])) {
+            //    selection.x--;
+            //}
+            if(player1_pressed & PAD_START){
+                sfx_play(sfx_diamond,0);
+                break;
+            }
+        }
+
+        // SEED CHOOSINGS GO HERE 
+
+        
+        // hide the choose seeds screen, then wait 30 frames
+        while(camera_speed < 0xf0) {
+            ppu_wait_nmi();
+            IRQ(2).reload = camera_speed;
+            camera_speed += (camera_speed / 4)+1;
+        }
+        IRQ(2).reload = 0xff;
+    } else {
+        for(uint8_t i=0;i<6;i++){
+            uint8_t char_buffer[4] = {
+                0x40+i
+            };
+            game.lawn.seeds[i] = i;
+            //one_vram_buffer
         }
     }
-
-    // SEED CHOOSINGS GO HERE 
-
-    
-    // hide the choose seeds screen, then wait 30 frames
-    while(camera_speed < 0xf0) {
-        ppu_wait_nmi();
-        IRQ(2).reload = camera_speed;
-        camera_speed += (camera_speed / 4)+1;
-    }
-    IRQ(2).reload = 0xff;
     
     wait_frames(20);
     
@@ -701,16 +797,16 @@ void state_game() {
     flush_irq();
     
     // set statusbar chr
-    add_interrupt(6, irq_set_4k_chr_0);
+    add_interrupt(7, irq_set_4k_chr_0);
         IRQ(0).arg0 = 16;
 
     //__asm__("brk");
 
     // screen split
-    add_interrupt(32, irq_update_bg_palette);
+    add_interrupt(30, irq_update_bg_palette);
         IRQ(1).arg0 = ((uint16_t)palette_ptr & 0xff);
         IRQ(1).arg1 = ((uint16_t)palette_ptr >> 8);
-        IRQ(1).arg3 = 49; // y position
+        IRQ(1).arg3 = 48; // y position
         IRQ(1).arg4 = 2; // nametable number (0-3)
 
     // second screen split (for choosing seeds)

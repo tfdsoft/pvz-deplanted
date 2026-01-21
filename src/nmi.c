@@ -104,12 +104,7 @@ __attribute__((interrupt_norecurse)) void nmi(){
 
         "lda #0 \n"
         "sta automatic_fs_updates \n"
-        "lda __prg_a000 \n"
-        "pha \n"
         "jsr music_update \n"
-        "pla \n"
-        "sta __prg_a000 \n"
-        "jsr set_prg_a000 \n"
         "inc automatic_fs_updates \n"
 
         "1: \n"

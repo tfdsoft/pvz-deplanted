@@ -388,8 +388,8 @@ stall:
         ldy #2
         jsr stall
 
-        nop
-        nop
+        ;nop
+        ;nop
 
         ldy PPU_MASK_VAR
         ; The last two PPU writes must happen during hblank:
