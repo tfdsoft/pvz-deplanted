@@ -84,7 +84,7 @@
 
 .define FAMISTUDIO_CA65_ZP_SEGMENT   ZEROPAGE
 .define FAMISTUDIO_CA65_RAM_SEGMENT  INIT
-.define FAMISTUDIO_CA65_CODE_SEGMENT CODE
+.define FAMISTUDIO_CA65_CODE_SEGMENT _pprg__rom__fixed
 
 ;======================================================================================================================
 ; 2) AUDIO EXPANSION CONFIGURATION
@@ -194,7 +194,7 @@ FAMISTUDIO_USE_PITCH_TRACK       = 1
 
 ; Must be enabled if any song uses slide notes. Slide notes allows portamento and slide effects.
 ; More information at: https://famistudio.org/doc/pianoroll/#slide-notes
-FAMISTUDIO_USE_SLIDE_NOTES       = 1
+; FAMISTUDIO_USE_SLIDE_NOTES       = 1
 
 ; Must be enabled if any song uses slide notes on the noise channel too. 
 ; More information at: https://famistudio.org/doc/pianoroll/#slide-notes
@@ -207,7 +207,7 @@ FAMISTUDIO_USE_SLIDE_NOTES       = 1
 ; Must be enabled if any song uses arpeggios (not to be confused with instrument arpeggio envelopes, those are always
 ; supported).
 ; More information at: (TODO)
-FAMISTUDIO_USE_ARPEGGIO          = 1
+; FAMISTUDIO_USE_ARPEGGIO          = 1
 
 ; Must be enabled if any song uses the "Duty Cycle" effect (equivalent of FamiTracker Vxx, also called "Timbre").  
  FAMISTUDIO_USE_DUTYCYCLE_EFFECT  = 1
@@ -228,10 +228,10 @@ FAMISTUDIO_USE_ARPEGGIO          = 1
 
 ; Allows having up to 256 instrument at the cost of slightly higher CPU usage when switching instrument.
 ; When this is off, the limit is 64 for regular instruments and 32 for expansion instrumnets.
- FAMISTUDIO_USE_INSTRUMENT_EXTENDED_RANGE = 1
+; FAMISTUDIO_USE_INSTRUMENT_EXTENDED_RANGE = 1
 
 ; Must be enabled if your project uses the "Phase Reset" effect.
- FAMISTUDIO_USE_PHASE_RESET = 1
+; FAMISTUDIO_USE_PHASE_RESET = 1
 
 ; Must be enabled if your project uses the FDS expansion and at least one instrument with FDS Auto-Mod enabled.
 ; FAMISTUDIO_USE_FDS_AUTOMOD  = 1

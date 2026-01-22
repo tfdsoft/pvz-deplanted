@@ -494,8 +494,40 @@ void game_block_locked_plants(){
 }
 
 putinbank(extra_code_bank_1.game.functions)
+void game_get_seed_packet(uint8_t seed, char* buffer){
+    unsigned char character = (0x40+(seed<<2));
+
+    buffer[0] = character;
+    buffer[1] = character+1;
+    buffer[2] = (7+(PlantData[seed].SeedCost / 100));
+    if(buffer[2]==7) buffer[2] = 3;
+
+    buffer[3] = character+2;
+    buffer[4] = character+3;
+    buffer[5] = (4+((PlantData[seed].SeedCost / 25)&3));
+}
+
+putinbank(extra_code_bank_1.game.functions) __attribute__((noinline))
+uint8_t game_is_seed_packet_already_selected(uint8_t seed){
+    unsigned char return_value = 0xff;
+    __asm__("brk \n .byte $ea");
+    for(uint8_t i=0; i<game.slots_unlocked; i++){
+        if(game.lawn.seeds[i] == seed){
+            return_value = i;
+            break;
+        }
+    }
+    one_vram_buffer(num_to_ascii(return_value>>4),NT_ADR_A(28,2));
+    one_vram_buffer(num_to_ascii(return_value&15),NT_ADR_A(29,2));
+
+    return return_value;
+}
+
+putinbank(extra_code_bank_1.game.functions)
 void game_choose_seeds(){
     wait_frames(90);
+
+    memfill(game.lawn.seeds, 0xff, game.slots_unlocked);
 
     uint16_t
         camera_scroll=0,
@@ -526,6 +558,7 @@ void game_choose_seeds(){
             };
         } selection;
         selection.thewholething = 0;
+        unsigned char seedslot = 0;
 
         game_block_locked_plants();
         
@@ -535,6 +568,8 @@ void game_choose_seeds(){
             camera_speed -= (camera_speed / 4);
             IRQ(2).reload = (camera_speed - 3);
         }
+
+
         while(1){
             ppu_wait_nmi();
             oam_clear();
@@ -548,27 +583,48 @@ void game_choose_seeds(){
             );
 
             if (player1_pressed & PAD_RIGHT)
-                do {
-                    selection.x++;
-                } while (game.plant_is_unlocked[selection.thewholething] == 0);
+                do {selection.x++;}
+                while (game.plant_is_unlocked[selection.thewholething] == 0);
             if (player1_pressed & PAD_LEFT)
-                do {
-                    selection.x--;
-                } while (game.plant_is_unlocked[selection.thewholething] == 0);
+                do {selection.x--;} while (game.plant_is_unlocked[selection.thewholething] == 0);
             if (player1_pressed & PAD_DOWN)
-                do {
-                    selection.y++;
-                } while (game.plant_is_unlocked[selection.thewholething] == 0);
+                do {selection.y++;} while (game.plant_is_unlocked[selection.thewholething] == 0);
             if (player1_pressed & PAD_UP)
-                do {
-                    selection.y--;
-                } while (game.plant_is_unlocked[selection.thewholething] == 0);
+                do {selection.y--;} while (game.plant_is_unlocked[selection.thewholething] == 0);
+            if (player1_pressed) sfx_play(sfx_bleep,0);
             
-            
-                //while ((player1_pressed & PAD_LEFT) 
-            //&& (game.plant_is_unlocked[selection.thewholething])) {
-            //    selection.x--;
-            //}
+            if (player1_pressed & PAD_A){
+                char buf[6];
+                sfx_play(sfx_tap,0);
+                // check if the selected plant is already in a seed slot
+                unsigned char is_selected = game_is_seed_packet_already_selected(selection.thewholething);
+
+                if (is_selected < game.slots_unlocked) { // if it is, remove it
+                    seedslot = is_selected;
+                    one_vram_buffer_repeat_vert(0x17,3,NT_ADR_A((6+(seedslot<<1)),2));
+                    one_vram_buffer_repeat_vert(0x02,3,NT_ADR_A((7+(seedslot<<1)),2));
+                    game.lawn.seeds[seedslot] = 0xff;
+                    seedslot = 0;
+                } else { // if it isn't...
+                    if ((seedslot < game.slots_unlocked)){ // is the bar isn't full:
+                        game_get_seed_packet(selection.thewholething,buf);
+                        multi_vram_buffer_vert(&buf[0],3,NT_ADR_A((6+(seedslot<<1)),2));
+                        multi_vram_buffer_vert(&buf[3],3,NT_ADR_A((7+(seedslot<<1)),2));
+                        game.lawn.seeds[seedslot] = selection.thewholething;
+                    } else { // if the bar is full:
+                        // don't add it and play sfx
+                        sfx_play(sfx_buzzer,0);
+                    }
+                }
+                while ((game.lawn.seeds[seedslot] < 0xff) && (seedslot < game.slots_unlocked)) {
+                    seedslot++;
+                } 
+                
+
+                
+            }
+
+                
             if(player1_pressed & PAD_START){
                 sfx_play(sfx_diamond,0);
                 break;
@@ -587,9 +643,9 @@ void game_choose_seeds(){
         IRQ(2).reload = 0xff;
     } else {
         for(uint8_t i=0;i<6;i++){
-            uint8_t char_buffer[4] = {
-                0x40+i
-            };
+            //uint8_t char_buffer[4] = {
+            //    0x40+i
+            //};
             game.lawn.seeds[i] = i;
             //one_vram_buffer
         }

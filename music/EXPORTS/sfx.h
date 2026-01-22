@@ -27,11 +27,13 @@
 #define sfx_bleep 25
 #define sfx_bowlingimpact 26
 #define sfx_buttonclick 27
-#define sfx_chime 28
-#define sfx_chomp 29
-#define sfx_coin 30
-#define sfx_diamond 31
-#define sfx_dirt_rise 32
-#define sfx_gravebutton 33
+#define sfx_buzzer 28
+#define sfx_chime 29
+#define sfx_chomp 30
+#define sfx_coin 31
+#define sfx_diamond 32
+#define sfx_dirt_rise 33
+#define sfx_gravebutton 34
+#define sfx_tap 35
 
-#define sfx_max 34
+#define sfx_max 36

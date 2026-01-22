@@ -34,12 +34,14 @@ sounds:
 	.word @sfx_ntsc_bleepogg
 	.word @sfx_ntsc_bowlingimpactogg
 	.word @sfx_ntsc_buttonclickogg
+	.word @sfx_ntsc_buzzerogg
 	.word @sfx_ntsc_chimeogg
 	.word @sfx_ntsc_chompogg
 	.word @sfx_ntsc_coinogg
 	.word @sfx_ntsc_diamondau
 	.word @sfx_ntsc_dirt_riseogg
 	.word @sfx_ntsc_gravebuttonogg
+	.word @sfx_ntsc_tapogg
 
 @sfx_ntsc_achievement_01:
 	.byte $81,$d5,$82,$00,$80,$3e,$89,$f0,$02,$80,$be,$02,$80,$bd,$04,$80
@@ -319,6 +321,10 @@ sounds:
 	.byte $75,$01,$80,$74,$84,$93,$85,$01,$83,$bb,$01,$80,$73,$83,$b7,$01
 	.byte $80,$72,$83,$b6,$01,$80,$71,$83,$b5,$01,$80,$70,$83,$b4,$02,$83
 	.byte $b3,$01,$83,$b2,$01,$83,$b1,$02,$00
+@sfx_ntsc_buzzerogg:
+	.byte $8a,$09,$89,$3f,$01,$8a,$06,$02,$89,$32,$01,$89,$f0,$03,$8a,$0e
+	.byte $89,$3f,$01,$8a,$0d,$01,$8a,$0c,$01,$8a,$0b,$01,$8a,$0a,$01,$8a
+	.byte $0b,$01,$8a,$0c,$01,$8a,$0d,$01,$8a,$0e,$00
 @sfx_ntsc_chimeogg:
 	.byte $81,$27,$82,$00,$80,$b7,$83,$b0,$89,$f0,$03,$80,$b6,$03,$80,$b5
 	.byte $02,$84,$1f,$85,$00,$83,$b7,$01,$80,$b4,$01,$83,$b6,$02,$80,$b3
@@ -351,5 +357,8 @@ sounds:
 	.byte $81,$ab,$82,$01,$80,$b6,$8a,$03,$89,$36,$02,$80,$b0,$89,$37,$03
 	.byte $89,$38,$02,$89,$39,$01,$89,$37,$01,$89,$36,$01,$89,$35,$01,$89
 	.byte $34,$01,$89,$33,$01,$89,$32,$01,$89,$31,$01,$00
+@sfx_ntsc_tapogg:
+	.byte $8a,$0d,$89,$3f,$01,$8a,$0c,$01,$89,$32,$01,$89,$f0,$03,$8a,$0a
+	.byte $89,$3f,$01,$8a,$05,$01,$89,$32,$01,$00
 
 .export sounds

@@ -118,7 +118,8 @@ __attribute__((section(".prg_rom_fixed_lo.1"),retain))
         MOUSE_X_MAXIMUM
     };
 
-__attribute__((aligned(64),noinline)) void oam_and_readjoypad(){
+__attribute__((aligned(64),noinline))
+void oam_and_readjoypad(){
     __attribute__((leaf)) __asm__ volatile (
         //".section .zp \n"
         //"mouse: .fill 4 \n"

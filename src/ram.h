@@ -115,7 +115,7 @@ struct {
             unsigned short anim_timer[lawn_width*lawn_height];  // current animation frame
         } plants;
 
-        uint8_t seeds[9];
+        uint8_t seeds[8];
     } lawn;
 
     uint8_t plant_is_unlocked[49]; 

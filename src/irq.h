@@ -28,4 +28,4 @@ extern void irq_update_bg_palette();
 
 
 
-#define IRQ(n) (*(volatile struct __irq_table *)(irq_table + (n*8)))
+#define IRQ(n) (*(struct __irq_table *)(irq_table + (n*8)))

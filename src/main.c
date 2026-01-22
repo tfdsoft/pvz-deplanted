@@ -71,7 +71,7 @@ int main(void){
 
     //level.stage = 1;
     //level.world = 1;
-    gamestate = 0x10;
+    gamestate = 0x20;
 
     while(1){
         __asm__("sei");
