@@ -1,4 +1,4 @@
-putinbank(extra_code_bank.menu.00)
+putinbank(fixed_lo.menu.00) __attribute__((aligned(16)))
 const unsigned char pal_title[32]={ 
     0x0f,0x00,0x28,0x38,
     0x0f,0x00,0x10,0x30,
@@ -229,8 +229,11 @@ void state_menu() {
             pal_bright(0);
             break;
         }
-        
-        
+        if(player1_pressed & PAD_SELECT) {
+            gamestate = 0x14;       
+            pal_bright(0);
+            break;
+        }
     }
 }
 
@@ -315,7 +318,7 @@ void state_levelselect(){
         }
     }
 }
-
+*/
 
 
 
@@ -373,6 +376,12 @@ void state_soundtest(){
 
     famistudio_music_stop();
 
+    vram_adr(0x000);
+    donut_decompress_vram(chr_menu_global, chr_bank_0);
+    donut_decompress_vram(chr_menu_font_pusab, chr_bank_0);
+    //donut_decompress_vram(chr_menu_famidash, chr_bank_0);
+    //donut_decompress_vram(chr_menu_buttons, chr_bank_0);
+
     vram_adr(0x2000);
     vram_unrle(nt_genericmenu);
 
@@ -412,9 +421,9 @@ void state_soundtest(){
         if(low_byte(index) == song_max){index[0]--;}
         if(high_byte(index) == sfx_max){index[1]--;}
 
-        one_vram_buffer_repeat(' ', 17, (0x2168+(selection<<8)));
+        one_vram_buffer_repeat_horz(' ', 17, (0x2168+(selection<<8)));
         if(selection == 0){
-            one_vram_buffer_repeat(' ', 17, 0x2188);
+            one_vram_buffer_repeat_horz(' ', 17, 0x2188);
             unsigned char tmp = high_byte(xbgmtextsUpper[low_byte(index)]);
             if(tmp){
                 str_vram_buffer(
@@ -426,7 +435,7 @@ void state_soundtest(){
                 xbgmtextsLower[low_byte(index)],
                 0x2188
             );
-            one_vram_buffer_repeat(' ', 14, 0x21cb);
+            one_vram_buffer_repeat_horz(' ', 14, 0x21cb);
             str_vram_buffer(
                 xbgmtextsOriginalArtist[low_byte(index)],
                 0x21cb
@@ -467,7 +476,7 @@ void state_soundtest(){
         if(player1_pressed & PAD_SELECT) {
             if(!selection){
                 sfx_play(sfx_counter003,0);
-                saved_menu_theme = xbgmlookuptable[low_byte(index)];
+                //saved_menu_theme = xbgmlookuptable[low_byte(index)];
             }
         }
         
@@ -481,7 +490,7 @@ void state_soundtest(){
     
 }
 
-*/
+
 
 
 

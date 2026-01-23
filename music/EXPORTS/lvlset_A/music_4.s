@@ -12,7 +12,7 @@
 .export _music_data_pvz_deplanted_music4:=music_data_pvz_deplanted_music4
 
 music_data_pvz_deplanted_music4:
-	.byte 5
+	.byte 3
 	.word @instruments
 	.word @instruments_exp
 	.word @samples-5
@@ -172,7 +172,7 @@ music_data_pvz_deplanted_music4:
 	.word @song2ch19
 	;
 	.word 163,136
-; 03 : ADVENTURE START
+; 03 : dpcm
 	.word @song3ch0
 	.word @song3ch1
 	.word @song3ch2
@@ -222,110 +222,6 @@ music_data_pvz_deplanted_music4:
 	;
 	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN6_ENABLE
 	.word @song3ch19
-	;
-	.word 307,256
-; 04 : FINAL FANFARE DOT OH GEE GEE
-	.word @song4ch0
-	.word @song4ch1
-	.word @song4ch2
-	.word @song4ch3
-	.word @song4ch4
-	; FAMISTUDIO_EXP_EPSM_SSG_CHN_CNT > 0
-	.word @song4ch5
-	;
-	; FAMISTUDIO_EXP_EPSM_SSG_CHN_CNT > 1
-	.word @song4ch6
-	;
-	; FAMISTUDIO_EXP_EPSM_SSG_CHN_CNT > 2
-	.word @song4ch7
-	;
-	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 0
-	.word @song4ch8
-	;
-	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 1
-	.word @song4ch9
-	;
-	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 2
-	.word @song4ch10
-	;
-	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 3
-	.word @song4ch11
-	;
-	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 4
-	.word @song4ch12
-	;
-	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 5
-	.word @song4ch13
-	;
-	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN1_ENABLE
-	.word @song4ch14
-	;
-	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN2_ENABLE
-	.word @song4ch15
-	;
-	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN3_ENABLE
-	.word @song4ch16
-	;
-	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN4_ENABLE
-	.word @song4ch17
-	;
-	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN5_ENABLE
-	.word @song4ch18
-	;
-	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN6_ENABLE
-	.word @song4ch19
-	;
-	.word 307,256
-; 05 : dpcm
-	.word @song5ch0
-	.word @song5ch1
-	.word @song5ch2
-	.word @song5ch3
-	.word @song5ch4
-	; FAMISTUDIO_EXP_EPSM_SSG_CHN_CNT > 0
-	.word @song5ch5
-	;
-	; FAMISTUDIO_EXP_EPSM_SSG_CHN_CNT > 1
-	.word @song5ch6
-	;
-	; FAMISTUDIO_EXP_EPSM_SSG_CHN_CNT > 2
-	.word @song5ch7
-	;
-	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 0
-	.word @song5ch8
-	;
-	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 1
-	.word @song5ch9
-	;
-	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 2
-	.word @song5ch10
-	;
-	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 3
-	.word @song5ch11
-	;
-	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 4
-	.word @song5ch12
-	;
-	; FAMISTUDIO_EXP_EPSM_FM_CHN_CNT > 5
-	.word @song5ch13
-	;
-	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN1_ENABLE
-	.word @song5ch14
-	;
-	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN2_ENABLE
-	.word @song5ch15
-	;
-	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN3_ENABLE
-	.word @song5ch16
-	;
-	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN4_ENABLE
-	.word @song5ch17
-	;
-	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN5_ENABLE
-	.word @song5ch18
-	;
-	; FAMISTUDIO_EXP_EPSM_RHYTHM_CHN6_ENABLE
-	.word @song5ch19
 	;
 	.word 307,256
 
@@ -412,7 +308,7 @@ music_data_pvz_deplanted_music4:
 @instrument_epsm_extra_patch3:
 	.byte $04,$c0,$00,$1f,$00,$00,$07,$00,$00,$1f,$00,$00,$07,$00,$00,$1f,$00,$00,$07,$00,$00,$1f,$00,$00,$07,$00,$20,$00,$20,$00,$00
 @instrument_epsm_extra_patch4:
-	.byte $07,$c0,$46,$1f,$10,$0c,$69,$00,$73,$1f,$00,$04,$08,$00,$62,$1f,$00,$05,$0a,$00,$20,$1f,$04,$00,$f8,$00,$1d,$1d,$16,$16,$00
+	.byte $07,$c0,$46,$1f,$10,$0c,$69,$00,$73,$1f,$00,$04,$08,$00,$62,$1f,$00,$05,$0a,$00,$20,$1f,$04,$00,$f8,$00,$13,$1d,$16,$16,$00
 @instrument_epsm_extra_patch5:
 	.byte $3c,$c0,$71,$1f,$00,$00,$00,$00,$71,$1f,$00,$00,$07,$00,$31,$1f,$00,$00,$00,$00,$31,$1f,$00,$00,$07,$00,$11,$11,$12,$17,$00
 @instrument_epsm_extra_patch6:
@@ -1734,7 +1630,10 @@ music_data_pvz_deplanted_music4:
 	.byte $99, $42
 	.word @song2ch13loop
 @song3ch0:
-	.byte $46, $1d, $95, $44, $00
+	.byte $46, $0a
+@song3ch0loop:
+	.byte $ff, $ff, $ff, $ff, $42
+	.word @song3ch0loop
 @song3ch19:
 @song3ch18:
 @song3ch17:
@@ -1753,61 +1652,12 @@ music_data_pvz_deplanted_music4:
 @song3ch3:
 @song3ch2:
 @song3ch1:
-	.byte $95, $44, $00
+@song3ch1loop:
+	.byte $ff, $ff, $ff, $ff, $42
+	.word @song3ch1loop
 @song3ch4:
-	.byte $11, $81, $12, $81, $13, $81, $14, $81, $15, $83, $44, $00
-@song4ch0:
-	.byte $46, $1d, $95, $44, $00
-@song4ch19:
-@song4ch18:
-@song4ch17:
-@song4ch16:
-@song4ch15:
-@song4ch14:
-@song4ch13:
-@song4ch12:
-@song4ch11:
-@song4ch10:
-@song4ch9:
-@song4ch8:
-@song4ch7:
-@song4ch6:
-@song4ch5:
-@song4ch3:
-@song4ch2:
-@song4ch1:
-	.byte $95, $44, $00
-@song4ch4:
-	.byte $17, $81, $18, $81, $19, $81, $1a, $81, $1b, $83, $44, $00
-@song5ch0:
-	.byte $46, $0a
-@song5ch0loop:
-	.byte $ff, $ff, $ff, $ff, $42
-	.word @song5ch0loop
-@song5ch19:
-@song5ch18:
-@song5ch17:
-@song5ch16:
-@song5ch15:
-@song5ch14:
-@song5ch13:
-@song5ch12:
-@song5ch11:
-@song5ch10:
-@song5ch9:
-@song5ch8:
-@song5ch7:
-@song5ch6:
-@song5ch5:
-@song5ch3:
-@song5ch2:
-@song5ch1:
-@song5ch1loop:
-	.byte $ff, $ff, $ff, $ff, $42
-	.word @song5ch1loop
-@song5ch4:
-@song5ch4loop:
+@song3ch4loop:
 	.byte $22, $23, $24, $25, $17, $18, $19, $1a, $1b, $11, $12, $13, $14, $15, $00, $99, $1c, $00, $83, $0b, $0c, $21, $05, $03
 	.byte $06, $02, $04, $07, $16, $01, $0d, $09, $00, $83, $20, $00, $83, $10, $0f, $0a, $0e, $08, $00, $83, $1f, $1d, $00, $81
 	.byte $1e, $00, $ff, $ff, $fb, $42
-	.word @song5ch4loop
+	.word @song3ch4loop

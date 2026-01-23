@@ -71,7 +71,7 @@ int main(void){
 
     //level.stage = 1;
     //level.world = 1;
-    gamestate = 0x20;
+    //gamestate = 0x14;
 
     while(1){
         __asm__("sei");
@@ -106,11 +106,11 @@ int main(void){
             //case 0x11:
             //    banked_call(extra_code_bank, state_levelselect);
             //    break;
-/*
+
             case 0x14:
                 banked_call(sound_test_bank, state_soundtest);
                 break;
-*/
+
             //
             //  GAME-RELATED STUFF
             //

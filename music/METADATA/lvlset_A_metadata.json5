@@ -13,47 +13,47 @@
 		},
 		{
 			fmsSongName: "grasswalk",
-			lowerText: "WATERY GRAVES",
+			lowerText: "Grasswalk",
 			originalArtistText: "LAURA SHIGIHARA",
 		},
 		{
 			fmsSongName: "moongrains",
-			lowerText: "WATERY GRAVES",
+			lowerText: "Moongrains",
 			originalArtistText: "LAURA SHIGIHARA",
 		},
 		{
 			fmsSongName: "watery graves",
-			lowerText: "WATERY GRAVES",
+			lowerText: "Watery Graves",
 			originalArtistText: "LAURA SHIGIHARA",
 		},
 		{
 			fmsSongName: "rigor mormist",
-			lowerText: "WATERY GRAVES",
+			lowerText: "Rigor Mormist",
 			originalArtistText: "LAURA SHIGIHARA",
 		},
 		{
 			fmsSongName: "graze the roof",
-			lowerText: "WATERY GRAVES",
+			lowerText: "Graze the Roof",
 			originalArtistText: "LAURA SHIGIHARA",
 		},
 		{
 			fmsSongName: "ultimate battle",
-			lowerText: "ultimate battle",
+			lowerText: "Ultimate Battle",
 			originalArtistText: "LAURA SHIGIHARA",
 		},
 		{
 			fmsSongName: "braniac maniac",
-			lowerText: "WATERY GRAVES",
+			lowerText: "Braniac Maniac",
 			originalArtistText: "LAURA SHIGIHARA",
 		},
 		{
 			fmsSongName: "loonboon",
-			lowerText: "WATERY GRAVES",
+			lowerText: "Loonboon",
 			originalArtistText: "LAURA SHIGIHARA",
 		},
 		{
 			fmsSongName: "celebrawl",
-			lowerText: "WATERY GRAVES",
+			lowerText: "Celebrawl",
 			originalArtistText: "LAURA SHIGIHARA",
 		},
 		{
@@ -68,17 +68,17 @@
 		},
 		{
 			fmsSongName: "WIN MUSIC DOT OH GEE GEE",
-			lowerText: "WATERY GRAVES",
+			lowerText: "winmusic.ogg",
 			originalArtistText: "LAURA SHIGIHARA",
 		},
 		{
 			fmsSongName: "ADVENTURE START",
-			lowerText: "WATERY GRAVES",
+			lowerText: "losemusic.ogg",
 			originalArtistText: "LAURA SHIGIHARA",
 		},
 		{
 			fmsSongName: "FINAL FANFARE DOT OH GEE GEE",
-			lowerText: "WATERY GRAVES",
+			lowerText: "finalfanfare.ogg",
 			originalArtistText: "LAURA SHIGIHARA",
 		},
 	],
@@ -168,6 +168,9 @@
 			text: "buttonclick.ogg",
 		},
 		{
+			text: "buzzer.ogg",
+		},
+		{
 			text: "chime.ogg",
 		},
 		{
@@ -177,7 +180,16 @@
 			text: "coin.ogg",
 		},
 		{
+			text: "diamond.au",
+		},
+		{
+			text: "dirt_rise.ogg",
+		},
+		{
 			text: "gravebutton.ogg",
+		},
+		{
+			text: "tap.ogg",
 		},
 	],
 	PCM: [/*

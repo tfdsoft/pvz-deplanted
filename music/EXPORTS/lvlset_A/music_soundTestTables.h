@@ -4,11 +4,21 @@
 
 putinbank(sound_test_bank.musictext.data.0) const char musicSoundTestString00[11] = "Crazy Dave";
 putinbank(sound_test_bank.musictext.data.1) const char musicSoundTestString01[18] = "Choose Your Seeds";
-putinbank(sound_test_bank.musictext.data.2) const char musicSoundTestString02[14] = "WATERY GRAVES";
-putinbank(sound_test_bank.musictext.data.3) const char musicSoundTestString03[16] = "ultimate battle";
-putinbank(sound_test_bank.musictext.data.4) const char musicSoundTestString04[11] = "Zen Garden";
-putinbank(sound_test_bank.musictext.data.5) const char musicSoundTestString05[21] = "Zombies On Your Lawn";
-putinbank(sound_test_bank.musictext.data.6) const char musicSoundTestString06[16] = "LAURA SHIGIHARA";
+putinbank(sound_test_bank.musictext.data.2) const char musicSoundTestString02[10] = "Grasswalk";
+putinbank(sound_test_bank.musictext.data.3) const char musicSoundTestString03[11] = "Moongrains";
+putinbank(sound_test_bank.musictext.data.4) const char musicSoundTestString04[14] = "Watery Graves";
+putinbank(sound_test_bank.musictext.data.5) const char musicSoundTestString05[14] = "Rigor Mormist";
+putinbank(sound_test_bank.musictext.data.6) const char musicSoundTestString06[15] = "Graze the Roof";
+putinbank(sound_test_bank.musictext.data.7) const char musicSoundTestString07[16] = "Ultimate Battle";
+putinbank(sound_test_bank.musictext.data.8) const char musicSoundTestString08[15] = "Braniac Maniac";
+putinbank(sound_test_bank.musictext.data.9) const char musicSoundTestString09[ 9] = "Loonboon";
+putinbank(sound_test_bank.musictext.data.10) const char musicSoundTestString0A[10] = "Celebrawl";
+putinbank(sound_test_bank.musictext.data.11) const char musicSoundTestString0B[11] = "Zen Garden";
+putinbank(sound_test_bank.musictext.data.12) const char musicSoundTestString0C[21] = "Zombies On Your Lawn";
+putinbank(sound_test_bank.musictext.data.13) const char musicSoundTestString0D[13] = "winmusic.ogg";
+putinbank(sound_test_bank.musictext.data.14) const char musicSoundTestString0E[14] = "losemusic.ogg";
+putinbank(sound_test_bank.musictext.data.15) const char musicSoundTestString0F[17] = "finalfanfare.ogg";
+putinbank(sound_test_bank.musictext.data.16) const char musicSoundTestString10[16] = "LAURA SHIGIHARA";
 
 
 putinbank(sound_test_bank.musictext.ptr) const char* const xbgmtextsUpper[] = {
@@ -35,39 +45,39 @@ putinbank(sound_test_bank.musictext.ptr) const char* const xbgmtextsLower[] = {
 	musicSoundTestString00,
 	musicSoundTestString01,
 	musicSoundTestString02,
-	musicSoundTestString02,
-	musicSoundTestString02,
-	musicSoundTestString02,
-	musicSoundTestString02,
 	musicSoundTestString03,
-	musicSoundTestString02,
-	musicSoundTestString02,
-	musicSoundTestString02,
 	musicSoundTestString04,
 	musicSoundTestString05,
-	musicSoundTestString02,
-	musicSoundTestString02,
-	musicSoundTestString02,
+	musicSoundTestString06,
+	musicSoundTestString07,
+	musicSoundTestString08,
+	musicSoundTestString09,
+	musicSoundTestString0A,
+	musicSoundTestString0B,
+	musicSoundTestString0C,
+	musicSoundTestString0D,
+	musicSoundTestString0E,
+	musicSoundTestString0F,
 };
 
 
 putinbank(sound_test_bank.musictext.ptr) const char* const xbgmtextsOriginalArtist[] = {
-	musicSoundTestString06,
-	musicSoundTestString06,
-	musicSoundTestString06,
-	musicSoundTestString06,
-	musicSoundTestString06,
-	musicSoundTestString06,
-	musicSoundTestString06,
-	musicSoundTestString06,
-	musicSoundTestString06,
-	musicSoundTestString06,
-	musicSoundTestString06,
-	musicSoundTestString06,
-	musicSoundTestString06,
-	musicSoundTestString06,
-	musicSoundTestString06,
-	musicSoundTestString06,
+	musicSoundTestString10,
+	musicSoundTestString10,
+	musicSoundTestString10,
+	musicSoundTestString10,
+	musicSoundTestString10,
+	musicSoundTestString10,
+	musicSoundTestString10,
+	musicSoundTestString10,
+	musicSoundTestString10,
+	musicSoundTestString10,
+	musicSoundTestString10,
+	musicSoundTestString10,
+	musicSoundTestString10,
+	musicSoundTestString10,
+	musicSoundTestString10,
+	musicSoundTestString10,
 };
 
 

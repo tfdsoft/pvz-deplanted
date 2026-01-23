@@ -3,10 +3,10 @@
 //
 putinbank(extra_code_bank_1.game.pal) __attribute__((aligned(16)))
 const unsigned char pal_game_sprites[] = {
-    0x0a,0x16,0x29,0x38,
-    0x0a,0x13,0x29,0x3c,
-    0x0a,0x17,0x00,0x30,
-    0x0a,0x00,0x10,0x20
+    0x0f,0x16,0x29,0x38,
+    0x0f,0x13,0x29,0x3c,
+    0x0f,0x17,0x00,0x30,
+    0x0f,0x00,0x10,0x20
 };
 
 putinbank(fixed_lo.game.pal) __attribute__((aligned(16)))
@@ -250,6 +250,19 @@ const unsigned char nt_game_day_5[] = {
 0x00,0x03,0x07,0x03,0x00
 };
 
+putinbank(extra_code_bank_1.game.nt)
+const unsigned char nt_game_intro_logo[] = {
+0x01,0x00,0x01,0xfe,0x00,0x01,0x84,0x80,0x81,0x82,0x83,0x84,0x85,0x86,0x87,0x88,
+0x89,0x8a,0x8b,0x8c,0x8d,0x8e,0x8f,0x90,0x91,0x92,0x93,0x94,0x95,0x96,0x00,0x01,
+0x08,0x97,0x98,0x99,0x9a,0x9b,0x9c,0x9d,0x9e,0x9f,0xa0,0xa1,0xa2,0xa3,0xa4,0xa5,
+0xa6,0xa7,0xa8,0xa9,0xaa,0xab,0xac,0xad,0x00,0x01,0x08,0xae,0xaf,0xb0,0xb1,0xb2,
+0xb3,0xb4,0xb5,0xb6,0xb7,0xb8,0xb9,0xba,0xbb,0xbc,0xbd,0xbe,0xbf,0xc0,0xc1,0xc2,
+0xc3,0xc4,0x00,0x01,0x08,0xc5,0xc6,0xc7,0xc8,0xc9,0xca,0xcb,0xcc,0xcd,0xce,0xcf,
+0xd0,0xd1,0xd2,0xd3,0xd4,0xd5,0xd6,0xd7,0xd8,0xd9,0xda,0xdb,0xdc,0x00,0x01,0x0e,
+0x44,0x65,0x70,0x6c,0x61,0x6e,0x74,0x65,0x64,0x00,0x01,0xfe,0x00,0x01,0xc4,0xaa,
+0x01,0x02,0xee,0xff,0x01,0x03,0x00,0x01,0x1f,0x01,0x00
+};
+
 //
 // METASPRITES
 //
@@ -316,9 +329,6 @@ putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_cursor
 	0x80
 };
 
-
-
-
 putinbank(extra_code_bank_1.game.ms_ptr)
 const unsigned char * const ms_game_grass_ptr[]={
 	ms_game_grass_0, 
@@ -332,6 +342,10 @@ const unsigned char * const ms_game_grass_ptr[]={
 };
 
 
+
+//
+// MISC. DATA
+//
 putinbank(extra_code_bank_1.game.musicids) const unsigned char mus_ids[] = {
     song_grasswalk,
     song_moongrains,
@@ -339,13 +353,23 @@ putinbank(extra_code_bank_1.game.musicids) const unsigned char mus_ids[] = {
     song_rigor_mormist,
     song_graze_the_roof
 };
-
 putinbank(extra_code_bank_1.game.tiledata) const unsigned char t_lawn_columns[] = {
     0x1a, 0x01, 0x01, 0x02,
     0x1a, 0x01, 0x01, 0x02,
     0x1b, 0x25, 0x25
 };
 
+
+
+//
+// TEXT
+//
+putinbank(extra_code_bank_1.game.text)
+const unsigned char str_game_presents[] = "PopCap\x00Games\x00Presents";
+
+//
+// FUNCTIONS
+//
 putinbank(extra_code_bank_1.game.statusbar)
 void tick_statusbar(unsigned char statusbar_scroll){
     switch (level.stage){
@@ -642,10 +666,12 @@ void game_choose_seeds(){
         }
         IRQ(2).reload = 0xff;
     } else {
-        for(uint8_t i=0;i<6;i++){
-            //uint8_t char_buffer[4] = {
-            //    0x40+i
-            //};
+        for(uint8_t i=0;i<game.slots_unlocked;i++){
+            char buf[6];
+
+            game_get_seed_packet(i,buf);
+            multi_vram_buffer_vert(&buf[0],3,NT_ADR_A((6+(i<<1)),2));
+            multi_vram_buffer_vert(&buf[3],3,NT_ADR_A((7+(i<<1)),2));
             game.lawn.seeds[i] = i;
             //one_vram_buffer
         }
@@ -836,6 +862,50 @@ void game_choose_seeds(){
     }
 }
 
+putinbank(extra_code_bank_1.game.functions)
+void game_intro_sequence(){
+    music_play(song_watery_graves);
+    automatic_fs_updates = 1;
+
+    set_chr_default();
+    vram_adr(0x200);
+    donut_decompress_vram(chr_menu_font_pvz_transparent,chr_bank_0);
+    donut_decompress_vram(chr_menu_pvzlogo,chr_bank_0);
+
+    pal_bg(pal_title);
+    vram_adr(0x2400);
+    vram_fill(0x00,0x3c0);
+    vram_fill(0x55,0x40);
+
+    vram_adr(NT_ADR_B(5,13));
+    vram_write(str_game_presents,sizeof(str_game_presents));
+    
+    scroll(0x100,0);
+    ppu_on_all();
+    pal_fade_to(0,4);
+
+    wait_frames(240);
+
+    pal_fade_to(4,0);
+    ppu_off();
+
+    vram_adr(0x2400);
+    vram_unrle(nt_game_intro_logo);
+
+    ppu_on_all();
+    pal_fade_to(0,4);
+
+    sfx_play(sfx_unlockPath,0);
+    wait_frames(240);
+
+    pal_bg(pal_game_statusbar);
+
+    pal_bright(0);
+    scroll(0,0);
+}
+
+
+
 putinbank(extra_code_bank_1.game)
 void state_game() {
     unsigned char statusbar_scroll = 0;
@@ -843,20 +913,25 @@ void state_game() {
 
     automatic_fs_updates = 0;
     
-    //level = 0x20;
+    if((level.world==0) && (level.stage==0)) {
+        game_intro_sequence();
+        level.stage++;
+        game.slots_unlocked = 1;
+        return;
+    }
 
     unsigned char song = game_load_assets();
+    automatic_fs_updates = 1;
+    
     
     if (level.world & 1) palette_ptr = (uint8_t*)pal_game_night;
     else palette_ptr = (uint8_t*)pal_game_day;
 
+
     flush_irq();
-    
     // set statusbar chr
     add_interrupt(7, irq_set_4k_chr_0);
         IRQ(0).arg0 = 16;
-
-    //__asm__("brk");
 
     // screen split
     add_interrupt(30, irq_update_bg_palette);
@@ -882,15 +957,10 @@ void state_game() {
 
     ppu_on_all();
     pal_bright(4);
-    automatic_fs_updates = 1;
-
-
-
     music_play(song_choose_your_seeds);
 
     game_choose_seeds();
-    
-    
+
     music_play(song);
 
     while(1){

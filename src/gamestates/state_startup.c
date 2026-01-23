@@ -1,5 +1,13 @@
-putinbank(extra_code_bank)
-const unsigned char pal_logo[16]={
+putinbank(extra_code_bank.startup.pal)
+const unsigned char pal_logo[]={
+    0x0f,0x00,0x3d,0x20,
+    0x0f,0x00,0x3d,0x20,
+    0x0f,0x00,0x3d,0x20,
+    0x0f,0x00,0x3d,0x20,
+};
+
+putinbank(extra_code_bank.startup.pal)
+const unsigned char pal_window[]={
     0x0f,0x2d,0x00,0x10,
     0x0f,0x2d,0x10,0x3a,
     0x0f,0x05,0x16,0x27,
@@ -71,7 +79,7 @@ void state_startup() {
     vram_unrle(nt_logo);
 
     pal_bg(pal_logo);
-    pal_spr(pal_logo);
+    //pal_spr(pal_logo);
 
     pal_bright(0);
     ppu_on_all();
@@ -121,8 +129,10 @@ void state_startup() {
         ppu_off();
     }
 
-    
+    gamestate = 0x00;
+    return;
 
+    pal_bg(pal_window);
     //set_prg_8000(nametable_bank_0);
     vram_adr(0x2000);
     vram_unrle(nt_warning);

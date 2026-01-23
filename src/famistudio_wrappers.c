@@ -52,7 +52,7 @@ __attribute__((noinline)) void music_play(uint8_t s){
     pop_prg_a000();
 }
 
-__attribute__((noinline)) void music_update(){
+__attribute__((noinline,retain)) void music_update(){
     push_prg_a000();
     set_prg_a000(music_bank);
     famistudio_update();
