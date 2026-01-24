@@ -323,12 +323,6 @@ putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_
 	0x80
 };
 
-putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_cursor_p1[]={
-      0,  0,0x3a,1,
-	  8,  0,0x3c,1,
-	0x80
-};
-
 putinbank(extra_code_bank_1.game.ms_ptr)
 const unsigned char * const ms_game_grass_ptr[]={
 	ms_game_grass_0, 
@@ -341,8 +335,16 @@ const unsigned char * const ms_game_grass_ptr[]={
 	ms_game_grass_7, 
 };
 
-
-
+putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_cursor_p1_menu[]={
+      0,  0,0x3a,1,
+	  8,  0,0x3c,1,
+	0x80
+};
+putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_cursor_p1_lawn[]={
+      0,  0,0xf8,1,
+	  8,  0,0xfa,1,
+	0x80
+};
 //
 // MISC. DATA
 //
@@ -452,7 +454,6 @@ unsigned char game_load_assets(){
     // LOAD STAGE TILEMAP
     vram_adr(0x2800);
     switch(level.world) {
-        default:
         case 0:
             switch (level.stage) {
                 case 0:
@@ -469,6 +470,7 @@ unsigned char game_load_assets(){
                     vram_unrle(nt_game_day_3);
                     break;
             }
+        default:
         case 1:
             vram_unrle(nt_game_day_5);
             vram_adr(0x2c00);
@@ -603,7 +605,7 @@ void game_choose_seeds(){
             oam_meta_spr(
                 (16+(selection.x << 4)),
                 (76+(selection.y << 5)),
-                ms_game_cursor_p1
+                ms_game_cursor_p1_menu
             );
 
             if (player1_pressed & PAD_RIGHT)
@@ -676,6 +678,16 @@ void game_choose_seeds(){
             //one_vram_buffer
         }
     }
+
+    // LOAD IN PLANT GRAPHICS
+    ppu_off();
+    vram_adr(0x1000);
+    for(uint8_t i=0; i<game.slots_unlocked; i++){
+        uint8_t* ptr;
+        ptr = (uint8_t*)PlantData[game.lawn.seeds[i]].Animation;
+        donut_decompress_vram(ptr,chr_bank_2);
+    }
+    ppu_on_all();
     
     wait_frames(20);
     
@@ -911,15 +923,47 @@ void state_game() {
     unsigned char statusbar_scroll = 0;
     unsigned char* palette_ptr;
 
-    automatic_fs_updates = 0;
+    struct {
+        unsigned char y_min : 3;
+        unsigned char y_max : 3;
+    } selection_border = {0,4};
+
+    switch(level.world) {
+        case 0:
+            switch(level.stage){
+                case 1:
+                    selection_border.y_min = 2;
+                    selection_border.y_max = 2;
+                    break;
+                case 2:
+                case 3:
+                    selection_border.y_min = 1;
+                    selection_border.y_max = 3;
+                    break;
+            }
+        default:
+            break;
+        case 3:
+        case 4:
+            selection_border.y_max = 5;
+            break;
+    }
     
+    struct {
+        unsigned char x : 3;
+        unsigned char y : 3;
+        unsigned char:2;    // move to next byte
+        unsigned char seed : 4;
+    } selection = {0,selection_border.y_min,0};
+
+
+    automatic_fs_updates = 0;
     if((level.world==0) && (level.stage==0)) {
         game_intro_sequence();
         level.stage++;
         game.slots_unlocked = 1;
         return;
     }
-
     unsigned char song = game_load_assets();
     automatic_fs_updates = 1;
     
@@ -955,24 +999,49 @@ void state_game() {
     enable_irq();
 
 
+    scroll(0,0);
     ppu_on_all();
     pal_bright(4);
     music_play(song_choose_your_seeds);
 
+
     game_choose_seeds();
+
 
     music_play(song);
 
     while(1){
         ppu_wait_nmi();
-        scroll(0,0);
+        ppu_emphasis(0b111);
         statusbar_scroll++;
         oam_clear();
         
         tick_statusbar(statusbar_scroll);
 
-        
 
+
+        if(player1_pressed & PAD_DOWN) {
+            if(selection.y < selection_border.y_max) selection.y++;
+        }
+        if(player1_pressed & PAD_UP) {
+            if(selection.y > selection_border.y_min) selection.y--;
+        }
+        if(player1_pressed & PAD_LEFT) {
+            if(selection.x > 0) selection.x--;
+        }
+        if(player1_pressed & PAD_RIGHT) {
+            if(selection.x < 7) selection.x++;
+        }
+
+        // draw the cursor
+        oam_meta_spr(
+            (36+(selection.x*24)), // multiply is auto-optimized
+            (78+(selection.y*24)), // multiply is auto-optimized
+            ms_game_cursor_p1_lawn
+        );
+
+
+        ppu_emphasis(0b000);
         if(player1_pressed & PAD_A){
             unsigned char song = song_win_music_dot_oh_gee_gee;
             if ((level.world == 4) && (level.stage == 10)) {
@@ -986,6 +1055,7 @@ void state_game() {
             pal_fade_to(4,8);
             break;
         }
+        
     }
     flush_irq();
 }
