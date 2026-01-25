@@ -546,7 +546,7 @@ void set_bg_chr_page(uint8_t page){
 }*/
 
 // replacement for the built-in one
-__attribute__((noinline))
+/*__attribute__((noinline))
 void set_prg_a000(char bank_id){
     __attribute__((leaf)) __asm__ volatile (
         "stx __prg_a000 \n"
@@ -564,7 +564,7 @@ void set_prg_a000(char bank_id){
         :"x"(bank_id)
         :"a","p"
     );
-}
+}*/
 
 // replacement for the built-in one
 __attribute__((noinline))
@@ -590,4 +590,57 @@ void set_chr_bank(char reg, char bank_id){
 __attribute__((noinline))
 void wait_frames(short frames){
     for(;frames>0;frames--) ppu_wait_nmi();
+}
+
+
+
+__attribute__((noinline))
+void oam_spr_16x16(char x, char y, char tile, char attr){
+    if(SPRID >= 64) return;
+    char* oam_ptr = (((char*)OAM_BUF) + (SPRID<<2));
+    //OAM_BUF[SPRID].y = --y;
+    //OAM_BUF[SPRID].tile = tile;
+    //OAM_BUF[SPRID].attr = attr;
+    //OAM_BUF[SPRID].x = x;
+    POKE(oam_ptr + 3, (x));
+    POKE(oam_ptr + 0, (y));
+    POKE(oam_ptr + 1, tile);
+    POKE(oam_ptr + 2, attr);
+    if(++SPRID >= 64) return;
+    POKE(oam_ptr + 7, (x+8));
+    POKE(oam_ptr + 4, (y));
+    POKE(oam_ptr + 5, tile+2);
+    POKE(oam_ptr + 6, attr);
+    SPRID++;
+}
+
+__attribute__((noinline))
+void gray_line(){
+    __attribute__((leaf)) __asm__ volatile (
+        "lda PPU_MASK_VAR \n"
+        "and #$1f \n"
+        "ora #1 \n"
+        "sta $2001 \n" // PPU_MASK
+
+        "ldx #20 \n"
+        
+        "1: \n"
+        "dex \n"
+        "bne 1b \n"
+        
+        "lda PPU_MASK_VAR \n"
+        "and #$1e \n"
+        "ora #$e0 \n"
+        "sta $2001 \n" // PPU_MASK
+
+        "ldx #20 \n"
+
+        "1: \n"
+        "dex \n"
+        "bne 1b \n"
+
+        "lda PPU_MASK_VAR \n"
+        "sta $2001 \n"
+        "rts \n"
+    );
 }

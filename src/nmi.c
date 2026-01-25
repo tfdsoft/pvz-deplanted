@@ -19,58 +19,57 @@ __attribute__((interrupt_norecurse)) void nmi(){
     if ((PPU_MASK_VAR & 0b00011000)) {
         // send the palette in!
         PPU.mask=0;
+        if(PAL_UPDATE){
+            PAL_UPDATE = 0;
+
+            PPU.status;
+            PPU.vram.address = 0x3f;
+            PPU.vram.address = 0x00;
+            
+            // unrolled for THE SPEED
+            PPU.vram.data = PAL_BG_PTR[PAL_BUF[0]];
+            PPU.vram.data = PAL_BG_PTR[PAL_BUF[1]];
+            PPU.vram.data = PAL_BG_PTR[PAL_BUF[2]];
+            PPU.vram.data = PAL_BG_PTR[PAL_BUF[3]];
+
+            PPU.vram.data = PAL_BG_PTR[PAL_BUF[4]];
+            PPU.vram.data = PAL_BG_PTR[PAL_BUF[5]];
+            PPU.vram.data = PAL_BG_PTR[PAL_BUF[6]];
+            PPU.vram.data = PAL_BG_PTR[PAL_BUF[7]];
+
+            PPU.vram.data = PAL_BG_PTR[PAL_BUF[8]];
+            PPU.vram.data = PAL_BG_PTR[PAL_BUF[9]];
+            PPU.vram.data = PAL_BG_PTR[PAL_BUF[10]];
+            PPU.vram.data = PAL_BG_PTR[PAL_BUF[11]];
+
+            PPU.vram.data = PAL_BG_PTR[PAL_BUF[12]];
+            PPU.vram.data = PAL_BG_PTR[PAL_BUF[13]];
+            PPU.vram.data = PAL_BG_PTR[PAL_BUF[14]];
+            PPU.vram.data = PAL_BG_PTR[PAL_BUF[15]];
+
+
+            PPU.vram.data = PAL_SPR_PTR[PAL_BUF[0]];
+            PPU.vram.data = PAL_SPR_PTR[PAL_BUF[17]];
+            PPU.vram.data = PAL_SPR_PTR[PAL_BUF[18]];
+            PPU.vram.data = PAL_SPR_PTR[PAL_BUF[19]];
+
+            PPU.vram.data = PAL_SPR_PTR[PAL_BUF[4]];
+            PPU.vram.data = PAL_SPR_PTR[PAL_BUF[21]];
+            PPU.vram.data = PAL_SPR_PTR[PAL_BUF[22]];
+            PPU.vram.data = PAL_SPR_PTR[PAL_BUF[23]];
+
+            PPU.vram.data = PAL_SPR_PTR[PAL_BUF[8]];
+            PPU.vram.data = PAL_SPR_PTR[PAL_BUF[25]];
+            PPU.vram.data = PAL_SPR_PTR[PAL_BUF[26]];
+            PPU.vram.data = PAL_SPR_PTR[PAL_BUF[27]];
+
+            PPU.vram.data = PAL_SPR_PTR[PAL_BUF[12]];
+            PPU.vram.data = PAL_SPR_PTR[PAL_BUF[29]];
+            PPU.vram.data = PAL_SPR_PTR[PAL_BUF[30]];
+            PPU.vram.data = PAL_SPR_PTR[PAL_BUF[31]];
+            PAL_BG_PTR_OLD = PAL_BG_PTR;
+        }
         if(VRAM_UPDATE){
-            if(PAL_UPDATE){
-                PAL_UPDATE = 0;
-
-                PPU.status;
-                PPU.vram.address = 0x3f;
-                PPU.vram.address = 0x00;
-                
-                // unrolled for THE SPEED
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[0]];
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[1]];
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[2]];
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[3]];
-
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[4]];
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[5]];
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[6]];
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[7]];
-
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[8]];
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[9]];
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[10]];
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[11]];
-
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[12]];
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[13]];
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[14]];
-                PPU.vram.data = PAL_BG_PTR[PAL_BUF[15]];
-
-
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[0]];
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[17]];
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[18]];
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[19]];
-
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[4]];
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[21]];
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[22]];
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[23]];
-
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[8]];
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[25]];
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[26]];
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[27]];
-
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[12]];
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[29]];
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[30]];
-                PPU.vram.data = PAL_SPR_PTR[PAL_BUF[31]];
-                PAL_BG_PTR_OLD = PAL_BG_PTR;
-            }
-
             if(NAME_UPD_ENABLE){
                 VRAM_UPDATE = 0;
                 flush_vram_update2();

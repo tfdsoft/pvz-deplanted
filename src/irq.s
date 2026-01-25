@@ -288,8 +288,13 @@ stall:
         inx
         bne 1b
 
-        ldy #1
-        jsr stall
+        php
+        plp
+        nop
+        nop
+        nop
+        nop
+        nop
         nop
 
         ; turn off ppu
@@ -317,7 +322,6 @@ stall:
 
         ldy #1
         jsr stall
-        nop
         nop
 
         ldy #16

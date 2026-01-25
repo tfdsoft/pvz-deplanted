@@ -327,10 +327,28 @@ __attribute__((noinline)) void pal_bright(char bright){
 __attribute__((noinline)) void oam_clear(){
     //if (SPRID > 64) 
     SPRID = 0;
-    do{
-        POKE((0x200 + SPRID), 0xff);
-        SPRID+=4;
-    }while(SPRID != 0);
+    __attribute__((leaf)) __asm__ volatile(
+        "lda #255 \n"
+        "tay \n"
+        "tax \n"
+        "inx \n"
+        "clc \n"
+        "1: \n"
+            "sta $200,x \n"
+            "sta $204,x \n"
+            "sta $208,x \n"
+            "sta $20c,x \n"
+            "txa \n"
+            "adc #16 \n"
+            "beq 1f \n"
+            "tax \n"
+            "tya \n"
+            "bne 1b \n"
+        "1: \n"
+        :
+        :
+        :"a","x","y","p"
+    );
 }
 
 /*
@@ -345,10 +363,15 @@ __attribute__((noinline)) void oam_clear(){
 // no clue how the compiler is gonna optimize it though
 __attribute__((noinline)) void oam_spr(char x, char y, char tile, char attr){
     if(SPRID >= 64) return;
-    OAM_BUF[SPRID].y = --y,
-    OAM_BUF[SPRID].tile = tile,
-    OAM_BUF[SPRID].attr = attr,
-    OAM_BUF[SPRID].x = x,
+    char* oam_ptr = (((char*)OAM_BUF) + (SPRID<<2));
+    //OAM_BUF[SPRID].y = --y;
+    //OAM_BUF[SPRID].tile = tile;
+    //OAM_BUF[SPRID].attr = attr;
+    //OAM_BUF[SPRID].x = x;
+    POKE(oam_ptr + 3, (x));
+    POKE(oam_ptr + 0, (y));
+    POKE(oam_ptr + 1, tile);
+    POKE(oam_ptr + 2, attr);
     SPRID++;
 }
 

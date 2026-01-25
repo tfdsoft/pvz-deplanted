@@ -1,10 +1,17 @@
+struct Selection {
+    unsigned char x : 3;
+    unsigned char y : 3;
+    unsigned char:2;    // move to next byte
+    unsigned char seed : 4;
+};
+
 //
 // PALETTES
 //
 putinbank(extra_code_bank_1.game.pal) __attribute__((aligned(16)))
 const unsigned char pal_game_sprites[] = {
-    0x0f,0x16,0x29,0x38,
-    0x0f,0x13,0x29,0x3c,
+    0x0f,0x16,0x2a,0x38,
+    0x0f,0x13,0x2a,0x3c,
     0x0f,0x17,0x00,0x30,
     0x0f,0x00,0x10,0x20
 };
@@ -266,56 +273,56 @@ const unsigned char nt_game_intro_logo[] = {
 //
 // METASPRITES
 //
-putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_0[]={
+putinbank(extra_code_bank.game.metasprites) const unsigned char ms_game_grass_0[]={
 	- 8,-16,0xc0,0,
 	- 8,  0,0xd0,0,
 	  0,-16,0xc0,0|OAM_FLIP_H,
 	  0,  0,0xd0,0|OAM_FLIP_H,
 	0x80
 };
-putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_1[]={
+putinbank(extra_code_bank.game.metasprites) const unsigned char ms_game_grass_1[]={
 	- 8,-16,0xc2,0,
 	- 8,  0,0xd2,0,
 	  0,-16,0xc2,0|OAM_FLIP_H,
 	  0,  0,0xd2,0|OAM_FLIP_H,
 	0x80
 };
-putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_2[]={
+putinbank(extra_code_bank.game.metasprites) const unsigned char ms_game_grass_2[]={
 	- 8,-16,0xc4,0,
 	- 8,  0,0xd4,0,
 	  0,-16,0xc4,0|OAM_FLIP_H,
 	  0,  0,0xd4,0|OAM_FLIP_H,
 	0x80
 };
-putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_3[]={
+putinbank(extra_code_bank.game.metasprites) const unsigned char ms_game_grass_3[]={
 	- 8,-16,0xc6,0,
 	- 8,  0,0xd6,0,
 	  0,-16,0xc6,0|OAM_FLIP_H,
 	  0,  0,0xd6,0|OAM_FLIP_H,
 	0x80
 };
-putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_4[]={
+putinbank(extra_code_bank.game.metasprites) const unsigned char ms_game_grass_4[]={
 	- 8,-16,0xc8,0,
 	- 8,  0,0xd8,0,
 	  0,-16,0xc8,0|OAM_FLIP_H,
 	  0,  0,0xd8,0|OAM_FLIP_H,
 	0x80
 };
-putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_5[]={
+putinbank(extra_code_bank.game.metasprites) const unsigned char ms_game_grass_5[]={
 	- 8,-16,0xca,0,
 	- 8,  0,0xda,0,
 	  0,-16,0xca,0|OAM_FLIP_H,
 	  0,  0,0xda,0|OAM_FLIP_H,
 	0x80
 };
-putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_6[]={
+putinbank(extra_code_bank.game.metasprites) const unsigned char ms_game_grass_6[]={
 	- 8,-16,0xcc,0,
 	- 8,  0,0xdc,0,
 	  0,-16,0xcc,0|OAM_FLIP_H,
 	  0,  0,0xdc,0|OAM_FLIP_H,
 	0x80
 };
-putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_7[]={
+putinbank(extra_code_bank.game.metasprites) const unsigned char ms_game_grass_7[]={
 	- 8,-16,0xce,0,
 	- 8,  0,0xde,0,
 	  0,-16,0xce,0|OAM_FLIP_H,
@@ -323,7 +330,7 @@ putinbank(extra_code_bank_1.game.metasprites) const unsigned char ms_game_grass_
 	0x80
 };
 
-putinbank(extra_code_bank_1.game.ms_ptr)
+putinbank(extra_code_bank.game.ms_ptr)
 const unsigned char * const ms_game_grass_ptr[]={
 	ms_game_grass_0, 
 	ms_game_grass_1, 
@@ -355,7 +362,7 @@ putinbank(extra_code_bank_1.game.musicids) const unsigned char mus_ids[] = {
     song_rigor_mormist,
     song_graze_the_roof
 };
-putinbank(extra_code_bank_1.game.tiledata) const unsigned char t_lawn_columns[] = {
+putinbank(extra_code_bank.game.tiledata) const unsigned char t_lawn_columns[] = {
     0x1a, 0x01, 0x01, 0x02,
     0x1a, 0x01, 0x01, 0x02,
     0x1b, 0x25, 0x25
@@ -486,7 +493,7 @@ void game_draw_the_FUCKING_grass(unsigned char x, unsigned char y){
     oam_meta_spr(x,y,ms_game_grass_ptr[((x-32)>>5)]);
 }
 
-putinbank(extra_code_bank_1.game.statusbar)
+putinbank(extra_code_bank.game.statusbar)
 uint8_t game_check_unlocked_plants(uint8_t* data, uint8_t size){
     uint8_t count = 0;
     for (uint8_t i=0; i < size; i++){
@@ -495,7 +502,7 @@ uint8_t game_check_unlocked_plants(uint8_t* data, uint8_t size){
     return count;
 }
 
-putinbank(extra_code_bank_1.game.statusbar)
+putinbank(extra_code_bank.game.statusbar)
 void game_block_locked_plants(){
     for (uint8_t i=0; i < 40; i++){
         if((i&3)==0)ppu_wait_nmi();
@@ -519,7 +526,7 @@ void game_block_locked_plants(){
     }
 }
 
-putinbank(extra_code_bank_1.game.functions)
+putinbank(extra_code_bank.game.functions)
 void game_get_seed_packet(uint8_t seed, char* buffer){
     unsigned char character = (0x40+(seed<<2));
 
@@ -533,7 +540,7 @@ void game_get_seed_packet(uint8_t seed, char* buffer){
     buffer[5] = (4+((PlantData[seed].SeedCost / 25)&3));
 }
 
-putinbank(extra_code_bank_1.game.functions) __attribute__((noinline))
+putinbank(extra_code_bank.game.functions) __attribute__((noinline))
 uint8_t game_is_seed_packet_already_selected(uint8_t seed){
     unsigned char return_value = 0xff;
     __asm__("brk \n .byte $ea");
@@ -549,7 +556,7 @@ uint8_t game_is_seed_packet_already_selected(uint8_t seed){
     return return_value;
 }
 
-putinbank(extra_code_bank_1.game.functions)
+putinbank(extra_code_bank.game.functions)
 void game_choose_seeds(){
     wait_frames(90);
 
@@ -916,6 +923,56 @@ void game_intro_sequence(){
     scroll(0,0);
 }
 
+putinbank(extra_code_bank_1.game.function)
+uint8_t game_find_plant_id(uint8_t ID){
+    uint8_t return_value = 0xff;
+    for(uint8_t i=0; i<game.slots_unlocked; i++){
+        if(game.lawn.seeds[i] != ID) continue;
+        return_value = i;
+    }
+
+    return return_value;
+}
+
+putinbank(extra_code_bank_1.game.functions)
+void game_tick_cursor(struct Selection selection){
+    // draw the cursor
+    oam_meta_spr(
+        (36+(selection.x*24)), // multiply is auto-optimized
+        (76+(selection.y*24)), // multiply is auto-optimized
+        ms_game_cursor_p1_lawn
+    );
+    // draw the selected plant under the cursor
+    unsigned char seed = game.lawn.seeds[selection.seed];
+    oam_spr_16x16(
+        (36+(selection.x*24)),
+        (88+(selection.y*24)),
+        (1+(seed<<4)),
+        3//PlantData[seed].Palette
+    );
+}
+
+putinbank(extra_code_bank_1.game.functions)
+void game_tick_plants(){
+    for(uint8_t i=0; i<(sizeof(game.lawn.plants.ID));i++){
+        uint8_t ID = game.lawn.plants.ID[i];
+        if(ID == 0xff) continue;
+
+        uint8_t animation_frame = PlantData[ID].AnimationData[(game.lawn.plants.anim[i].timer >> 4) + (game.lawn.plants.anim[i].set << 2)];
+        ID = game_find_plant_id(game.lawn.plants.ID[i]);
+        game.lawn.plants.anim[i].timer += game.lawn.plants.anim_speed[i];
+        uint8_t x = (36+((i&7)*24));
+        uint8_t y = (88+((i>>3)*24));
+        uint8_t palette = PlantData[game.lawn.plants.ID[i]].Palette;
+
+        oam_spr_16x16(
+            x,
+            y,
+            (1+(ID<<4) + (animation_frame << 2)),
+            palette//PlantData[seed].Palette
+        );
+    }
+}
 
 
 putinbank(extra_code_bank_1.game)
@@ -927,7 +984,6 @@ void state_game() {
         unsigned char y_min : 3;
         unsigned char y_max : 3;
     } selection_border = {0,4};
-
     switch(level.world) {
         case 0:
             switch(level.stage){
@@ -949,12 +1005,7 @@ void state_game() {
             break;
     }
     
-    struct {
-        unsigned char x : 3;
-        unsigned char y : 3;
-        unsigned char:2;    // move to next byte
-        unsigned char seed : 4;
-    } selection = {0,selection_border.y_min,0};
+    struct Selection selection = {0,selection_border.y_min,0};
 
 
     automatic_fs_updates = 0;
@@ -971,6 +1022,7 @@ void state_game() {
     if (level.world & 1) palette_ptr = (uint8_t*)pal_game_night;
     else palette_ptr = (uint8_t*)pal_game_day;
 
+    memfill(game.lawn.plants.ID,0xff,sizeof(game.lawn.plants.ID));
 
     flush_irq();
     // set statusbar chr
@@ -1004,15 +1056,14 @@ void state_game() {
     pal_bright(4);
     music_play(song_choose_your_seeds);
 
-
-    game_choose_seeds();
+    // choose seeds!
+    banked_call_a000(extra_code_bank, game_choose_seeds);
 
 
     music_play(song);
 
     while(1){
         ppu_wait_nmi();
-        ppu_emphasis(0b111);
         statusbar_scroll++;
         oam_clear();
         
@@ -1033,16 +1084,35 @@ void state_game() {
             if(selection.x < 7) selection.x++;
         }
 
-        // draw the cursor
-        oam_meta_spr(
-            (36+(selection.x*24)), // multiply is auto-optimized
-            (78+(selection.y*24)), // multiply is auto-optimized
-            ms_game_cursor_p1_lawn
-        );
+        if(player1_pressed & PAD_SELECT) {
+            one_vram_buffer_repeat_horz(
+                0x19,
+                2,
+                NT_ADR_A(6+(selection.seed<<1),5)
+            );
+            selection.seed++;
+            if(selection.seed >= game.slots_unlocked) selection.seed = 0;
+            one_vram_buffer_repeat_horz(
+                0x03,
+                2,
+                NT_ADR_A(6+(selection.seed<<1),5)
+            );
+        }
+
+        game_tick_cursor(selection);
+        game_tick_plants();
+
+        gray_line();
 
 
-        ppu_emphasis(0b000);
         if(player1_pressed & PAD_A){
+            #define selection_full (selection.x | (selection.y<<3))
+            if(game.lawn.plants.ID[selection_full] == 0xff){
+                game.lawn.plants.ID[selection_full] = game.lawn.seeds[selection.seed];
+                game.lawn.plants.anim_speed[selection_full] = 0x01;
+            }
+
+            /*
             unsigned char song = song_win_music_dot_oh_gee_gee;
             if ((level.world == 4) && (level.stage == 10)) {
                 song = song_final_fanfare_dot_oh_gee_gee;
@@ -1054,6 +1124,11 @@ void state_game() {
             gamestate = 0x10;
             pal_fade_to(4,8);
             break;
+            */
+        }
+        if(player1_pressed & PAD_B){
+            #define selection_full (selection.x | (selection.y<<3))
+            game.lawn.plants.ID[selection_full] = 0xff;
         }
         
     }

@@ -1,4 +1,4 @@
-__attribute__((section(".aligned.0"),retain)) struct OAM_BUF {
+__attribute__((section(".aligned"),retain)) struct OAM_BUF {
     unsigned char y;
     unsigned char tile;
     unsigned char attr;
@@ -106,13 +106,16 @@ struct {
     struct {
         unsigned char sun;
         
-        #define lawn_width 9
+        #define lawn_width 8
         #define lawn_height 6 // 6 for pool and fog
         struct {
             unsigned char ID[lawn_width*lawn_height];           // which plant is it
             unsigned char health[lawn_width*lawn_height];       // how much health does it have left
             unsigned char anim_speed[lawn_width*lawn_height];   // how quickly does it animate
-            unsigned short anim_timer[lawn_width*lawn_height];  // current animation frame
+            struct {
+                unsigned char timer : 6; // current animation frame
+                unsigned char set : 2;
+            } anim[lawn_width*lawn_height];
         } plants;
 
         uint8_t seeds[8];
